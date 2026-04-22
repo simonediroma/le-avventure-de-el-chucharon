@@ -162,6 +162,11 @@ Prima con gli occhi.
 
 Poi con la testa.
 
+E poi — da solo, senza che nessuno lo mettesse giù —
+Leo rotolò a pancia in giù sul letto dei genitori.
+
+E seguì le evoluzioni di El Chucharito.
+
 Sorrise.
 
 E fece un bel rigurgito di latte.
@@ -174,7 +179,9 @@ E fece un bel rigurgito di latte.
 
 Chucharon li guardò, strizzò l'occhio, e sparì.
 
-Aveva altri bambini da aiutare.
+La sua Elenita non era ancora lì.
+
+Il viaggio non era ancora finito.
 
 ---
 

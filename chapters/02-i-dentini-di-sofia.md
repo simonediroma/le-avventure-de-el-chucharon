@@ -195,7 +195,9 @@ E sputò un po' di paglia.
 
 Chucharon li guardò, strizzò l'occhio, e sparì.
 
-Aveva altri bambini da aiutare.
+Elenita non l'aveva ancora trovata.
+
+C'era ancora strada da fare.
 
 ---
 

@@ -239,7 +239,9 @@ Il piatto era vuoto.
 
 Chucharon li guardò, strizzò l'occhio, e sparì.
 
-Aveva altri bambini da aiutare.
+La sua Elenita era ancora da qualche altra parte.
+
+Il viaggio continuava.
 
 ---
 
