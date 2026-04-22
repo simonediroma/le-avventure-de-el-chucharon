@@ -1,6 +1,6 @@
 ---
 title: La tummy time di Leo
-version: 3.2
+version: 3.3
 claim: La tummy time è divertente quando c'è qualcosa di meraviglioso da guardare — e i genitori non devono arrendersi
 status: complete
 ---
@@ -78,6 +78,8 @@ E poi... le urla.
 *(I genitori le sentivano fino in cucina. E anche i vicini. E forse anche i vicini dei vicini.)*
 
 ---
+
+*(Leo aveva iniziato ad urlare ancora prima che i genitori provassero a metterlo a pancia sotto.)*
 
 La mamma guardò il papà.
 
