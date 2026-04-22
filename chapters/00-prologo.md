@@ -41,7 +41,7 @@ Elena scosse la testa.
 
 ---
 
-*(Quello che il papà non sapeva: Elena aveva preso il suo ciuccio — il suo ciuccio, quello — e se lo era messa in tasca. Senza dire niente. Al parco, mentre giocava, lo aveva perso.*
+*(Quello che il papà non sapeva: Elena aveva preso il suo ciuccio — il suo ciuccio preferito, quello che sembrava essere un messicano appena sveglio dalla siesta con un sombrero in testa — e se lo era messa in tasca. Senza dire niente. Al parco, mentre giocava, lo aveva perso.*
 
 *Per Elena, "tutti insieme" voleva dire tutti. Anche lui.)*
 
