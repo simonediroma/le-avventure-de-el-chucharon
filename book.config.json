@@ -1,0 +1,29 @@
+{
+  "title": "Le Avventure di Chucharon",
+  "genre": "childrens-book",
+  "preset": "childrens-book",
+  "language": "it",
+  "target_reader": "genitori di bambini 0-3 anni, da leggere insieme ai propri figli",
+  "version": "0.1",
+  "author_voice": {
+    "tone": "leggero e affettuoso, con umorismo sottile per i genitori e calore genuino per i bambini — mai sentimentale, mai didascalico",
+    "register": "semplice e diretto, come si parla a un bambino piccolo ma con strizzate d'occhio agli adulti",
+    "pov": "terza persona, narratore esterno vicino a Chucharon",
+    "rhythm": "frasi brevi e visive, ogni frase deve poter stare sotto un'illustrazione — niente costruzioni complesse",
+    "vocabulary": "parole di tutti i giorni, termini del mondo bebè (ciuccio, pannolino, poppata), qualche espressione buffa che i bambini ripetono volentieri",
+    "signature_phrases": ["è una sorta di grillo parlante", "devono innamorarsi di chucharon"],
+    "avoid": "sentimentalismo eccessivo, linguaggio letterario, spiegazioni troppo lunghe, moralismo",
+    "voice_source": "wizard_dump"
+  },
+  "book_profile": {
+    "premise": "Chucharon, un ciuccio messicano animato, ha perso il suo bambino e viaggia per ritrovarlo — e di tappa in tappa aiuta altri bambini ad affrontare le sfide più difficili della crescita.",
+    "target_reader": "genitori di bambini 0-3 anni, da leggere insieme ai propri figli",
+    "promise": "ogni storia lascia il bambino con un sorriso e il genitore con un respiro di sollievo"
+  },
+  "format": {
+    "style": "picture book",
+    "layout": "una illustrazione a pagina, testo narrativo sovrimpresso",
+    "chapter_length": "breve — ogni capitolo deve stare in 8-12 pagine illustrate"
+  },
+  "wizard_setup": true
+}
