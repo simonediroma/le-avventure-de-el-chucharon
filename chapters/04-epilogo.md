@@ -136,8 +136,13 @@ Gli occhi — e i baffi — di qualcuno che ha un lavoro da fare.
 
 L'ultimo lavoro.
 
-El Chucharito aveva un modo tutto suo di iniziare:
-una canzone, sempre la stessa, sulle note de La Cucaracha.
+Si era trasformato in El Chucharito.
+
+Il suo superpotere non aveva mai fallito — neanche una volta.
+
+Non avrebbe fallito adesso.
+
+Cantò, sulle note de La Cucaracha.
 
 ---
 

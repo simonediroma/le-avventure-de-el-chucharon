@@ -154,8 +154,13 @@ Raggiante.
 
 Gli occhi — e i baffi — di qualcuno che ha un lavoro da fare.
 
-El Chucharito aveva un modo tutto suo di iniziare:
-una canzone, sempre la stessa, sulle note de La Cucaracha.
+Si era trasformato in El Chucharito.
+
+Il suo superpotere era quello di farsi amare persino dai bambini più diffidenti.
+
+E Sofia era esattamente il tipo di sfida che preferiva.
+
+Iniziò a cantare, sulle note de La Cucaracha.
 
 ---
 
