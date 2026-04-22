@@ -45,10 +45,6 @@ Strafatto di latte materno. Sempre.
 La mamma e il papà non capivano bene cosa volesse dire,
 ma erano molto orgogliosi.)*
 
-E aveva un problema.
-
-Un problema grandissimo.
-
 ---
 
 Alla mamma e al papà avevano detto:
@@ -89,7 +85,11 @@ Il papà guardò la mamma.
 
 — Forse oggi la saltiamo? — disse la mamma.
 
-— Dai, — disse il papà, — facciamo ancora la tartaruga messicana.
+Il papà guardò la mamma con uno sguardo che lasciava intendere di stare giocando l'ultima cartuccia.
+
+Si rivolse a Leo.
+
+— Dai Leo, facciamo ancora insieme la tartaruga messicana — ti aiutano mamma e papà.
 
 ---
 
