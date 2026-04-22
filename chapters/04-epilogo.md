@@ -23,6 +23,8 @@ status: complete
 
 Elena era sul suo monopattino.
 
+*(Era lo stesso parco di sempre — lo scivolo, l'altalena, il salta-sasta. Il posto che conosceva a memoria.)*
+
 Non stava seduta come si siede di solito.
 
 Stava seduta come si siede su un Harley-Davidson.
@@ -185,6 +187,10 @@ Il papà arrivò di corsa, senza fiato.
 
 — Ma quello è... un ciuccio? — disse.
 
+Si fermò.
+
+— Ecco perché ti sei fermata! Hai ritrovato il tuo ciuccio — grazie a Dio!
+
 *(La mamma, da lontano, stava già ridendo.)*
 
 ---
@@ -207,6 +213,8 @@ Questa volta, restò.
 
 Elena lo guardò ancora un momento.
 
-Poi aprì le braccia.
+Poi lo prese.
 
-— Tutti insieme! — disse.
+E se lo mise in tasca.
+
+— Evviva tutti insieme! — disse.

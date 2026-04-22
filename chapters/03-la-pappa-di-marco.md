@@ -24,21 +24,15 @@ Non era un bambino normale.
 
 *(Il fatto degli occhiali, per esempio: era stata una sua idea.
 Li aveva trovati per terra, li aveva messi, non li aveva più tolti.
-I genitori avevano deciso di non fare domande.)*
+I genitori avevano deciso di non fare domande — gli occhiali non avevano lenti, e più o meno gli stavano bene.)*
 
 Era curioso. Attentissimo.
 
-Con l'aria di chi sta sempre analizzando qualcosa.
+Con l'aria di chi sta sempre analizzando qualcosa — pronto a dire la sua, persino sul cibo che i genitori gli davano per lo svezzamento.
 
 ---
 
-E aveva un problema.
-
-Un problema complicato.
-
 ---
-
-La pappa.
 
 I genitori avevano detto:
 — È ora di iniziare con i cibi solidi.
@@ -111,7 +105,9 @@ Il papà guardava il piatto. Guardava Marco. Guardava il soffitto.
 
 ---
 
-— Ma un po' di piramidi messicane no? — disse il papà.
+Il papà prese il canovaccio dalla cucina e se lo mise in testa — sperando di distrarre Marco dal suo comizio.
+
+— Ma un po' di piramidi messicane no? — disse.
 
 La mamma lo fulminò con gli occhi.
 
@@ -233,7 +229,7 @@ Il piatto era vuoto.
 
 — Sta mangiando! — sussurrò la mamma.
 
-— Le piramidi messicane, — disse il papà, soddisfatto. — Funzionano.
+— Incredibile... meglio che con le piramidi messicane! — disse il papà.
 
 *(La mamma non aveva argomenti. Non c'era stata la TV.)*
 
@@ -249,7 +245,7 @@ Marco si girò verso i genitori.
 
 Aveva gli occhi ancora spalancati.
 
-— El Chucharito! — disse. — Tatumà enorme! Serpente! Io c'ero! Io ho visto tutto!
+— El Chucharito! — disse. — Elambra del ciuciarro! Booom! Melita de areta! El serpente de rio! Tataramà grande grande! Costatèl del sol!
 
 *(I genitori non capirono una parola.
 Ma capirono che era importante.)*
@@ -258,6 +254,10 @@ Ma capirono che era importante.)*
 
 Marco non capiva perché i genitori facessero così tante storie per la pappa.
 
-La pappa era una finestra.
+Si girò verso di loro e disse, con molta serietà:
 
-Apri la bocca — e dall'altra parte c'è Chichén Itzá.
+— Mabadì costatèl. Yo de areta — basta piramidi de sol.
+
+*(I genitori non capirono una parola.*
+*Ma capirono tutto: da qui in avanti niente storie per la pappa.*
+*Basta che ogni tanto ci fossero le piramidi.)*

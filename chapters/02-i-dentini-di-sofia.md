@@ -34,13 +34,9 @@ E aveva una faccia.
 
 Una faccia stizzita.
 
-*(Non era arrabbiata. Era solo... già pronta.)*
+Lei non era arrabbiata, aveva solo un problemino pungente...
 
 ---
-
-E aveva un problema.
-
-Un problema pungente.
 
 ---
 
@@ -191,7 +187,7 @@ E sputò un po' di paglia.
 
 — L'ha lasciata! Ha smesso di mordere l'espadrillas! — sussurrò la mamma.
 
-— Beh, menomale, — disse il papà, — la paglia messicana non è proprio ottima.
+— Beh, menomale, — disse il papà, — la paglia messicana non è proprio digeribile.
 
 Chucharon li guardò, strizzò l'occhio, e sparì.
 
