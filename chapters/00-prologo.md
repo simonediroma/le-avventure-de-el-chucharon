@@ -19,9 +19,9 @@ status: complete
 
 ---
 
-Elena era per mano al papà.
+Elena era per mano alla mamma.
 
-Nell'altra mano del papà c'era il monopattino.
+Il papà seguiva con il monopattino.
 
 *(Era tardi. Bisognava andare.)*
 
@@ -33,7 +33,7 @@ Nell'altra mano del papà c'era il monopattino.
 
 Il papà si inginocchiò.
 
-— Certo, tutti insieme. A casa c'è la mamma. Ci sono i nonni. E c'è anche il tuo ciuccio.
+— Certo, tutti insieme. A casa ci sono i nonni. E c'è anche il tuo ciuccio.
 
 Elena scosse la testa.
 
@@ -47,7 +47,7 @@ Elena scosse la testa.
 
 ---
 
-Il papà la prese per mano.
+Il papà le prese l'altra mano.
 
 E uscirono dal parco.
 

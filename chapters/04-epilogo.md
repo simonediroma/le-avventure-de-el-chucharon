@@ -109,7 +109,7 @@ La vide.
 
 Elena continuava ad andare.
 
-Il papà iniziava a correre.
+La mamma iniziava a correre.
 
 — Elena, fermati! Ci sono le macchine!
 
@@ -183,7 +183,7 @@ Inclinò la testa.
 
 ---
 
-Il papà arrivò di corsa, senza fiato.
+La mamma arrivò di corsa, senza fiato.
 
 — Ma quello è... un ciuccio? — disse.
 
@@ -191,7 +191,7 @@ Si fermò.
 
 — Ecco perché ti sei fermata! Hai ritrovato il tuo ciuccio — grazie a Dio!
 
-*(La mamma, da lontano, stava già ridendo.)*
+*(Il papà, da lontano, stava già ridendo.)*
 
 ---
 

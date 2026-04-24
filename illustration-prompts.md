@@ -1,12 +1,17 @@
 # Illustration Prompts — Le Avventure di Chucharon
-*Per Gemini Image Generation — Nano Banana*
+*Per Gemini Image Generation*
+*Versione 4.0 — 18 illustrazioni: 3 prologo, 4 per capitolo, 3 epilogo*
 
 ---
 
 ## STILE GLOBALE
 Da includere in ogni prompt:
 
-> Children's picture book illustration. Warm watercolor and gouache style, soft rounded shapes, rich textures. Warm Italian summer palette: golden yellows, deep oranges, dusty blues, warm greens. Full bleed illustration, space for text overlay. Pixar-inspired warmth and expressiveness. No harsh outlines. Cozy, cinematic, emotionally warm.
+> Children's picture book illustration. Warm watercolor and gouache style, soft rounded shapes, rich textures. Warm Italian summer palette: golden yellows, deep oranges, dusty blues, warm greens. Pixar-inspired warmth and expressiveness. No harsh outlines. Cozy, cinematic, emotionally warm.
+>
+> TEXT ZONE — MANDATORY: The bottom 30% of every illustration must fade softly into a warm cream white (#FFF8F0). This gradient is smooth and intentional — it is the text overlay area. All characters and main action must be composed within the upper 70% of the frame. The fade begins gently at 70% height and becomes fully cream-white at the bottom edge.
+>
+> STRICT RULES — NO EXCEPTIONS: No speech bubbles. No dialogue balloons. No text. No letters. No words. No captions. No onomatopoeia rendered as visual text. All emotion and dialogue must be expressed exclusively through facial expressions, body language, and composition.
 
 ---
 
@@ -20,538 +25,202 @@ Da includere nei prompt dove il personaggio appare.
 > El Chucharito (transformed Chucharon): same pacifier character, completely changed energy. Sombrero now resting on his shoulders/back like a cape. Mustaches pointing straight UP, triumphant and proud. Eyes wide open, bright, sparkling with energy. Upright radiant posture. He seems to glow. Full of purpose and joy.
 
 **ELENA:**
-> Elena: a chubby, rosy-cheeked Italian toddler girl, under 3 years old. Round face, big expressive eyes, dark hair. Determined expression. Wearing summer clothes (shorts, t-shirt, sandals).
+> Elena: a chubby, rosy-cheeked Italian toddler girl, under 3 years old. Round face, big expressive eyes, dark hair. Determined expression. Wearing summer clothes (shorts, t-shirt, sandals). Always has a pocket.
 
 **IL PAPÀ DI ELENA:**
-> Elena's father: a young Italian dad, 30s, casual summer clothes. Warm, slightly exasperated but loving expression.
+> Elena's father: a young Italian dad, early 30s, casual summer clothes (t-shirt, light trousers, sneakers). Warm, slightly exasperated but loving expression. Often carries Elena's scooter.
+
+**LA MAMMA DI ELENA:**
+> Elena's mother: a young Italian mum, late 20s to early 30s, light summer dress or t-shirt and shorts, sandals. Warm and amused expression. The one who holds Elena's hand and — in the epilogue — runs after her.
 
 ---
 
 ## PROLOGO — Chucharon si sveglia
 
-### SCENA 1 — Elena e il papà lasciano il parco
+### PAGINA 1 — La famiglia lascia il parco
 **P-01**
 ```
-Children's picture book illustration, warm watercolor style, Italian summer afternoon.
-A chubby Italian toddler girl (Elena, under 3) holds her father's hand. Her father holds a small scooter in his other hand. They stand at the edge of a warm summer playground — slide, swings, seesaw visible behind them. The father looks toward the exit. Elena looks back at the playground with big sad eyes, reluctant to leave. Golden afternoon light. Full bleed, space for text at top.
-Style: warm watercolor and gouache, soft rounded shapes, Pixar-inspired warmth. Italian summer palette.
+Children's picture book illustration, warm watercolor and gouache style, Italian summer afternoon.
+A chubby Italian toddler girl (Elena, under 3, dark hair) has stopped walking on the path out of the playground, feet planted. She holds her mother's hand but her body resists — not moving. Her expression: fierce, heartbroken, absolutely determined. Her mother crouches to her level, warm but firm. Her father stands a step behind, carrying a small scooter, watching with gentle patience. Behind Elena: the playground glows golden — slide, swings, seesaw. The scene carries a quiet dramatic irony: something precious has been left behind in that golden grass.
+Composition: main action in upper 70%. Bottom 30% fades to warm cream white for text overlay. No text, no speech bubbles, no words anywhere in the image.
+Style: warm watercolor and gouache, Pixar expressiveness, emotionally rich, Italian summer palette.
 ```
 
-### SCENA 2 — "No via! Tutti insieme!!!"
+### PAGINA 2 — Il ciuccio solo nel parco / Chucharon si sveglia
 **P-02**
 ```
-Children's picture book illustration, warm watercolor style, emotional.
-Elena (chubby Italian toddler, under 3) has stopped walking and is crying, pulling back toward the playground. Her father kneels down in front of her, face at her level, speaking gently. The playground glows golden behind her. Elena has tears on her cheeks and a fierce, heartbroken expression. "No via!" energy — a toddler who absolutely refuses to leave.
-Style: warm watercolor and gouache, soft rounded shapes, emotionally expressive. Italian summer palette.
+Children's picture book illustration, warm watercolor and gouache style, quiet magic and awakening.
+An empty summer playground in golden late-afternoon light. In the foreground, close: a small baby pacifier lying in dry golden summer grass. This is no ordinary pacifier — it looks like a tiny sleeping Mexican figure with a wide-brimmed sombrero. And it is waking up. Two long drooping mustaches are visible. Two warm, slightly confused eyes are just beginning to open slowly toward the empty blue sky. The playground stretches empty around it: slide, swings, seesaw. Small, precious, alone. Melancholic and beautiful.
+Composition: main action in upper 70%. Bottom 30% fades to warm cream white for text overlay. No text, no speech bubbles, no words anywhere in the image.
+Style: warm watercolor and gouache, magical realism, golden light, soft textures. Quiet and cinematic.
 ```
 
-### SCENA 3 — Il ciuccio rimasto solo
+### PAGINA 3 — Vamos a veder — il viaggio inizia
 **P-03**
 ```
-Children's picture book illustration, warm watercolor style, poetic.
-Close-up: a small baby pacifier (ciuccio) lying alone in the dry summer grass of a playground. This pacifier looks like a tiny sleeping Mexican figure with a miniature sombrero — it IS Chucharon, though asleep and still. Around it: dry golden grass, long afternoon shadows. Small and alone under the sun. Warm, slightly melancholic mood — something precious left behind.
-Style: warm watercolor and gouache, soft textures, golden light. Quiet and poetic.
-```
-
-### SCENA 4 — Chucharon si sveglia (rivelazione)
-**P-04**
-```
-Children's picture book illustration, warm watercolor style, cinematic reveal.
-Slow cinematic reveal: first a wide-brimmed golden sombrero against a blue summer sky. Then two extremely long drooping mustaches. Then two warm eyes slowly opening — kind, slightly confused. This is Chucharon (an animated humanized baby pacifier) waking up alone in a playground. The reveal is magical — like seeing a character for the very first time. Golden light from above.
-Style: warm watercolor and gouache, cinematic close-up sequence, magical realism. Italian summer palette.
-```
-
-### SCENA 5 — Il parco deserto come un deserto
-**P-05**
-```
-Children's picture book illustration, warm watercolor style.
-Wide shot: a summer playground that looks almost like a desert. Slide, swings, seesaw — all empty. The grass is dry and golden like straw. The air shimmers with heat. Subtle surreal Mexican-border feeling. A small floating figure (Chucharon — animated pacifier with sombrero and long drooping mustaches, slightly hunched) hovers in the center, looking around at the emptiness.
-Style: warm watercolor and gouache, slightly surreal, vast and lonely but beautiful. Dusty golden palette.
-```
-
-### SCENA 6 — Chucharon solo: guarda a destra, a sinistra
-**P-06**
-```
-Children's picture book illustration, warm watercolor style.
-Chucharon (animated pacifier — wide sombrero pulled low, extremely long drooping mustaches, slightly hunched, floating) looks left and right at the empty playground. Slide empty. Swings empty. Seesaw empty. His expression: searching, slightly sad. The playground stretches in warm golden light around him. Lonely but not hopeless.
-Style: warm watercolor and gouache, soft shapes, warm summer light. Emotionally expressive.
-```
-
-### SCENA 7 — "Donde está Elenita?" / Balla di fieno
-**P-07**
-```
-Children's picture book illustration, warm watercolor style, slightly comic Western feel.
-Chucharon (animated pacifier with drooping mustaches and sombrero) looks small against a vast empty playground. A tumbleweed rolls past him from left to right. Dramatic silence. His mustaches droop extra sadly. Warm golden tones, dust in the air. The playground feels like a Western ghost town.
-Style: warm watercolor and gouache, comedic Western feel, warm summer palette.
-```
-
-### SCENA 8 — I baffi fremono: sente la voce
-**P-08**
-```
-Children's picture book illustration, warm watercolor style.
-Chucharon (animated pacifier with sombrero, long drooping mustaches) turns his head sharply. His mustaches are still drooping but trembling/quivering with excitement and hope — not raised yet, but vibrating. His eyes are wider. Hopeful energy emerging from a still-sad figure. Warm golden light.
-Style: warm watercolor and gouache, expressive character moment, warm Italian summer light.
-```
-
-### SCENA 9 — "Vamos a veder!" — sparisce
-**P-09**
-```
-Children's picture book illustration, warm watercolor style, dynamic.
-Chucharon (animated pacifier with sombrero and drooping mustaches) shoots off into the distance with sudden determination — a blur of motion, a trail of dust behind him. The playground left behind. His expression: excited, purposeful. Adventure beginning. Warm golden and orange tones.
-Style: warm watercolor and gouache, dynamic motion, warm summer palette. Beginning of a journey.
+Children's picture book illustration, warm watercolor and gouache style, dynamic departure and hope.
+Chucharon (animated pacifier, sombrero pulled low, extremely long drooping mustaches trembling with anticipation — not yet raised, but alive and quivering) shoots off across the empty playground, a trail of warm golden dust behind him. The playground falls away behind him, silent and golden. His mustaches still droop but vibrate with purpose. Dynamic motion energy, warm summer dust, beginning of a journey.
+Composition: main action in upper 70%. Bottom 30% fades to warm cream white for text overlay. No text, no speech bubbles, no words anywhere in the image.
+Style: warm watercolor and gouache, motion blur, warm summer light.
 ```
 
 ---
 
 ## CAPITOLO 1 — La tummy time di Leo
 
-### SCENA 1 — Leo cicciotto sulla pancia (sul letto dei genitori)
+### PAGINA 1 — Leo e il problema
 **C1-01**
 ```
-Children's picture book illustration, warm watercolor style, comedic.
-A very chubby, round Italian baby boy (Leo) lying on his tummy on a large parents' bed. He wobbles like a roly-poly toy — rocking forward and backward, unable to hold his head up properly. His expression: dramatic, unimpressed, slightly outraged at the universe. He is extremely chubby, clearly overfed on breast milk. Soft warm bedroom light, rumpled sheets around him.
-Style: warm watercolor and gouache, soft rounded shapes, comedic baby energy, cozy bedroom palette.
+Children's picture book illustration, warm watercolor and gouache style, comic domestic.
+An extremely chubby Italian baby boy (Leo, a few months old, milk-drunk look, impressive rolls of baby fat) lying on his BACK on a large soft parents' bed, screaming with full commitment — face up, belly up, arms and legs waving in the air. His face completely scrunched, mouth wide open. His parents stand over him — dad looking at mum, mum looking at dad — the universal expression of new parents who have completely run out of ideas. Warm domestic bedroom light, soft bed, cozy Italian family bedroom.
+Composition: main action in upper 70%. Bottom 30% fades to warm cream white for text overlay. No text, no speech bubbles, no words anywhere in the image.
+Style: warm watercolor and gouache, comedic new-parent energy, cozy bedroom palette.
 ```
 
-### SCENA 2 — Leo urla PRIMA ancora di essere messo giù
-**C2-02**
+### PAGINA 2 — L'ultima cartuccia
+**C1-02**
 ```
-Children's picture book illustration, warm watercolor style, comedic.
-Baby Leo (very chubby Italian baby) is already crying dramatically — mouth wide open, full volume — even before his parents have attempted tummy time. His parents stand nearby looking at each other in pre-emptive defeat. Sound waves radiate from Leo. In the distance, neighbors visibly react through a wall. The anticipation of the ordeal is already unbearable.
-Style: warm watercolor and gouache, comic exaggeration, warm home palette.
+Children's picture book illustration, warm watercolor and gouache style, comic standoff.
+Leo (extremely chubby Italian baby) lying on his BACK on a large soft bed — face up, belly up, still mid-complaint. His father crouches beside the bed at Leo's level, his expression the unmistakable face of a man playing his very last card — desperate but committed. Behind him, his mother stands with eyebrows raised, arms slightly crossed, eyes communicating a clear and firm veto. The three-way triangle: desperate dad, withering mum, oblivious screaming baby in a warm bedroom.
+Composition: main action in upper 70%. Bottom 30% fades to warm cream white for text overlay. No text, no speech bubbles, no words anywhere in the image.
+Style: warm watercolor and gouache, comedic domestic tension, warm bedroom light.
 ```
 
-### SCENA 3 — I genitori si guardano
+### PAGINA 3 — Chucharon arriva
 **C1-03**
 ```
-Children's picture book illustration, warm watercolor style.
-Leo's mother and father exchange a look of exhausted complicity. Mom looks defeated. Dad looks like he's about to play his last card. Baby Leo visible in background on the parents' bed, deeply unimpressed. Warm, relatable, slightly comic parenting energy. Cozy bedroom interior.
-Style: warm watercolor and gouache, expressive adult faces, warm bedroom light.
+Children's picture book illustration, warm watercolor and gouache style, magical arrival.
+Chucharon (animated pacifier — sombrero pulled low, extremely long drooping mustaches, slightly hunched, floating in mid-air) drifts into the bedroom. He hovers directly in front of Leo's face. Leo is still on his BACK on the bed — face up — but has stopped crying completely, wide eyes fixed on this impossible floating thing. Chucharon looks at Leo. Leo looks at Chucharon. In the background: BOTH parents are visible — father on the left, mother on the right — both completely frozen mid-motion, exchanging a wide-eyed glance with each other, unsure what just happened. A beat of pure suspended attention.
+Composition: main action in upper 70%. Bottom 30% fades to warm cream white for text overlay. No text, no speech bubbles, no words anywhere in the image.
+Style: warm watercolor and gouache, magical suspension, soft warm bedroom light.
 ```
 
-### SCENA 4 — L'ultima cartuccia
+### PAGINA 4 — El Chucharito e l'arcobaleno / Leo ce la fa
 **C1-04**
 ```
-Children's picture book illustration, warm watercolor style.
-Dad turns to Leo on the bed with the expression of a man playing his absolute last card. His look to mom says everything: "this is it, the last attempt." He gestures encouragingly toward Leo. Mom watches with arms crossed. Leo on the bed looks entirely unmoved. The moment just before something magical happens.
-Style: warm watercolor and gouache, slice-of-life parenting, warm bedroom light.
-```
-
-### SCENA 5 — Chucharon arriva volando
-**C1-05**
-```
-Children's picture book illustration, warm watercolor style, magical.
-Chucharon (animated humanized baby pacifier — wide sombrero pulled low over eyes, extremely long drooping mustaches, slightly hunched posture) flies/floats into the bedroom. His posture is tired and slouchy but his arrival is magical. Baby Leo on the parents' bed below looks up with sudden interest. Parents react with confusion. Warm bedroom light with a touch of magical sparkle.
-Style: warm watercolor and gouache, magical realism, cozy bedroom + magic arrival.
-```
-
-### SCENA 6 — La trasformazione
-**C1-06**
-```
-Children's picture book illustration, warm watercolor style, dynamic transformation.
-Split moment transformation: Chucharon (pacifier with sombrero pulled low, long drooping mustaches, hunched — "messicano in siesta") becomes El Chucharito (sombrero now on shoulders/back, mustaches pointing STRAIGHT UP triumphantly, eyes wide and radiant, upright glowing posture). The transformation is electric and joyful. Baby Leo watches from the bed below.
-Style: warm watercolor and gouache, dynamic split transformation, warm light + energy burst.
-```
-
-### SCENA 7 — Il superpotere: farsi amare dai bambini
-**C1-07**
-```
-Children's picture book illustration, warm watercolor style, joyful.
-El Chucharito (transformed — sombrero on shoulders, mustaches UP, radiant) dances and sings in front of baby Leo on the parents' bed. Musical notes float around him. Leo watches with growing fascination. The atmosphere is festive. The pacifier character radiates warmth and joy — his superpower of being loved by children is fully active.
-Style: warm watercolor and gouache, musical joy, warm vibrant colors.
-```
-
-### SCENA 8 — Il sombrero volteggia: nasce l'arcobaleno
-**C1-08**
-```
-Children's picture book illustration, warm watercolor style, magical and spectacular.
-El Chucharito (pacifier character, sombrero on shoulders, mustaches UP) spins his sombrero in the air. From the spinning hat, a brilliant rainbow arcs through the bedroom, landing right in front of baby Leo's nose on the bed. The rainbow is vibrant, close and real — not sky art but right there, tangible. Leo's eyes go wide with wonder.
-Style: warm watercolor and gouache, magical rainbow light, wonder and spectacle. Warm vibrant palette.
-```
-
-### SCENA 9 — Leo rotola da solo a pancia in giù sul letto
-**C1-09**
-```
-Children's picture book illustration, warm watercolor style, triumphant.
-The key victory moment: baby Leo (chubby Italian baby) on the parents' bed — ON HIS OWN, no one putting him down — has rolled himself onto his tummy and is lifting his head to follow the rainbow. He did it by himself, pulled by wonder. His head is UP. He is SMILING enormously. Parents in background frozen in amazed joy. Warm golden triumphant light.
-Style: warm watercolor and gouache, baby triumph and wonder, warm golden light. Spontaneous achievement energy.
-```
-
-### SCENA 10 — Il rigurgito + genitori che sussurrano
-**C1-10**
-```
-Children's picture book illustration, warm watercolor style, comedic and sweet.
-Baby Leo (chubby, triumphant, on his tummy on the parents' bed) produces a happy baby spit-up after his triumph. His parents behind him whisper to each other with delighted, slightly amazed expressions. Comic but warm. Leo looks entirely satisfied with himself. Victory and milk.
-Style: warm watercolor and gouache, comedic sweetness, warm home light.
-```
-
-### SCENA 11 — Chucharon strizza l'occhio: Elenita non ancora trovata
-**C1-11**
-```
-Children's picture book illustration, warm watercolor style, bittersweet farewell.
-Chucharon (back to normal — sombrero on head, drooping mustaches, slightly slouchy) gives a warm wink and vanishes in a gentle sparkle. His expression holds something beyond this scene — a journey not yet finished, a little girl not yet found. Baby Leo watches the spot where he was. Parents look happily confused. Warm, slightly wistful.
-Style: warm watercolor and gouache, magical disappearance, warm sparkle. Bittersweet journey-continues energy.
+Children's picture book illustration, warm watercolor and gouache style, magical triumph.
+El Chucharito (transformed — sombrero on shoulders like a cape, mustaches pointing STRAIGHT UP, radiant, glowing) flies in an arc above the parents' bed, spinning his sombrero — from it, a glowing rainbow curves right in front of Leo's nose. Leo — who was on his back for the entire story — has now ROLLED ONTO HIS TUMMY: he is face-down on the mattress, belly flat against the bed, chest lifted, head pushed straight UP at a proud angle, eyes enormous and luminous, following the rainbow. Tummy time achieved. Viewed from the side: his body horizontal and face-down, his head raised high. A small white drizzle of milk on Leo's chin — the price of triumph. In the background: BOTH parents side by side — father on the left, mother on the right — both with mouths open, faces frozen in pure incredulous joy, pointing at Leo's new tummy-time position. Chucharon floats to one side giving his signature wink.
+Composition: main action in upper 70%. Bottom 30% fades to warm cream white for text overlay. No text, no speech bubbles, no words anywhere in the image.
+Style: warm watercolor and gouache, magical rainbow light, triumphant baby energy, Pixar joy.
 ```
 
 ---
 
 ## CAPITOLO 2 — I dentini di Sofia
 
-### SCENA 1 — Sofia e il tavolo
+### PAGINA 1 — Sofia morde tutto
 **C2-01**
 ```
-Children's picture book illustration, warm watercolor style, comedic.
-Sofia: a thin, bony, slightly fierce Italian toddler girl. She is biting the edge of a wooden table with absolute determination and focus. CROC. Her expression is not angry — she just has a job to do. The table shows bite marks. Cozy home interior. Her expression: entirely businesslike.
-Style: warm watercolor and gouache, comedic bite energy, warm home palette.
+Children's picture book illustration, warm watercolor and gouache style, comic grumpy energy.
+Sofia: a thin, bony Italian baby girl (few months old, strikingly different from chubby Leo — sharp little chin, visible elbows) with a permanent grumpy expression — not angry, just perpetually bothered by teething pain. She bites the leg of a beautiful dark walnut wooden chair with complete determination. Bite marks already visible on the precious wood. Household chaos of teething around her: mordillo on the floor, table edge gnawed. Her parents exchange a desperate look in the background.
+Composition: main action in upper 70%. Bottom 30% fades to warm cream white for text overlay. No text, no speech bubbles, no words anywhere in the image.
+Style: warm watercolor and gouache, comic determination, warm Italian living room palette.
 ```
 
-### SCENA 2 — La sedia di noce
+### PAGINA 2 — Le espadrillas
 **C2-02**
 ```
-Children's picture book illustration, warm watercolor style, comedic drama.
-Sofia (thin, fierce Italian toddler) attacks a beautiful, expensive-looking walnut wood armchair. CROC CROC CROC. The chair looks slightly horrified. Parents in background look on in despair — this chair cost five years of savings. Sofia is entirely committed. Warm home interior.
-Style: warm watercolor and gouache, comedic destruction energy, warm home palette.
+Children's picture book illustration, warm watercolor and gouache style, household chaos.
+Sofia (thin bony grumpy Italian baby) has found her father's straw espadrilla shoes under the sofa and bites into them with complete commitment. Bits of straw already loose on the floor. The espadrilla is nearly as big as Sofia herself — comic scale difference. Her mother stands in the background, her expression a precise mix of horror and disbelief, one hand raised toward her face. Comic domestic catastrophe.
+Composition: main action in upper 70%. Bottom 30% fades to warm cream white for text overlay. No text, no speech bubbles, no words anywhere in the image.
+Style: warm watercolor and gouache, domestic Italian living room, comic chaos palette.
 ```
 
-### SCENA 3 — Il problemino pungente
+### PAGINA 3 — Chucharon arriva
 **C2-03**
 ```
-Children's picture book illustration, warm watercolor style.
-Sofia (thin, bony, fierce Italian toddler) — close-up of her face as she bites something with fierce concentration. Her expression: not angry, just deeply focused on a very specific task. The "problemino pungente" energy — small but intense. Slightly comic, slightly sympathetic. Warm light.
-Style: warm watercolor and gouache, focused comedic toddler energy, warm palette.
+Children's picture book illustration, warm watercolor and gouache style, tense curiosity.
+Chucharon (animated pacifier — sombrero low, drooping mustaches, slightly hunched, floating) arrives in the living room. He hovers before Sofia, who has paused mid-bite. Sofia stares at him with the intense calculating expression of a baby working something out — deep analytical focus. Chucharon looks back, reading the room. The warm Italian living room around them.
+Composition: main action in upper 70%. Bottom 30% fades to warm cream white for text overlay. No text, no speech bubbles, no words anywhere in the image.
+Style: warm watercolor and gouache, tense comic assessment, Italian domestic warmth.
 ```
 
-### SCENA 4 — Le espadrillas
+### PAGINA 4 — Il sorriso di El Chucharito / Sofia ride / genitori sorpresi
 **C2-04**
 ```
-Children's picture book illustration, warm watercolor style, comedic.
-Sofia (thin fierce toddler) has found a pair of straw espadrille shoes under the sofa and is biting into the straw sole with great satisfaction. CROC CROC CROC. Straw flies everywhere. Her expression: pure joy. The espadrillas are bohemian-Mexican style. Under-sofa discovery energy.
-Style: warm watercolor and gouache, comedic toddler destruction, warm palette.
-```
-
-### SCENA 5 — "Le ha comprate in Messico!"
-**C2-05**
-```
-Children's picture book illustration, warm watercolor style, comedic.
-Sofia's mother stands with hand to her head in alarm, pointing at Sofia who holds the damaged espadrillas. "Le ha comprate in Messico!" — outrage and despair combined. Dad looks apologetic. Sofia: completely unrepentant. This is the moment Chucharon is about to arrive.
-Style: warm watercolor and gouache, comedic parental despair, warm home palette.
-```
-
-### SCENA 6 — Chucharon arriva
-**C2-06**
-```
-Children's picture book illustration, warm watercolor style, magical.
-Chucharon (animated pacifier — sombrero calato sugli occhi, extremely long drooping mustaches, slightly hunched, floating) arrives in the scene. Sofia on the floor stops biting and looks up at him, already calculating. Parents react with confusion. Warm home interior + magical arrival.
-Style: warm watercolor and gouache, magical realism, curious evaluating energy.
-```
-
-### SCENA 7 — Sofia lo scruta: i calcoli
-**C2-07**
-```
-Children's picture book illustration, warm watercolor style, comedic standoff.
-Sofia (thin fierce toddler) has stopped biting and now stares at Chucharon (floating pacifier) with intense, calculating eyes. Head slightly tilted. She is clearly running an analysis. Chucharon floats before her, slightly nervous. The espadrillas hang forgotten from her hand. Comic standoff energy.
-Style: warm watercolor and gouache, comedic evaluation standoff, warm light.
-```
-
-### SCENA 8 — La trasformazione (velocemente)
-**C2-08**
-```
-Children's picture book illustration, warm watercolor style, fast dynamic.
-Chucharon transforms into El Chucharito — fast, urgent. Sombrero moves to shoulders, mustaches shoot straight UP. Eyes go wide and radiant. VELOCEMENTE — this transformation is rapid. Sofia watches, finally impressed. This is his superpower: making even the most skeptical children unable to resist. Warm home interior + electric burst.
-Style: warm watercolor and gouache, dynamic fast transformation, energy burst.
-```
-
-### SCENA 9 — I denti più bianchi del mondo
-**C2-09**
-```
-Children's picture book illustration, warm watercolor style, spectacular.
-El Chucharito (transformed pacifier — sombrero on shoulders, mustaches UP, radiant) opens the biggest, most brilliant smile in the world — the whitest, most perfect teeth ever seen. The smile glows. Sofia watches, completely transfixed. This is exactly the kind of challenge he prefers. Warm glowing light from the smile itself.
-Style: warm watercolor and gouache, spectacular smile, warm glowing light.
-```
-
-### SCENA 10 — Sofia ride, lascia le espadrillas
-**C2-10**
-```
-Children's picture book illustration, warm watercolor style, joyful comedic.
-Sofia (thin fierce toddler) is laughing — really laughing. The espadrillas slip from her hands. Straw from the sole flies through the air. Her expression: pure joy replacing fierce concentration. Parents stare in disbelief. El Chucharito looks deeply satisfied. Warm joyful energy.
-Style: warm watercolor and gouache, explosive toddler laughter, warm joyful palette.
-```
-
-### SCENA 11 — Wink e partenza: Elenita non ancora trovata
-**C2-11**
-```
-Children's picture book illustration, warm watercolor style.
-Chucharon (back to normal — drooping mustaches, sombrero) winks and vanishes. Parents whisper with relief and wonder. Sofia sits running her tongue over her own teeth with new wonder and pride. But Chucharon's expression as he leaves carries something deeper — Elenita still not found. C'è ancora strada da fare.
-Style: warm watercolor and gouache, quiet wonder + bittersweet departure, warm home light.
+Children's picture book illustration, warm watercolor and gouache style, explosive joy and resolution.
+El Chucharito (transformed — sombrero on shoulders, mustaches STRAIGHT UP, radiant) flashes an enormous dazzling smile — the biggest, most luminous smile imaginable. Sofia (thin bony grumpy baby) stares — then bursts out laughing so hard the espadrilla falls from her grip. Mid-fall: bits of straw scattering. Her face completely transformed from permanent-grumpy to pure delight. Her parents in the background: mother's hand over her mouth in disbelief, father with the relieved expression of someone who has just witnessed a miracle. Chucharon floats to one side giving his signature wink. The espadrilla, the laughter, and the wink all in one warm frame.
+Composition: main action in upper 70%. Bottom 30% fades to warm cream white for text overlay. No text, no speech bubbles, no words anywhere in the image.
+Style: warm watercolor and gouache, explosive comic joy, warm Italian living room golden light.
 ```
 
 ---
 
 ## CAPITOLO 3 — La pappa di Marco
 
-### SCENA 1 — Marco e gli occhiali senza lenti
+### PAGINA 1 — Marco e il suo discorso
 **C3-01**
 ```
-Children's picture book illustration, warm watercolor style, comedic.
-Marco: an Italian toddler boy wearing tiny glasses with NO LENSES — just frames, slightly too big but approximately his size. He found them on the floor and decided they were his. He sits in a high chair, mid-speech, gesturing with authority. His expression: total conviction. The food bowl sits ignored in front of him. Tiny professor energy. His parents sit across trying to look attentive.
-Style: warm watercolor and gouache, comedic toddler authority, warm kitchen palette.
+Children's picture book illustration, warm watercolor and gouache style, comic intellectual portrait.
+Marco: an Italian baby (6-10 months) in a high chair, wearing glasses with NO LENSES — just the frames, slightly too large, sitting on his nose. He found them, he kept them, the parents gave up asking. He is mid-speech, one hand raised in rhetorical gesture, completely convinced of his argument in perfect baby babble. The bowl of pappa on the tray: cooling, untouched, getting colder. His expression: a tiny professor who has seen things. Warm Italian kitchen light.
+Composition: main action in upper 70%. Bottom 30% fades to warm cream white for text overlay. No text, no speech bubbles, no words anywhere in the image.
+Style: warm watercolor and gouache, comic intellectual baby energy, warm kitchen palette.
 ```
 
-### SCENA 2 — Il comizio in parole inventate
+### PAGINA 2 — Il canovaccio e lo stallo
 **C3-02**
 ```
-Children's picture book illustration, warm watercolor style, comedic.
-Marco (toddler with empty-frame glasses) delivers his argument in made-up words with complete seriousness. "Abadà. Meruní. Costatèl vu — no." His hands gesture emphatically. Mom responds with her own made-up sounds trying to engage. Dad watches with the expression of a man who has been in this meeting too long. Food untouched.
-Style: warm watercolor and gouache, comedic toddler politician energy, warm kitchen/dining palette.
+Children's picture book illustration, warm watercolor and gouache style, comic domestic standoff.
+Three-way standoff at the kitchen table. Marco in his high chair (glasses, no lenses) mid-speech, one hand raised, completely oblivious to the world. His father standing beside the table with a kitchen dish towel draped absurdly over his head — his latest improvised distraction attempt, earnestly ridiculous. His mother's expression: the face of someone who has accepted that this is her life now. The triangle: desperate creative dad, exasperated logical mum, oblivious orating infant. The bowl of pappa getting colder.
+Composition: main action in upper 70%. Bottom 30% fades to warm cream white for text overlay. No text, no speech bubbles, no words anywhere in the image.
+Style: warm watercolor and gouache, comedy triangle energy, warm Italian kitchen palette.
 ```
 
-### SCENA 3 — Il trucco del documentario
+### PAGINA 3 — Chucharon arriva
 **C3-03**
 ```
-Children's picture book illustration, warm watercolor style, sneaky.
-Dad alone with Marco — secretly switches on a documentary about Mayan pyramids. On screen: Chichén Itzá, dramatic and grand. Marco has instantly stopped talking, mouth slightly open, transfixed. A spoonful of food goes in quietly. Dad looks sneaky and deeply satisfied. Scientific parenting.
-Style: warm watercolor and gouache, sneaky dad energy, warm home light + TV glow.
+Children's picture book illustration, warm watercolor and gouache style, analytical standoff.
+Chucharon (animated pacifier — sombrero low, drooping mustaches, floating) drifts into the kitchen and stops in front of Marco. Marco stops speaking. His eyes, enormous behind the no-lens glasses, fix on this floating object — every neuron engaged in deep analysis. Chucharon glances at the mother: her expression is no longer exasperated, it is fierce and urgent. He understands: fast. No time.
+Composition: main action in upper 70%. Bottom 30% fades to warm cream white for text overlay. No text, no speech bubbles, no words anywhere in the image.
+Style: warm watercolor and gouache, analytical tension, warm Italian kitchen light.
 ```
 
-### SCENA 4 — Il litigio (42 minuti)
+### PAGINA 4 — Chichén Itzá nell'aria / Il piatto vuoto / Il discorso finale
 **C3-04**
 ```
-Children's picture book illustration, warm watercolor style, comedic domestic debate.
-Mom and Dad face each other in a classic standoff about screen time — 42 minutes of argument. Mom: firm, no TV. Dad: gestures toward the empty food bowl as evidence. Marco in background eats calmly, completely oblivious to the war being fought on his behalf.
-Style: warm watercolor and gouache, comedic parental debate, warm home palette.
-```
-
-### SCENA 5 — Lo stallo: pappa fredda, comizio continua
-**C3-05**
-```
-Children's picture book illustration, warm watercolor style, comedic stalemate.
-Kitchen scene: Marco in high chair, making his political speech with full toddler authority. The bowl of food sits cold and untouched. Mom tries to respond to his made-up language. Dad stares at the ceiling. Everything frozen. Cold food energy.
-Style: warm watercolor and gouache, domestic stalemate comedy, warm kitchen palette.
-```
-
-### SCENA 6 — Il canovaccio in testa + "piramidi messicane"
-**C3-06**
-```
-Children's picture book illustration, warm watercolor style, comedic.
-Dad has put a kitchen dish towel on his head — a desperate theatrical gesture to distract Marco from his speech. He looks at Marco hopefully with the dish towel draped over his head. Mom stares at him with absolute withering judgment. Dad ignores her gaze and says "Ma un po' di piramidi messicane no?" Marco has paused, examining the dish towel phenomenon.
-Style: warm watercolor and gouache, peak domestic comedy, warm kitchen light.
-```
-
-### SCENA 7 — Chucharon arriva: gli occhi della mamma
-**C3-07**
-```
-Children's picture book illustration, warm watercolor style, comedic urgency.
-Chucharon (animated pacifier — sombrero calato, long drooping mustaches, slightly hunched, flying in) arrives. He immediately reads the room: Mom's eyes have gone from "fulminanti" to "feroci e infuocati" — blazing intensity. Chucharon reads this as URGENT. He understands there is no time. Comic emergency energy. Fast transformation about to happen.
-Style: warm watercolor and gouache, comedic urgency, warm kitchen light.
-```
-
-### SCENA 8 — Trasformazione velocissima
-**C3-08**
-```
-Children's picture book illustration, warm watercolor style, explosive fast transformation.
-VELOCEMENTE — Chucharon transforms at maximum speed. Sombrero to shoulders, mustaches SHOOT straight up. Eyes flash open. A blur of motion. Marco watches with glasses slightly displaced from the air pressure. His superpower: making children forget everything else — even their speeches. Warm kitchen + energy burst.
-Style: warm watercolor and gouache, explosive rapid transformation, comic speed energy.
-```
-
-### SCENA 9 — Chichén Itzá disegnata nell'aria
-**C3-09**
-```
-Children's picture book illustration, warm watercolor style, spectacular magical realism.
-El Chucharito (pacifier, sombrero on shoulders, mustaches UP) spins his sombrero and draws in the air: Chichén Itzá appears — pyramid, the shadow of the feathered serpent descending the stairs, Mayan dancers. The images glow and float right in front of Marco's face in the kitchen. Marco's mouth has fallen open. Magnificent and impossible.
-Style: warm watercolor and gouache, spectacular magical history appearing in a kitchen, warm glow + ancient grandeur.
-```
-
-### SCENA 10 — Marco a bocca aperta: il cucchiaio entra
-**C3-10**
-```
-Children's picture book illustration, warm watercolor style, triumphant comedic.
-Marco (toddler with frameless glasses) stares at the floating pyramid with mouth wide open — completely transfixed. First spoonful of food enters. Then second. Third. His eyes never leave the pyramid. Parents hold their breath. The bowl is getting emptier.
-Style: warm watercolor and gouache, triumphant comedy, warm kitchen light.
-```
-
-### SCENA 11 — "Incredibile... meglio che con le piramidi messicane!"
-**C3-11**
-```
-Children's picture book illustration, warm watercolor style, satisfied victory.
-Dad looks deeply satisfied: "Incredibile... meglio che con le piramidi messicane!" The bowl is empty. He doesn't know what just happened — but he takes credit for his own magic words. Mom has no argument. Chucharon winks and vanishes. Marco still has wide eyes and food on his face.
-Style: warm watercolor and gouache, domestic victory, warm kitchen afternoon light.
-```
-
-### SCENA 12 — Marco racconta in spagnolo inventato
-**C3-12**
-```
-Children's picture book illustration, warm watercolor style, joyful.
-Marco (toddler with frameless glasses, food on face) turns to his parents with enormous eyes and launches into excited Spanish-sounding nonsense: "El Chucharito! Elambra del ciuciarro! Booom! Melita de areta! El serpente de rio!" His parents look at each other — they understood zero words but understood everything. Warm, joyful, slightly mysterious.
-Style: warm watercolor and gouache, excited toddler storytelling in made-up language, warm light.
-```
-
-### SCENA 13 — Il contratto alimentare
-**C3-13**
-```
-Children's picture book illustration, warm watercolor style, comedic negotiation.
-Marco (toddler with frameless glasses) addresses his parents with great solemnity — he is offering a deal. His expression: the gravity of a man closing a business agreement. His parents look at each other, understanding something has been agreed upon: no more fuss about food. As long as there are occasional pyramids.
-Style: warm watercolor and gouache, comedic toddler negotiation, warm kitchen palette.
+Children's picture book illustration, warm watercolor and gouache style, magical spectacular kitchen resolution.
+El Chucharito (transformed — sombrero on shoulders, mustaches UP, radiant) has drawn Chichén Itzá in the air above the kitchen table: the stepped pyramid glowing golden, the feathered serpent shadow on its staircase, translucent Maya figures — impossible and beautiful, floating in a normal Italian kitchen. The vision is beginning to fade. Marco (glasses no lenses) is mid-triumphant-speech, one hand raised — BUT the bowl in front of him is completely empty. His parents look at each other with the identical expression of people who have just witnessed something they cannot explain. Chucharon floats in the corner, winking, beginning to disappear.
+Composition: main action in upper 70%. Bottom 30% fades to warm cream white for text overlay. No text, no speech bubbles, no words anywhere in the image.
+Style: warm watercolor and gouache, magical golden glow fading into domestic warmth, Italian kitchen palette.
 ```
 
 ---
 
 ## EPILOGO — Chucharon trova il suo bambino
 
-### SCENA 1 — Elena e papà lasciano il parco
+### PAGINA 1 — La posa Harley-Davidson / Il vialetto verso il tramonto
 **E-01**
 ```
-Children's picture book illustration, warm watercolor style, late afternoon.
-Elena (chubby Italian toddler, under 3) holds her father's hand. He carries a small scooter in his other hand. They walk away from a warm summer playground — the same playground: slide, swings, seesaw visible. Elena looks back over her shoulder. Warm late-afternoon golden light. Beautiful and slightly melancholic.
-Style: warm watercolor and gouache, golden afternoon light, soft emotional tone.
+Children's picture book illustration, warm watercolor and gouache style, epic comedic and cinematic.
+VIEW FROM BEHIND: we see Elena from the back, moving away from us down the park path toward a burning orange sunset. She is a tiny silhouette riding her scooter — but the scooter has extremely tall handlebars that rise HIGH ABOVE HER HEAD, taller than she is. Her two small chubby arms reach UP to grip those high handlebars, elbows slightly bent — exactly like a chopper motorcycle rider. Her back is perfectly straight, her dark hair visible below the handlebars. The composition is cinematic: the long straight path narrows toward the enormous sunset, Elena's small figure dead center, the impossibly tall handlebars framing her against the orange sky. Behind her in the distance: the SAME PARK as the prologue — slide, swings, seesaw. Her father stands far back with the amused expression of someone who has just said the perfect line and has no intention of moving. Her mother has broken into a full run, arms pumping, urgent — growing smaller in the distance as Elena moves away.
+Composition: main action in upper 70%. Bottom 30% fades to warm cream white for text overlay. No text, no speech bubbles, no words anywhere in the image.
+Style: warm watercolor and gouache, comedic epic toddler biker seen from behind, cinematic golden hour park, deep orange and gold palette.
 ```
 
-### SCENA 2 — "No via! Tutti insieme!!!" (epilogo)
+### PAGINA 2 — El Chucharito vola davanti a Elena / Ciuccio mio
 **E-02**
 ```
-Children's picture book illustration, warm watercolor style, emotional.
-Elena (chubby toddler) has stopped walking and is crying, pulling back toward the playground. Her father kneels down. The playground glows golden behind her. Elena is heartbroken — and not just about the playground. She knows something is still here that she can't leave behind. "TUTTI INSIEME" energy.
-Style: warm watercolor and gouache, emotional toddler moment, warm golden light.
+Children's picture book illustration, warm watercolor and gouache style, spectacular climax and intimate reunion.
+El Chucharito (transformed — sombrero on shoulders like a cape, mustaches STRAIGHT UP, glowing) erupts into the air in front of Elena on the path, flying up, down, somersaulting. He spins his sombrero and in the golden air it traces a luminous vision: distant mountains against a deep orange sky, twisted desert trees, a dusty dirt road vanishing at the horizon — the place he comes from. Elena has stopped her scooter. She tilts her head to one side — her characteristic gesture when figuring something out. Now Chucharon is back to his siesta self: sombrero low, mustaches drooping but trembling with deep emotion. Their eyes meet. Her mother arrives just behind, slightly bent, breathless, her expression moving from alarm to wonder.
+Composition: main action in upper 70%. Bottom 30% fades to warm cream white for text overlay. No text, no speech bubbles, no words anywhere in the image.
+Style: warm watercolor and gouache, spectacular aerial magic into quiet intimate recognition, glowing Mexican vision dissolving into warm park light.
 ```
 
-### SCENA 3 — Papà spiega: "c'è anche il tuo ciuccio"
+### PAGINA 3 — Evviva tutti insieme — il finale
 **E-03**
 ```
-Children's picture book illustration, warm watercolor style.
-Dad kneels at Elena's level, speaking gently. He doesn't know she lost the ciuccio HERE — he thinks it's at home. His expression: loving, patient, reassuring. Elena still tearful but listening. Behind them the playground glows. Warm afternoon light. The dramatic irony: the ciuccio is right here.
-Style: warm watercolor and gouache, intimate parenting moment, warm late afternoon light.
-```
-
-### SCENA 4 — Il ciuccio rimasto solo (epilogo)
-**E-04**
-```
-Children's picture book illustration, warm watercolor style, poetic.
-The playground is quiet. In the grass, in the last golden light of afternoon: a small baby pacifier — the one that looks like a tiny Mexican with a sombrero — alone, still, waiting. Beautiful and slightly heartbreaking. "Ad aspettare."
-Style: warm watercolor and gouache, quiet poetic stillness, warm golden light. Slightly melancholic beauty.
-```
-
-### SCENA 5 — Elena sul monopattino: posa Harley-Davidson
-**E-05**
-```
-Children's picture book illustration, warm watercolor style, epic comedic.
-Elena (chubby Italian toddler, under 3) sits on her small scooter in an impossibly cool pose — back straight, gaze distant and serious, hands resting on the high handlebars like a tiny Harley-Davidson biker. Completely deadpan. Hilarious and magnificent. In the background: the SAME park — slide, swings, seesaw visible — the place she knows by heart.
-Style: warm watercolor and gouache, comedic epic toddler energy, warm summer park palette.
-```
-
-### SCENA 6 — ZOOM — Elena sfreccia intorno ai genitori
-**E-06**
-```
-Children's picture book illustration, warm watercolor style, dynamic speed.
-Elena on her scooter — ZOOM! Speed lines, blur effect. She races around her parents: first mom, andata e ritorno. Then dad, andata e ritorno. They spin to watch her. She is unstoppable. Dynamic, funny, fast. Summer park, warm light.
-Style: warm watercolor and gouache, comic speed energy, dynamic motion lines, warm summer palette.
-```
-
-### SCENA 7 — Elena sfida il bambino con le ruotine
-**E-07**
-```
-Children's picture book illustration, warm watercolor style, comedic competition.
-Elena on her scooter faces a small child on a bicycle with training wheels. Elena's expression: absolutely serious, no mercy. The other child looks slightly intimidated. No quarter given.
-Style: warm watercolor and gouache, comedic toddler competition, warm summer palette.
-```
-
-### SCENA 8 — Elena vede il vialetto verso il tramonto
-**E-08**
-```
-Children's picture book illustration, warm watercolor style, cinematic beauty.
-Elena (on scooter) has stopped. She sees it: a long, straight park path stretching toward a setting sun. Deep orange and gold sky. Dappled light on the path. The air shimmers. It is irresistible. Elena's expression: she has decided. This is hers.
-Style: warm watercolor and gouache, cinematic golden hour beauty, deep orange and gold palette.
-```
-
-### SCENA 9 — Elena sul vialetto, sempre più lontana
-**E-09**
-```
-Children's picture book illustration, warm watercolor style, bittersweet beauty.
-Elena's small figure on the scooter grows smaller as she rides down the long sunny path toward the setting sun. "Sempre più lontana." Her parents grow smaller behind her. The light is gorgeous. She is in her own world, fully absorbed. Beautiful and heart-in-throat.
-Style: warm watercolor and gouache, golden hour, distance and independence, warm orange palette.
-```
-
-### SCENA 10 — Chucharon arriva: l'aria di chi ha camminato tanto
-**E-10**
-```
-Children's picture book illustration, warm watercolor style, emotional arrival.
-Chucharon (animated pacifier — sombrero pulled low, extremely long drooping mustaches, slightly hunched) flies into the scene. His posture says: "I have traveled very, very far." Tired, worn, but searching. This is different from all other arrivals — this isn't a mission. This is a search finally ending. Warm golden park light.
-Style: warm watercolor and gouache, emotional homecoming energy, warm golden light. Worn traveler feeling.
-```
-
-### SCENA 11 — "La mia Elenita!" — la vede
-**E-11**
-```
-Children's picture book illustration, warm watercolor style, emotional recognition.
-Chucharon (tired, slightly hunched pacifier character) suddenly spots Elena in the distance. His expression transforms — recognition, joy, relief, overwhelm all at once. "La mia Elenita!" His drooping mustaches almost lift in anticipation. Elena small on her scooter in the background. Dad starting to run after her. Everything happening at once.
-Style: warm watercolor and gouache, emotional recognition moment, warm golden light.
-```
-
-### SCENA 12 — Trasformazione: "Ci voleva El Chucharito"
-**E-12**
-```
-Children's picture book illustration, warm watercolor style, decisive transformation.
-Chucharon reaches for his sombrero with purpose: "Così non si fermava. Ci voleva El Chucharito." He places the sombrero on his shoulders. Transformation: mustaches shoot UP, eyes go wide and radiant, posture becomes upright and powerful. This is the most important transformation. The last one. His superpower has never failed — not once. Warm golden park light + transformation burst.
-Style: warm watercolor and gouache, decisive epic transformation, warm golden burst.
-```
-
-### SCENA 13 — El Chucharito canta davanti a Elena
-**E-13**
-```
-Children's picture book illustration, warm watercolor style, spectacular aerial.
-El Chucharito (transformed — sombrero on shoulders, mustaches UP, radiant) launches himself in front of Elena's eyes on the scooter path. Flies up, down, somersaults. Musical notes around him. "Fermati, non andar via! Elenita mia!" Elena on her scooter about to stop. Dad running in background. Spectacular aerial energy.
-Style: warm watercolor and gouache, spectacular aerial acrobatics, warm golden sunset light.
-```
-
-### SCENA 14 — Il sombrero disegna il paesaggio messicano
-**E-14**
-```
-Children's picture book illustration, warm watercolor style, spectacular magical.
-El Chucharito spins his sombrero and draws in the air: distant mountains, orange sunset sky, sparse low trees, a dusty dirt road disappearing toward the horizon. The Mexican border landscape — the place where Chucharon comes from, the place from the prologue. It glows in the air in front of Elena. Warm, beautiful, impossible.
-Style: warm watercolor and gouache, floating landscape in warm air, desert sunset palette — oranges, purples, golden dust.
-```
-
-### SCENA 15 — Elena si ferma: "Ciuccio mio!"
-**E-15**
-```
-Children's picture book illustration, warm watercolor style, recognition moment.
-Elena (chubby toddler) has stopped her scooter. She tilts her head to one side — her characteristic gesture of figuring something out. She looks at El Chucharito with focused, suddenly understanding eyes. Then: "Ciuccio mio!" — recognition and joy opening across her face. This is HER pacifier. He came back.
-Style: warm watercolor and gouache, intimate recognition moment, warm golden park light.
-```
-
-### SCENA 16 — Papà arriva di corsa: la realizzazione
-**E-16**
-```
-Children's picture book illustration, warm watercolor style, comedic emotional.
-Elena's dad arrives completely out of breath. He stares at El Chucharito hovering in the air. "Ma quello è... un ciuccio?" He stops. The realization hits: "Ecco perché ti sei fermata! Hai ritrovato il tuo ciuccio — grazie a Dio!" His expression moves from confusion to dawning understanding to relief. Elena looks entirely unsurprised. In the far background, mom is laughing.
-Style: warm watercolor and gouache, comedic adult realization + relief, warm park light.
-```
-
-### SCENA 17 — I baffi fremono: come la prima volta
-**E-17**
-```
-Children's picture book illustration, warm watercolor style, quiet emotional callback.
-Chucharon (back to normal — sombrero on head, drooping mustaches) and Elena look at each other. His mustaches still drooping but trembling/quivering with emotion — the same trembling as in the prologue. "Come la prima volta." Their eyes meet. Small quiet moment in a large warm golden park. The reunion has happened.
-Style: warm watercolor and gouache, quiet emotional reunion, warm golden hour light. Soft and intimate.
-```
-
-### SCENA 18 — Chucharon strizza l'occhio — e non sparisce
-**E-18**
-```
-Children's picture book illustration, warm watercolor style, the wink that changes everything.
-Chucharon gives his signature wink — but this time, he does not disappear. He stays, floating warm and present. Elena watches. This is new. "E non sparì. Questa volta, restò." The moment is small and enormous at the same time. Warm golden park light. Still, quiet, complete.
-Style: warm watercolor and gouache, quiet significant moment, warm golden park light.
-```
-
-### SCENA 19 — Elena mette il ciuccio in tasca: "Evviva tutti insieme!"
-**E-19**
-```
-Children's picture book illustration, warm watercolor style, warm joyful finale.
-Elena (chubby toddler) reaches out and gently takes Chucharon — and puts him in her pocket. The same pocket. He's back where he belongs. Then she opens her arms wide: "Evviva tutti insieme!" Behind her: dad (finally understanding, smiling with relief), mom (arriving, laughing). The park glows in warm golden evening light. Everyone is here. The pocket is full. Everything is whole.
-Style: warm watercolor and gouache, warm golden finale, full joy, Italian summer evening light. Soft, complete, perfect.
+Children's picture book illustration, warm watercolor and gouache style, perfect warm finale.
+Elena (chubby toddler) has just placed Chucharon gently into her pocket — the SAME pocket he fell out of in the prologue. She opens her arms wide in pure joy, her face radiant. Her mother beside her, breathless but smiling with deep relief, arms open too. In the background her father, laughing warmly, completely at ease. The park glows in warm golden evening light: same slide, swings, seesaw — now full of warmth rather than loss. Everyone is here. The pocket is full. The circle is complete.
+Composition: main action in upper 70%. Bottom 30% fades to warm cream white for text overlay. No text, no speech bubbles, no words anywhere in the image.
+Style: warm watercolor and gouache, golden finale warmth, full joy, Italian summer evening. Soft, complete, whole.
 ```
 
 ---
 
 ## NOTE PER L'ILLUSTRATORE
+
+### Text zone
+Ogni illustrazione ha una text zone obbligatoria: il 30% inferiore dell'immagine sfuma gradualmente verso un bianco caldo (#FFF8F0). La sfumatura inizia all'altezza del 70% e diventa completamente crema al bordo inferiore. Questa area è riservata al testo del libro — non deve contenere elementi narrativi principali.
 
 ### Palette colori per capitolo
 | Capitolo | Palette dominante |
@@ -563,16 +232,11 @@ Style: warm watercolor and gouache, warm golden finale, full joy, Italian summer
 | Epilogo | Arancio tramonto, oro profondo, rosso messicano, viola sera |
 
 ### Regole di continuità visiva
-- Il sombrero: sempre largo, sempre dorato caldo — MAI chiamarlo "cappellino"
-- I baffi: in stato normale SEMPRE ricadenti verso il basso; in El Chucharito SEMPRE dritti verso l'alto; terzo stato (prologo/epilogo): ricadenti ma frementi
-- La trasformazione è sempre esplicita: sombrero sulla testa = Chucharon; sombrero sulle spalle = El Chucharito
+- Il sombrero: sempre largo, sempre dorato caldo
+- I baffi: stato normale SEMPRE ricadenti verso il basso; El Chucharito SEMPRE dritti verso l'alto; stato alert: ricadenti ma frementi
+- La trasformazione è sempre esplicita: sombrero in testa = Chucharon; sombrero sulle spalle = El Chucharito
 - Marco ha sempre gli occhiali SENZA LENTI — solo montatura
-- Elena ha sempre guance paffute, capelli scuri, espressione determinata
-- Il parco del prologo e il parco dell'epilogo sono lo STESSO luogo: stessi scivolo, altalena, salta-sasta, stesso vialetto verso il sole
-- La tasca di Elena: il ciuccio viene perso dalla tasca nel prologo, torna nella tasca alla fine dell'epilogo — dettaglio visivo importante
-- Il ciuccio a terra (P-03 e E-04): deve sembrare chiaramente Chucharon addormentato — piccolo messicano con sombrero
-
-### Formato
-- Illustrazione a pagina intera (full bleed)
-- Spazio per testo sovrimpresso: preferibilmente in alto o in basso
-- Stile coerente attraverso tutti i capitoli
+- Elena: guance paffute, capelli scuri, espressione determinata, sempre la tasca
+- Il parco del prologo e del epilogo sono lo STESSO luogo
+- La tasca di Elena: il ciuccio cade nel prologo, torna nell'epilogo
+- I genitori di Elena sono ENTRAMBI presenti in prologo ed epilogo
