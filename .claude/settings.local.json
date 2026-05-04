@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(dir C:\\\\Users\\\\srazzano\\\\Desktop\\\\docs\\\\seo\\\\ghost-writer:*)",
+      "Bash(python main.py --dry-run)",
+      "Bash(python:*)",
+      "Bash(cmd /c \"cd /d C:\\\\Users\\\\srazzano\\\\Desktop\\\\docs\\\\seo\\\\ghost-writer\\\\illustrator && python main.py --dry-run 2>&1\")",
+      "Bash(mkdir -p chapters-old)",
+      "Bash(cp chapters/*.md chapters-old/)",
+      "Bash(cp chapters-v2/*.md chapters/)",
+      "Bash(dir C:\\\\\\\\Users\\\\\\\\srazzano\\\\\\\\Desktop\\\\\\\\docs\\\\\\\\seo\\\\\\\\ghost-writer\\\\\\\\illustrator:*)"
+    ]
+  }
+}

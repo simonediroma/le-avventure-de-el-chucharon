@@ -44,6 +44,20 @@ L'autore è suo padre — e la adora.
 
 L'epilogo la coglie esattamente sul confine: abbastanza grande per il monopattino e la velocità e il vialetto verso il sole, abbastanza piccola da non sapere ancora quanto si è allontanata. Chucharon che resta invece di sparire risolve la tensione centrale di Elena: aveva bisogno di correre via, e aveva bisogno che qualcuno la aspettasse.
 
+## Canonical Visual Reference
+**Riferimento visivo ufficiale: `scenes/COVER.md`** — la copertina del libro è la descrizione canonica di come Elena appare in tutte le illustrazioni.
+
+Dettagli fisici canonici:
+- Età: sotto i 3 anni
+- Viso: guance tonde e paffute come mele, carnagione calda mediterranea
+- Capelli: scuri, leggermente ondulati, le cadono sugli occhi
+- Corporatura: proporzioni da toddler — testa grande e rotonda, gambe corte, pancina tonda
+- Outfit copertina / epilogo: vestitino estivo celeste (light blue summer dress), sandali bianchi
+- Outfit prologo: shorts di jeans azzurri, t-shirt bianca semplice, sneakers bianche
+- Espressione canonica (copertina): sorriso aperto e radioso — raro e prezioso. In tutte le altre scene è più composta o seria
+- Gesto caratteristico: braccia leggermente aperte, palmi verso l'alto — "tutti insieme"
+- Occhi: grandi, scuri, espressivi
+
 ## Note
 - "Tutti insieme" è la sua frase. Può apparire nel testo.
 - La voce storpiata (pescerutto, io sono giocando) è oro — da usare con parsimonia nell'epilogo se Elena parla.

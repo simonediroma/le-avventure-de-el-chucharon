@@ -1,209 +1,65 @@
 ---
 title: I dentini di Sofia
-version: 1.5
-claim: I dentini fanno male, ma ogni dolore ha la sua distrazione — e Sofia era pronta a mordere il mondo
-status: complete
+version: 5.0
+style: narrativo-bambini
+status: draft-v3
 ---
-
-## Demolition Log
-
-### Ciclo 1 — 2026-04-21
-
-| Problema | Categoria | Stato | Risoluzione |
-|---|---|---|---|
-| "Lo sta facendo" senza referente chiaro | struttura/climax | integrato v1.1 | dialogo specifico: mamma celebra l'espadrillas lasciata, papà commenta la paglia messicana |
-| Introduzione Chucharon identica al Cap. 1 | serie/ripetizione | integrato v1.2 | nuova intro: gobbuto, baffi ricadenti, aria da siesta interrotta — fisicamente distinto e più ricco |
-| Denti magicamente acquisiti | personaggio/coerenza | integrato v1.3 | baffi lunghi aggiunti come secondo segnale visivo della trasformazione; parentetica eliminata — i denti erano già suoi |
-| Mamma parla in italiano/spagnolo misto | voce/registro | integrato v1.4 | riga riscritta in italiano puro — "Messico" fa il lavoro da solo |
-| Finale non menziona Chucharon | serie/coerenza | integrato v1.5 | chiusura ampliata: Sofia ricorda i denti bianchi di El Chucharito — mai, in tutta la vita |
-| Pediatra come formula ricorrente | pattern/struttura | nota | non ancora un problema — da tenere a mente dal Cap. 3 in poi |
 
 # I dentini di Sofia
 
 ---
 
-Sofia era una bambina magra.
+Sofia era una bimba magra, magrissima. Le braccia come rametti, le gambe come bastoncini e la pancia piatta come un foglio di carta. Il pediatra diceva che era nella norma, e la mamma e il papà annuivano, un po' convinti e un po' no. Sofia aveva sempre una faccia seria, l'aria di chi ha molte cose a cui pensare e non tutte piacevoli.
 
-Magra e ossuta.
-
-*(Il pediatra diceva: è nella norma!
-La mamma e il papà non erano sicuri di cosa fosse "la norma".
-Ma erano preoccupati lo stesso.)*
-
-E aveva una faccia.
-
-Una faccia stizzita.
-
-Lei non era arrabbiata, aveva solo un problemino pungente...
-
----
-
----
+In quel periodo Sofia aveva una cosa molto precisa a cui pensare.
 
 I dentini.
 
-I primi dentini di Sofia stavano arrivando.
+I primi dentini stavano arrivando. Spingevano e tiravano con tutta la forza che avevano per uscire fuori dalle gengive. Facevano male molto molto male. Sofia che era una bomba arguta aveva trovato una soluzione: Mordere. Mordere qualsiasi cosa, tutto quello che trovava e qualcosa da mordere la trovava sempre.
 
-E facevano male.
-
-Molto male.
-
-*(Tantissimo male, per essere precisi.)*
-
----
-
-Sofia aveva trovato una soluzione.
-
-Mordere.
-
-Il bordo del tavolo. **CROC.**
-
-Il mordillo nuovo. **CROC.**
-
-La sedia del soggiorno. **CROC. CROC. CROC.**
-
-*(La sedia era di noce. Pregiata.
-Comprata con cinque anni di risparmi.)*
-
----
-
-— Non ti preoccupare, — disse il papà, — passerà prima o poi.
-
-La mamma guardò la sedia di noce.
-
-Poi guardò il papà.
-
-— Passerà prima o poi, — ripeté il papà, con meno convinzione.
-
----
-
-E poi... le espadrillas.
-
-**LE ESPADRILLAS.**
-
-Le espadrillas di paglia del papà.
-
-Sofia le aveva trovate sotto il divano.
-
-E si era messa al lavoro.
+Mordeva il bordo del tavolo. Mordeva il mordillo come se fosse un manicaretto. Mordeva la bella sedia di noce del soggiorno ereditata dalla nonna della mamma (sua bisnonna) e che valeva più di tutti gli altri mobili di casa messi insieme.
 
 **CROC. CROC. CROC.**
 
----
+La mamma contò le tacche sulla sedia in silenzio. Il papà guardò la mamma con una espressione tra il rassegnato ed il disperato e disse che sarebbe passata. La mamma non rispose, continuava a fissare le impronte delle gengive di Sofia sulla sedia della nonna.
 
-— Sofia! — urlò la mamma.
-— Lascia stare le espadrillas di papà — le ha comprate in Messico!
+E poi Sofia trovò le espadrillas di paglia del papà — quelle belle, portate dal Messico. Sofia le tirò fuori, le annusò con l'aria professionale di chi sa quello che fa, e le assaggiò.
 
----
+**CROC. CROC. CROC.**
 
-Ed è esattamente in quel momento che arrivò Chucharon.
-
----
-
-Chucharon era un ciuccio. Un ciuccio speciale.
-
-Aveva un sombrero calato sugli occhi.
-E i baffi più lunghi che aveste mai visto — lunghi e ricadenti verso il basso.
-
-Le spalle curve. Quasi gobbuto.
-
-L'aria di chi aveva interrotto la siesta per una cosa urgente.
-
-E volava.
-
-*(I ciucci normali non volano.
-Chucharon non era un ciuccio normale.
-E nascondeva un superpotere che nessuno si aspettava.)*
+La mamma appena la vide disse: Sofia, lascia stare le espadrillas di papà, le ha portate dal Messico! Era la voce di chi aveva già perso la sedia della nonna e non voleva perdere anche le espadrillas.
 
 ---
 
-Si avvicinò a Sofia.
+Ed è esattamente in quel momento che arrivò volando El Chucharon.
 
-Sofia smise di mordere.
+Si avvicinò a Sofia che stava mordicchiando di gusto le espadrillas messicane del papà. Appena lo vide Sofia smise di mordere. Lo guardò con quegli occhi seri e attenti, stava decidendo se fidarsi oppure no.
 
-Lo guardò.
+Chucharon capì al volo, prese il suo sombrero e lo spostò sulle spalle.
 
-Lo guardò ancora. Con molta attenzione.
+Un attimo prima: sombrero calato, baffi lunghi e addormentati — l'aria di un signore messicano in siesta.
 
-*(Aveva l'aria di qualcuno che stava facendo dei calcoli.)*
+Un attimo dopo: occhi spalancati e vivaci, baffi su, dritti, trionfanti, raggiante.
 
----
-
-Chucharon capì al volo.
-
-Prese il suo sombrero...
-
-...e lo spostò sulle spalle.
-
-Velocemente.
-
----
-
-E il suo viso cambiò.
-
-Un attimo prima: sombrero basso, baffi lunghi ricadenti — un messicano in siesta.
-
-Un attimo dopo: occhi spalancati, vispi, operosi.
-I baffi... su. Dritti. Trionfanti.
-
-Raggiante.
-
-Gli occhi — e i baffi — di qualcuno che ha un lavoro da fare.
-
-Si era trasformato in El Chucharito.
-
-Il suo superpotere era quello di farsi amare persino dai bambini più diffidenti.
-
-E Sofia era esattamente il tipo di sfida che preferiva.
-
-Iniziò a cantare, sulle note de La Cucaracha.
+Si era trasformato in El Chucharito, il cui superpotere era farsi amare persino dai bambini più diffidenti. Iniziò a cantare, sulle note de La Cucaracha.
 
 ---
 
 🎵 *El Chucharito, El Chucharito*
-*mostra quei dentini!*
+*fai uscire quei dentini!*
 *El Chucharito, El Chucharito*
-*son belli, son carini!* 🎵
+*ma che belli, ma che carini!* 🎵
 
 ---
 
-El Chucharito ballò davanti agli occhi di Sofia.
+El Chucharito sfoggiò un sorriso con 360 denti bianchi bianchissimi e grandissimi.
 
-Volò su. Volò giù. Fece capriole.
+Sofia iniziò a ridere. Rise così tanto, così forte e così a lungo che lasciò andare l'espadrillas. Mentre sputava un po' di paglia la mamma sussurrò guardando il papà: l'ha lasciata, ha smesso di mordere! Il papà disse sottovoce: menomale, la paglia messicana non è proprio digeribile.
 
-Poi aprì il sorriso più grande del mondo —
-
-e mostrò i denti più bianchi che Sofia avesse mai visto.
+Chucharon strizzò l'occhio, e sparì. Elenita non l'aveva ancora trovata. C'era ancora strada da fare.
 
 ---
 
-Sofia rise.
+Quei denti bianchi, il sorriso più grande del mondo — Sofia non se li sarebbe mai dimenticati. Mai, in tutta la vita.
 
-Rise così tanto che lasciò andare l'espadrillas.
-
-E sputò un po' di paglia.
-
----
-
-— L'ha lasciata! Ha smesso di mordere l'espadrillas! — sussurrò la mamma.
-
-— Beh, menomale, — disse il papà, — la paglia messicana non è proprio digeribile.
-
-Chucharon li guardò, strizzò l'occhio, e sparì.
-
-Elenita non l'aveva ancora trovata.
-
-C'era ancora strada da fare.
-
----
-
-Sofia non capiva perché tutti facessero così tante storie per i dentini.
-
-I dentini erano una cosa meravigliosa.
-
-Permettevano di mordere.
-
-E lei era bravissima a mordere.
-
-Quei denti bianchi, però — i denti di El Chucharito —
-non se li sarebbe mai dimenticati. Mai, in tutta la vita.
+E la sedia di noce? La sedia di noce aveva ancora i segni. Ma adesso, in fondo, sembravano quasi un disegno.

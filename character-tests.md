@@ -79,8 +79,8 @@ Style: warm watercolor and gouache, Pixar-inspired expressiveness, Italian summe
 **ELE-03**
 ```
 Children's picture book illustration. Warm watercolor and gouache style.
-Full body portrait of Elena (chubby Italian toddler, under 3, dark hair) riding her scooter.
-EXACT POSE: She sits on the scooter like a Harley-Davidson rider — NOT like a normal child on a scooter. Back straight, hands resting on tall handlebars, head up, looking forward into the distance. The scooter has tall handlebars. She looks like a tiny biker, completely confident.
+Full body portrait of Elena (chubby Italian toddler, under 3, dark hair) riding her kick scooter (monopattino — non-motorized, two inline wheels, flat foot deck, foot-powered).
+EXACT POSE: She stands on the kick scooter like a Harley-Davidson rider — NOT like a normal child on a kick scooter. Back straight, hands resting on very tall handlebars that rise above her head, head up, looking forward into the distance. The kick scooter has unusually tall handlebars. She looks like a tiny biker, completely confident.
 Evening golden light, warm orange sky background.
 Style: warm watercolor and gouache, cinematic warmth, Italian summer sunset palette.
 ```
@@ -210,8 +210,8 @@ Style: warm watercolor and gouache, maximum wonder, Pixar-inspired expressivenes
 ```
 Children's picture book illustration. Warm watercolor and gouache style.
 Full body portrait of Elena's father: a young Italian dad, early 30s, outdoors in a summer park.
-EXACT APPEARANCE: Mediterranean features, dark hair, warm eyes. Casual summer clothes — t-shirt, shorts or light trousers, sneakers. He is holding a small child's scooter in one hand. Expression: warm, slightly amused, patient — the dad of a very stubborn but adorable toddler.
-POSE: Standing relaxed in a playground, scooter in hand, looking forward.
+EXACT APPEARANCE: Mediterranean features, dark hair, warm eyes. Casual summer clothes — t-shirt, shorts or light trousers, sneakers. He is holding a small children's kick scooter (monopattino — non-motorized, flat deck, two inline wheels) with tall handlebars in one hand. Expression: warm, slightly amused, patient — the dad of a very stubborn but adorable toddler.
+POSE: Standing relaxed in a playground, kick scooter in hand, looking forward.
 Summer park light, soft golden afternoon background.
 Style: warm watercolor and gouache, soft rounded shapes, Italian summer warmth.
 ```
@@ -221,7 +221,7 @@ Style: warm watercolor and gouache, soft rounded shapes, Italian summer warmth.
 ```
 Children's picture book illustration. Warm watercolor and gouache style.
 Elena's father (young Italian dad, early 30s, casual summer clothes) kneeling down to toddler level.
-POSE: On one knee, face at child height, speaking gently and lovingly. Arms slightly open, scooter on the ground beside him. Expression: patient, tender, slightly pleading — "please, let's go home."
+POSE: On one knee, face at child height, speaking gently and lovingly. Arms slightly open, kick scooter (monopattino) on the ground beside him. Expression: patient, tender, slightly pleading — "please, let's go home."
 Summer playground background, golden evening light.
 Style: warm watercolor and gouache, tender parent moment, Italian summer warmth.
 ```
@@ -242,7 +242,7 @@ Style: warm watercolor and gouache, soft rounded shapes, Italian summer warmth.
 ```
 Children's picture book illustration. Warm watercolor and gouache style.
 Elena's mother (young Italian mum, late 20s to early 30s, summer dress, sandals) holding Elena's hand as they leave a summer playground.
-POSE: Walking, Elena's small hand in hers, looking forward toward the exit. Expression: gentle but firm — it's time to go. Her other hand free. Behind them: the dad follows with the scooter. The golden afternoon light casts long shadows. Elena beside her, chubby and reluctant.
+POSE: Walking, Elena's small hand in hers, looking forward toward the exit. Expression: gentle but firm — it's time to go. Her other hand free. Behind them: the dad follows wheeling the kick scooter (monopattino). The golden afternoon light casts long shadows. Elena beside her, chubby and reluctant.
 Summer park, warm golden late afternoon light.
 Style: warm watercolor and gouache, tender but determined parent energy, Italian summer warmth.
 ```
@@ -252,7 +252,7 @@ Style: warm watercolor and gouache, tender but determined parent energy, Italian
 ```
 Children's picture book illustration. Warm watercolor and gouache style.
 Elena's mother (young Italian mum, summer clothes) running at full speed down a long park path toward the setting sun.
-POSE: Full sprint — arms pumping, hair flying behind her, face urgent and worried. She is chasing Elena who has gone too far on her scooter. "Elena, fermati! Ci sono le macchine!" Expression: pure parental alarm, but not panic — she's moving fast and determined.
+POSE: Full sprint — arms pumping, hair flying behind her, face urgent and worried. She is chasing Elena who has gone too far on her kick scooter (monopattino). "Elena, fermati! Ci sono le macchine!" Expression: pure parental alarm, but not panic — she's moving fast and determined.
 Long vialetto stretching toward orange sunset behind her. Summer park light.
 Style: warm watercolor and gouache, dynamic running energy, warm golden sunset palette.
 ```
@@ -302,8 +302,8 @@ Style: warm watercolor and gouache, new-parent warmth, soft domestic light.
 ```
 Children's picture book illustration. Warm watercolor and gouache style.
 Full body portrait of Sofia's father: a young Italian dad, early to mid 30s, at home.
-EXACT APPEARANCE: Mediterranean features, relaxed holiday vibes — slight tan, easy smile. Casual summer clothes with a vacation feel: linen shirt, light trousers. On his feet or nearby: straw espadrilla shoes (the ones Sofia keeps biting). Expression: laid-back but slightly bewildered by his very opinionated baby.
-POSE: Standing in a living room, relaxed posture, warm and slightly amused expression.
+EXACT APPEARANCE: Mediterranean features, relaxed holiday vibes — slight tan, easy smile. Casual summer clothes with a vacation feel: linen shirt, light trousers. On his feet or nearby: straw espadrilla shoes. Expression: laid-back and warmly charmed by his very expressive little one.
+POSE: Standing in a living room, relaxed posture, warm and gently amused expression.
 Warm domestic living room light.
 Style: warm watercolor and gouache, Mediterranean vacation energy, Italian home warmth.
 ```
@@ -313,10 +313,10 @@ Style: warm watercolor and gouache, Mediterranean vacation energy, Italian home 
 ```
 Children's picture book illustration. Warm watercolor and gouache style.
 Full body portrait of Sofia's mother: a young Italian mum, late 20s to early 30s, at home.
-EXACT APPEARANCE: Mediterranean features, practical and put-together. Hair back or in a tidy style. Casual home clothes, clean and neat. Expression: no-nonsense warmth — she set the 42-minute rule about no TV and she means it. Confident, decisive, but genuinely loving.
-POSE: Standing in a living room, slightly hands-on-hips, direct forward gaze. The person who runs the household.
+EXACT APPEARANCE: Mediterranean features, practical and put-together. Hair back or in a tidy style. Casual home clothes, clean and neat. Expression: warm and organized — she creates a loving, structured home for her family. Calm, composed, genuinely caring.
+POSE: Standing in a living room, relaxed and composed posture, warm direct smile. The steady, loving center of the family.
 Warm domestic light.
-Style: warm watercolor and gouache, quietly authoritative warmth, Italian home palette.
+Style: warm watercolor and gouache, organized warmth, Italian home palette.
 ```
 
 ---
@@ -339,9 +339,9 @@ Style: warm watercolor and gouache, creative-dad energy, Italian kitchen warmth.
 ```
 Children's picture book illustration. Warm watercolor and gouache style.
 Marco's father (young Italian dad, intellectual/artsy look) with a kitchen dish towel draped over his head like an improvised hat.
-POSE: Standing at the kitchen table, dish towel on head, making an earnestly ridiculous face — trying everything to distract his very serious baby from his food refusal. Expression: "I know this looks absurd, but maybe it'll work."
+POSE: Standing at the kitchen table, dish towel on head, making a wonderfully silly face — trying everything to make his very serious baby smile and laugh. Expression: cheerful, playful, completely committed to making his little one happy.
 High chair and food bowl visible in frame.
-Style: warm watercolor and gouache, comic parenting desperation, warm Italian kitchen.
+Style: warm watercolor and gouache, playful parenting energy, warm Italian kitchen.
 ```
 
 ### TEST 3 — Mamma di Marco

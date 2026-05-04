@@ -17,10 +17,10 @@
   "ELE-03": "ok",
   "ELE-04": "ok",
   "LEO-01": "ok",
-  "LEO-02": "ok",
+  "LEO-02": "empty",
   "LEO-03": "ok",
   "SOF-01": "ok",
-  "SOF-02": "ok",
+  "SOF-02": "empty",
   "SOF-03": "ok",
   "MAR-01": "ok",
   "MAR-02": "ok",
@@ -33,7 +33,7 @@
   "SET-06": "ok",
   "SET-07": "ok",
   "SET-08": "ok",
-  "SET-09": "ok",
+  "SET-09": "error: [WinError 10053] Connessione interrotta dal software del computer host",
   "SET-10": "ok",
   "SET-11": "ok",
   "SET-12": "ok",
@@ -103,5 +103,10 @@
   "E-17": "ok",
   "E-18": "ok",
   "E-19": "ok",
-  "C1-02": "ok"
+  "C1-02": "ok",
+  "COVER": "ok",
+  "C1-00": "ok",
+  "C2-00": "ok",
+  "C3-00": "ok",
+  "E-00": "ok"
 }

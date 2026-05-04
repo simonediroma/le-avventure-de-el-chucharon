@@ -17,7 +17,7 @@
 
 **La trasformazione di Chucharon — doppia identità**: Chucharon è il personaggio normale. Quando sposta il sombrero dalla testa alle spalle, diventa **El Chucharito** — il supereroe. Come Clark Kent e Superman. Il nome cambia con la trasformazione. La trasformazione ha due segnali visivi simultanei: (1) sombrero dalla testa alle spalle; (2) baffi lunghi ricadenti → su, dritti, trionfanti. Da "messicano in siesta" a raggiante, occhi spalancati, vispi, operosi. I bambini e i genitori la riconoscono subito. Terzo stato dei baffi (stabilito nel Prologo): ancora ricadenti ma frementi = Chucharon allertato/speranzoso, non ancora trasformato.
 
-**La canzoncina di El Chucharito**: ogni capitolo ha la propria versione della canzone sulle note de *La Cucaracha*, con versi specifici all'argomento del capitolo. La melodia e il nome "El Chucharito" sono costanti — i bambini la riconoscono ad ogni storia. Struttura: 5+5 sillabe / ~7 sillabe / 5+5 sillabe / ~6 sillabe (rima tra verso 2 e 4). La canzone va introdotta nel testo PRIMA dei versi. Canzoncine già usate — non ripetere: Cap. 1: "alza quella testa / sulla pancia, che festa" (rima: testa/festa). Cap. 2: "mostra quei dentini / son belli, son carini" (rima: dentini/carini). Cap. 3: "apri quella bocca / ogni sapore ti tocca" (rima: bocca/tocca). Epilogo: "fermati, non andar via! / Elenita mia!" (rima: via/mia).
+**La canzoncina di El Chucharito**: ogni capitolo ha la propria versione della canzone sulle note de *La Cucaracha*, con versi specifici all'argomento del capitolo. La melodia e il nome "El Chucharito" sono costanti — i bambini la riconoscono ad ogni storia. Struttura: 5+5 sillabe / ~7 sillabe / 5+5 sillabe / ~6 sillabe (rima tra verso 2 e 4). La canzone va introdotta nel testo PRIMA dei versi. Canzoncine già usate — non ripetere: Cap. 1: "forza Leo alza la testa / sulla pancia, sai che festa" (rima: testa/festa). Cap. 2: "fai uscire quei dentini / ma che belli, ma che carini" (rima: dentini/carini). Cap. 3: "metti il cucchiaio in bocca / mastica che è un'albicocca" (rima: bocca/albicocca). Epilogo: "fermati, non andar via! / Tu es Elenita mia!" (rima: via/mia).
 
 **Struttura di ogni capitolo**: genitori al limite → Chucharon arriva nel momento esatto → distrae/aiuta il bambino → obiettivo raggiunto → Chucharon strizza l'occhio e sparisce.
 
@@ -29,11 +29,11 @@
 
 | # | Titolo | Status | File |
 |---|--------|--------|------|
-| Prologo | Chucharon si sveglia | completo v1.4 | `chapters/00-prologo.md` |
-| 1 | La tummy time di Leo | completo v3.2 | `chapters/01-la-tummy-time-di-leo.md` |
-| 2 | I dentini di Sofia | completo v1.5 | `chapters/02-i-dentini-di-sofia.md` |
-| 3 | La pappa di Marco | completo v1.2 | `chapters/03-la-pappa-di-marco.md` |
-| Epilogo | Chucharon trova il suo bambino | completo v1.2 | `chapters/04-epilogo.md` |
+| Prologo | Chucharon si sveglia | completo v5.0 | `chapters/00-prologo.md` |
+| 1 | La tummy time di Leo | completo v5.0 | `chapters/01-la-tummy-time-di-leo.md` |
+| 2 | I dentini di Sofia | completo v5.0 | `chapters/02-i-dentini-di-sofia.md` |
+| 3 | La pappa di Marco | completo v5.0 | `chapters/03-la-pappa-di-marco.md` |
+| Epilogo | Chucharon trova il suo bambino | completo v5.0 | `chapters/04-epilogo.md` |
 
 ## Promesse aperte
 
@@ -43,3 +43,47 @@
 ## Tono stabilito
 
 Due livelli di lettura: i bambini amano Chucharon, i genitori sorridono per le cose che capiscono solo loro. Dinamico. Mai moralista. Mai sentimentale.
+
+---
+
+## Regole di scrittura narrative (estratte dalla revisione v5.0)
+
+### 1 — Formula di arrivo di Chucharon
+Sempre: **"Ed è esattamente in quel momento che arrivò volando El Chucharon."**
+Non "arrivò Chucharon" — il "volando" è parte del ritmo e del personaggio.
+Eccezione: nell'Epilogo l'arrivo è più silenzioso e personale ("arrivò Chucharon") perché non è una missione — è un ritrovamento.
+
+### 2 — Descrizione di Chucharon: solo nel Prologo
+Nel Prologo Chucharon viene descritto per intero (sombrero, baffi, volo, superpotere). Nei capitoli successivi il lettore lo conosce già — non ripetere la descrizione estesa. Al massimo una riga di ancoraggio visivo. Nei capitoli di Sofia, Marco ed Epilogo la descrizione è già eliminata o ridotta.
+
+### 3 — Il problema del bambino: specificità fisica prima
+Non descrivere il problema in modo generico. Partire dal dettaglio fisico più concreto e comico.
+- Sbagliato: "Leo aveva problemi con il tummy time."
+- Giusto: "Leo era pigro, pigro su tutto tranne che per la poppata."
+Il dettaglio specifico porta l'umorismo e rende il personaggio reale.
+
+### 4 — L'arco emotivo dei genitori: mostrare, non dire
+I genitori devono avere un arco in progressione — dallo "starà bene" al "siamo quasi impauriti". Ogni reazione deve essere specifica, non generica.
+- Sbagliato: "La mamma e il papà si guardarono."
+- Giusto: "La mamma contò le tacche sulla sedia in silenzio. Il papà disse che sarebbe passata. La mamma non disse niente."
+La progressione culmina sempre nel gesto/frase disperata che invoca Chucharon (la parola messicana).
+
+### 5 — La parola messicana che invoca Chucharon
+Ogni capitolo ha la propria parola-chiave messicana pronunciata inconsapevolmente da un genitore al culmine della disperazione. La parola deve essere pronunciata naturalmente nel contesto — non forzata.
+- Cap. 1: "tartaruga messicana" (il papà propone ancora il gioco)
+- Cap. 2: "Messico" (la mamma urla delle espadrillas portate dal Messico)
+- Cap. 3: "piramidi messicane" (il papà con il canovaccio in testa)
+- Epilogo: "al confine con il Messico" (il papà che insegue Elena sul monopattino)
+
+### 6 — La chiusura: specifica al bambino, con un tocco comico
+L'ultima frase del capitolo deve riportare a quello che quel bambino specifico ha imparato o cambiato — non una morale generica. Deve avere un ultimo tocco comico o tenero.
+- Cap. 1: "valeva la pena, finalmente aveva trovato un buon motivo per fare il tummy time."
+- Cap. 2: "La sedia di noce aveva ancora i segni. Ma adesso sembravano quasi un disegno."
+- Cap. 3: "Il canovaccio tornò alla cucina."
+- Epilogo: "E quella volta, davvero tutti insieme, tornarono a casa."
+
+### 7 — "salta salta" (non "salta-sasta")
+Il gioco del parco si chiama "salta salta" — senza trattino. Verificare in tutti i testi.
+
+### 8 — Testo delle scene (text_block): paragrafo continuo
+Il testo delle scene va su un paragrafo continuo, non spezzato per ogni frase YAML. Il ritmo del testo deve reggere come flusso orale. Le frasi più corte hanno il loro peso solo all'interno del flusso.

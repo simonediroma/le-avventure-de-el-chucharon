@@ -1,139 +1,48 @@
 ---
 title: Prologo — Chucharon si sveglia
-version: 1.4
-claim: Ogni viaggio inizia da una perdita — e da una voce in lontananza
-status: complete
+version: 4.0
+style: narrativo-bambini
+status: draft-v2
 ---
-
-## Demolition Log
-
-### Ciclo 1 — 2026-04-22
-
-| Problema | Categoria | Stato | Risoluzione |
-|---|---|---|---|
-| Sparizione immotivata per lettore di primo ciclo | struttura/meccanica | integrato v1.1 | Chucharon chiede "Elenita sei tu?" e dice "Vamos a veder!" — la sparizione diventa una ricerca, non un abbandono |
-| "Solo quella frase" — meta-commento ridondante | voce/ritmo | integrato v1.2 | sostituito con "Frrrrr..." + balla di fieno rotolante — il deserto risponde al posto del narratore |
-| "I baffi si mossero" — direzione non specificata | personaggio/fisicità | integrato v1.3 | "ancora ricadenti — fremettero" — terzo stato espressivo: giù+frementi = allerta/speranza, distinto dalla trasformazione |
 
 # Prologo — Chucharon si sveglia
 
 ---
 
-Elena era per mano alla mamma.
+Elena aveva quasi tre anni, le guance tonde come mele e i capelli scuri che le cadevano sugli occhi. Quando camminava lo faceva con grande serietà, come se ogni passo fosse una decisione importante. E quando diceva qualcosa, lo diceva con tutto il cuore.
 
-Il papà seguiva con il monopattino.
+La sua frase preferita era: tutti insieme.
 
-*(Era tardi. Bisognava andare.)*
+Quella sera Elena era al parco con la mamma e il papà. Avevano fatto lo scivolo, l'altalena, il salta salta. Era stata una bellissima giornata. Ma adesso era tardi, il sole stava calando ed il papà aveva preso il monopattino per tornare a casa.
 
----
+Elena si fermò, come se avesse dimenticato qualcosa di importantissimo.
 
-— No via! — disse Elena. — Tutti insieme!!!
+Piantò i piedi sul vialetto e non si mosse più.
 
-*(Si era fermata. Non si muoveva.)*
+Il papà si inginocchiò davanti a lei e le spiegò che a casa c'erano i nonni che li aspettavano per cena, che a casa avrebbe ritrovato il suo ciuccio preferito e tutti i suoi libri. Elena scosse la testa e disse: tutti insieme, NO VIA!!
 
-Il papà si inginocchiò.
+Quello che il papà non sapeva era che Elena aveva già il suo ciuccio con sé. Lo aveva preso quella mattina e messo in tasca senza dire niente — quello speciale, quello con il sombrero e i baffi lunghi, che sembrava un signore messicano appena sveglio dalla siesta. E al parco, mentre giocava, lo aveva perso nell'erba alta senza accorgersene.
 
-— Certo, tutti insieme. A casa ci sono i nonni. E c'è anche il tuo ciuccio.
+Per Elena, tutti insieme voleva dire tutti. Anche lui, il suo ciuccio preferito che sembrava un messicano durante la sua siesta quotidiana.
 
-Elena scosse la testa.
-
-— No! Qui! Tutti insieme! No via!
+Alla fine Elena si convinse, prese la mano della mamma e del papà ed uscirono dal parco tutti insieme, ma non proprio tutti tutti.
 
 ---
 
-*(Quello che il papà non sapeva: Elena aveva preso il suo ciuccio — il suo ciuccio preferito, quello che sembrava essere un messicano appena sveglio dalla siesta con un sombrero in testa — e se lo era messa in tasca. Senza dire niente. Al parco, mentre giocava, lo aveva perso.*
+Intanto sotto al sole del tramonto il parco sembrava quasi addormentato: lo scivolo brillava sotto gli ultimi raggi del sole, l'altalena cigolava dondolando al vento e nell'erba alta, dove nessuno guardava, qualcosa si iniziava a muovere.
 
-*Per Elena, "tutti insieme" voleva dire tutti. Anche lui.)*
+Lì nell'erba alta, a guardare bene, qualcosa iniziava a muoversi. Cosa fosse non era chiarissimo — sembrava un piccolo sombrero messicano, ma a guardarlo bene non era un sombrero: era un ciuccio. Era l'adorato ciuccio di Elena, soprannominato El Chucharon!
 
----
+Chucharon non era un ciuccio normale: il suo paradenti sembrava un sombrero colorato, i suoi baffi erano lunghi lunghi, i più lunghi che aveste mai visto, lunghissimi e ricadenti verso il basso come quelli di un signore che dorme da molto tempo. E soprattutto era in grado di fare cose magiche — come volare, perché i ciucci normali non volano, ma Chucharon sì.
 
-Il papà le prese l'altra mano.
+Adesso si stava svegliando, lì nell'erba alta e dorata dove era caduto dalle tasche della sua bimba preferita Elena.
 
-E uscirono dal parco.
+Finalmente aprì gli occhi con un grande sbadiglio. Si guardò intorno: nessuno sullo scivolo, nessun bambino sull'altalena, il salta salta era vuoto.
 
----
+El Chucharon non capiva e sottovoce disse: donde está Elenita?
 
-*(Il ciuccio rimase lì, nel parco, sotto il sole.
-Ad aspettare.)*
+Il parco non rispose. Passò soltanto una balla di fieno rotolando nell'erba lontana.
 
----
+E poi da lontano arrivò una voce non troppo nitida che stava dicendo qualcosa tipo: ...tartaruga messicana...
 
-Un sombrero.
-
-Poi due baffi lunghi lunghi, ricadenti verso il basso.
-
-Poi due occhi — che si aprivano, lentamente, sul cielo.
-
-Chucharon si stava svegliando.
-
----
-
-Intorno a lui: secco. Giallo. Silenzio.
-
-Un cactus. Due cactus.
-
-L'aria tremava per il caldo.
-
-*(Sembrava il confine tra il Messico e gli Stati Uniti —
-quei posti dove il sole picchia forte
-e la polvere si alza senza vento.)*
-
----
-
-Ma poi... uno scivolo.
-
-Un'altalena.
-
-Un salta-salta.
-
-*(Ah. Un parco giochi. D'estate.
-Quando fa così caldo che l'erba diventa paglia
-e la sabbia diventa deserto.)*
-
----
-
-Chucharon era solo.
-
-Guardò a destra. Nessuno.
-
-Guardò a sinistra. Nessuno.
-
-Guardò lo scivolo, l'altalena, il salta-salta.
-
-Vuoti.
-
----
-
-— Donde está... Elenita? — disse piano.
-
----
-
-*Frrrrr...*
-
-*(Una balla di fieno passò rotolando.)*
-
-Silenzio.
-
----
-
-E poi, in lontananza —
-
-una voce.
-
-*— ...tartaruga messicana...*
-
----
-
-Chucharon girò la testa.
-
-I baffi — ancora ricadenti — fremettero.
-
-— Elenita... sei tu? — disse.
-
----
-
-Non aspettò la risposta.
-
-— Vamos a veder! — disse.
-
-E sparì.
+I baffi ancora ricadenti fremettero lievemente ed il Chucharon disse: vamos a veder! E volò via in un baleno.

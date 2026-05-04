@@ -66,11 +66,30 @@ PROMPTS_FILE       = SCRIPT_DIR.parent / "illustration-prompts.md"
 CHAR_TESTS_FILE    = SCRIPT_DIR.parent / "character-tests.md"
 SETTING_TESTS_FILE = SCRIPT_DIR.parent / "setting-tests.md"
 GEM_CTX_DIR        = SCRIPT_DIR.parent / "gem-context"
+CONFIG_FILE        = SCRIPT_DIR / "generator.config.json"
+
+
+# ---------------------------------------------------------------------------
+# Config
+# ---------------------------------------------------------------------------
+
+def load_generator_config() -> dict:
+    if CONFIG_FILE.exists():
+        try:
+            return json.loads(CONFIG_FILE.read_text(encoding="utf-8"))
+        except Exception as e:
+            print(f"⚠️  generator.config.json non valido ({e}) — uso defaults hardcoded")
+    return {}
+
+_CFG = load_generator_config()
+BOOK_CONTEXT_FILE  = SCRIPT_DIR.parent / "book-context.md"
+SCENES_DIR         = SCRIPT_DIR.parent / "scenes"
+CHAPTERS_DIR       = SCRIPT_DIR.parent / "chapters"
 OUTPUT_DIR         = SCRIPT_DIR / "output"
 REFS_DIR           = SCRIPT_DIR / "references"
 STATUS_FILE        = SCRIPT_DIR / "generation-status.json"
 
-SETTING_KEYWORDS = {
+SETTING_KEYWORDS = _CFG.get("setting_keywords", {
     "parco":     ["playground", "parco", "slide", "swings", "seesaw", "salta-sasta",
                   "altalena", "scivolo", "vialetto"],
     "camera":    ["bed ", "bedroom", "letto", "linens", "tummy time", "parents' bed"],
@@ -79,7 +98,7 @@ SETTING_KEYWORDS = {
     "messico":   ["mexican landscape", "dirt road", "desert", "paesaggio messicano",
                   "mountains", "confine"],
     "piramide":  ["pyramid", "chichen", "itza", "maya", "piramide"],
-}
+})
 
 CHAPTER_FOLDERS = {
     "PROLOGO":    "00-prologo",
@@ -119,50 +138,39 @@ FAMILY_PARENTS = {
 # I capitoli centrali (Leo, Sofia, Marco) hanno ambienti e bambini diversi:
 # condividono solo Chucharon, ma le immagini delle famiglie altrui
 # potrebbero confondere il modello → nessun cross-context.
-CHAPTER_CROSS_CONTEXT: dict[str, list[str]] = {
-    "00-prologo":  ["04-epilogo"],   # stesso parco, stessi personaggi
+CHAPTER_CROSS_CONTEXT: dict[str, list[str]] = _CFG.get("chapter_cross_context", {
+    "00-prologo":  ["04-epilogo"],
     "01-leo":      [],
     "02-sofia":    [],
     "03-marco":    [],
-    "04-epilogo":  ["00-prologo"],   # stesso parco, stessi personaggi
-}
+    "04-epilogo":  ["00-prologo"],
+})
 
-# Cartelle di output incluse nel contesto di TUTTI i capitoli.
-# Chucharon appare in ogni capitolo → i suoi ritratti test diventano
-# un'ancora visiva globale. Elena è già gestita dal cross-context prologo↔epilogo.
-SHARED_FOLDERS: list[str] = [
-    "characters/chucharon",   # ritratti test — disponibili dopo --characters
-]
+SHARED_FOLDERS: list[str] = _CFG.get("shared_folders", [
+    "characters/chucharon",
+])
 
-# Immagini di bootstrap per la prima immagine di ogni capitolo.
-# Usate SOLO quando non esistono ancora immagini precedenti nel capitolo
-# (prima generazione). Scegli scene dove Chucharon è protagonista.
-# Su una seconda passata (--regen-firsts) queste immagini esistono già
-# e forniscono un'ancora visiva solida.
-CHAPTER_BOOTSTRAP: dict[str, list[str]] = {
-    "00-prologo":  [],                                          # primo capitolo, niente da cui partire
-    "01-leo":      ["00-prologo/P-03"],                        # Chucharon che parte dal parco
-    "02-sofia":    ["00-prologo/P-03", "01-leo/C1-03"],        # Chucharon che arriva (cap1)
-    "03-marco":    ["00-prologo/P-03", "02-sofia/C2-03"],      # Chucharon che arriva (cap2)
-    "04-epilogo":  [],                                          # già gestito da CHAPTER_CROSS_CONTEXT
-}
+CHAPTER_BOOTSTRAP: dict[str, list[str]] = _CFG.get("chapter_bootstrap", {
+    "00-prologo":  [],
+    "01-leo":      ["00-prologo/P-03"],
+    "02-sofia":    ["00-prologo/P-03", "01-leo/C1-03"],
+    "03-marco":    ["00-prologo/P-03", "02-sofia/C2-03"],
+    "04-epilogo":  [],
+})
 
-# Mappa dal nome interno di detect_setting() (italiano) al nome con cui
-# l'utente salva la reference con --save-ref (inglese).
-# Aggiorna qui se usi nomi diversi per --save-ref.
-SETTING_REF_NAMES: dict[str, str] = {
+SETTING_REF_NAMES: dict[str, str] = _CFG.get("setting_ref_names", {
     "parco":     "park",
     "camera":    "bedroom",
     "soggiorno": "living-room",
     "cucina":    "kitchen",
     "messico":   "mexico",
     "piramide":  "pyramid",
-}
+})
 
 IMAGE_MODELS = [
-    "gemini-2.5-flash-image",
     "gemini-3.1-flash-image-preview",
     "gemini-3-pro-image-preview",
+    "gemini-2.5-flash-image",
     "gemini-3-pro-preview",
     "nano-banana-pro-preview",
 ]
@@ -172,12 +180,28 @@ IMAGE_MODELS = [
 # ---------------------------------------------------------------------------
 
 def load_gem_context() -> dict[str, str]:
-    if not GEM_CTX_DIR.exists():
-        return {}
-    return {
-        f.stem: f.read_text(encoding="utf-8")
-        for f in sorted(GEM_CTX_DIR.glob("*.md"))
-    }
+    ctx: dict[str, str] = {}
+    # book-context.md — global visual Bible, loaded as "_global"
+    if BOOK_CONTEXT_FILE.exists():
+        ctx["_global"] = BOOK_CONTEXT_FILE.read_text(encoding="utf-8")
+    # book narrative — all chapters concatenated (strips frontmatter)
+    if CHAPTERS_DIR.exists():
+        narrative_parts = []
+        for f in sorted(CHAPTERS_DIR.glob("*.md")):
+            text = f.read_text(encoding="utf-8")
+            # Strip YAML frontmatter (---...---) if present
+            if text.startswith("---"):
+                end = text.find("\n---", 3)
+                if end != -1:
+                    text = text[end + 4:].strip()
+            narrative_parts.append(text)
+        if narrative_parts:
+            ctx["_narrative"] = "\n\n---\n\n".join(narrative_parts)
+    # per-character/setting specs from gem-context/
+    if GEM_CTX_DIR.exists():
+        for f in sorted(GEM_CTX_DIR.glob("*.md")):
+            ctx[f.stem] = f.read_text(encoding="utf-8")
+    return ctx
 
 
 def detect_characters(prompt_text: str) -> list[str]:
@@ -195,22 +219,49 @@ def detect_characters(prompt_text: str) -> list[str]:
     return chars + extra
 
 
-def build_enriched_prompt(scene_prompt: str, context: dict[str, str], aspect: str) -> str:
+def build_enriched_prompt(
+    scene_prompt: str,
+    context: dict[str, str],
+    aspect: str,
+    characters: list[str] | None = None,
+    text_block: str = "",
+) -> str:
     parts = []
 
-    if "stile-visivo" in context:
+    # Global visual Bible (book-context.md) takes priority over stile-visivo.md
+    global_style = context.get("_global") or context.get("stile-visivo")
+    if global_style:
         parts.append(
             "=== MANDATORY VISUAL STYLE ===\n"
-            + context["stile-visivo"]
-            + "\nIMPORTANT: Apply this style consistently. Every illustration must look like "
-              "it belongs to the same picture book."
+            + global_style
+            + "\nIMPORTANT: Apply these rules to every detail. This illustration must look like "
+              "it belongs to the same picture book as all others."
         )
 
-    chars = detect_characters(scene_prompt)
+    # Book narrative — full story text for deep character and tone context
+    narrative = context.get("_narrative", "")
+    if narrative:
+        parts.append(
+            "=== BOOK NARRATIVE (context only — do not illustrate all of it) ===\n"
+            "Read this to understand each character's personality, physical description, emotional arc,\n"
+            "and the tone of the story. Use it to make expressions, body language, and atmosphere precise.\n\n"
+            + narrative
+        )
+
+    # Use frontmatter character list if available, otherwise keyword-detect from text
+    chars = characters if characters is not None else detect_characters(scene_prompt)
+
     char_blocks = []
     for char in chars:
-        if char in context:
-            char_blocks.append(f"--- {char.upper()} ---\n" + context[char])
+        spec_key = char
+        if spec_key not in context:
+            # Parent fallback: dad-leo / mom-elena → dad-generic / mom-generic
+            if spec_key.startswith("dad-"):
+                spec_key = "dad-generic"
+            elif spec_key.startswith("mom-"):
+                spec_key = "mom-generic"
+        if spec_key in context:
+            char_blocks.append(f"--- {char.upper()} ---\n" + context[spec_key])
     if char_blocks:
         parts.append(
             "=== CHARACTER REFERENCE (maintain exact appearance) ===\n"
@@ -227,7 +278,19 @@ def build_enriched_prompt(scene_prompt: str, context: dict[str, str], aspect: st
     if aspect in hints:
         parts.append(hints[aspect])
 
-    parts.append("=== SCENE ===\n" + scene_prompt)
+    # Page text — passed as narrative context, must NOT appear in the illustration
+    if text_block:
+        parts.append(
+            "=== PAGE TEXT — DO NOT RENDER IN THE ILLUSTRATION ===\n"
+            "The following Italian text will be printed on this page by an editor in post-production.\n"
+            "DO NOT write, render, letter, or include any of this text inside the illustration itself.\n"
+            "Use it ONLY as narrative context: it tells you the mood, the characters' emotions,\n"
+            "what is happening on this page, and what the reader will feel.\n"
+            "Let it guide composition, expressions, lighting, and atmosphere — but keep it invisible.\n\n"
+            + text_block
+        )
+
+    parts.append("=== SCENE TO ILLUSTRATE ===\n" + scene_prompt)
     return "\n\n".join(parts)
 
 
@@ -293,58 +356,79 @@ def build_context_images(
     chapter_folder: str,
     current_id: str,
     setting: str | None = None,
-    max_char_refs: int = 3,
+    max_char_refs: int = 5,
     max_prev_images: int = 3,
     max_cross_images: int = 2,
-) -> list[bytes]:
+) -> list[tuple[bytes, str]]:
     """
-    Costruisce la lista di immagini di contesto per una generazione:
-      1. Stile globale (references/style.png)
-      2. Reference ambientazione della scena (references/park.png ecc.)
-      3. Reference canoniche dei personaggi presenti nella scena
-      4. Cartelle condivise tra tutti i capitoli (SHARED_FOLDERS — Chucharon)
-      5. Immagini già generate da capitoli cross-context (CHAPTER_CROSS_CONTEXT)
-      6. Immagini già generate per questo capitolo
+    Costruisce la lista etichettata di immagini di contesto per una generazione.
+    Ogni elemento è (image_bytes, label) dove label descrive il ruolo dell'immagine.
 
-    Ordine: dal generale al particolare — ancore globali prima,
-    contesto specifico del capitolo corrente per ultimo.
+    Ordine — dal più autorevole al più contestuale:
+      1. Stile globale (references/style.png)
+      2. Reference canonica dell'ambientazione (references/park.png ecc.)
+      3. Reference CANONICHE dei personaggi — massima priorità per identità visiva
+      4. Cartelle condivise tra tutti i capitoli (SHARED_FOLDERS — Chucharon)
+      5. Immagini da capitoli cross-context (CHAPTER_CROSS_CONTEXT)
+      6. Immagini già generate per questo capitolo
+      7. Bootstrap: solo se primo del capitolo e nessuna prev
     """
-    context: list[bytes] = []
+    context: list[tuple[bytes, str]] = []
 
     # 1. Stile globale
     if "style" in refs:
-        context.append(refs["style"])
+        context.append((refs["style"], "global art style — match this style in every illustration"))
 
-    # 2. Reference ambientazione (es. references/park.png per le scene nel parco)
+    # 2. Reference ambientazione
     if setting:
         ref_name = SETTING_REF_NAMES.get(setting)
         if ref_name and ref_name in refs:
-            context.append(refs[ref_name])
+            context.append((
+                refs[ref_name],
+                f"CANONICAL setting reference ({setting}) — "
+                "the environment MUST match this image exactly: same colors, same furniture, same layout",
+            ))
 
-    # 3. Reference canoniche dei personaggi base (non i genitori derivati)
-    base_chars = [c for c in chars if c in CHARACTER_KEYWORDS]
+    # 3. Reference canoniche dei personaggi (massima autorità sull'identità visiva)
+    # Include sia i protagonisti (CHARACTER_KEYWORDS) sia i genitori (FAMILY_PARENTS)
+    all_known_chars = set(CHARACTER_KEYWORDS) | {
+        p for parents in FAMILY_PARENTS.values() for p in parents
+    }
+    base_chars = [c for c in chars if c in all_known_chars]
     for char in base_chars[:max_char_refs]:
         if char in refs:
-            context.append(refs[char])
+            context.append((
+                refs[char],
+                f"CANONICAL character reference: {char.upper()} — "
+                f"your {char} MUST be visually identical to this image in every detail "
+                "(colors, proportions, key features, clothing). "
+                f"This overrides all other context. {char.upper()} appears EXACTLY ONCE.",
+            ))
 
-    # 4. Cartelle condivise tra tutti i capitoli (SHARED_FOLDERS)
+    # 4. Cartelle condivise tra tutti i capitoli (es. character tests di Chucharon)
     for shared in SHARED_FOLDERS:
         shared_dir = OUTPUT_DIR / shared
         if shared_dir.exists():
             shared_imgs = sorted(shared_dir.glob("*.png"), key=lambda f: f.stat().st_mtime)
+            char_name = shared.split("/")[-1]
             for img_path in shared_imgs[:max_cross_images]:
-                context.append(img_path.read_bytes())
+                context.append((
+                    img_path.read_bytes(),
+                    f"consistency reference for {char_name} (from character tests) — "
+                    "use for style consistency only; canonical reference above takes priority",
+                ))
 
-    # 5. Immagini da capitoli cross-context (es. epilogo vede le immagini del prologo)
+    # 5. Immagini da capitoli cross-context
     for cross_folder in CHAPTER_CROSS_CONTEXT.get(chapter_folder, []):
         cross_dir = OUTPUT_DIR / cross_folder
         if cross_dir.exists():
-            cross_imgs = sorted(
-                cross_dir.glob("*.png"),
-                key=lambda f: f.stat().st_mtime,
-            )
+            cross_imgs = sorted(cross_dir.glob("*.png"), key=lambda f: f.stat().st_mtime)
             for img_path in cross_imgs[:max_cross_images]:
-                context.append(img_path.read_bytes())
+                context.append((
+                    img_path.read_bytes(),
+                    f"cross-chapter consistency reference (from {cross_folder}) — "
+                    "maintain visual continuity with this chapter",
+                ))
 
     # 6. Immagini già generate per questo capitolo (le più recenti)
     chapter_dir = OUTPUT_DIR / chapter_folder
@@ -355,17 +439,36 @@ def build_context_images(
             key=lambda f: f.stat().st_mtime,
         )
         for img_path in prev[-max_prev_images:]:
-            context.append(img_path.read_bytes())
+            context.append((
+                img_path.read_bytes(),
+                f"previous illustration in this chapter ({img_path.stem}) — "
+                "maintain visual continuity; canonical references above override this",
+            ))
 
-    # 7. Bootstrap: solo se è la prima immagine del capitolo (nessuna prev).
-    #    Usa scene di Chucharon da capitoli precedenti già generati come ancora visiva.
-    #    Su prima passata queste potrebbero non esistere ancora;
-    #    su --regen-firsts esistono e forniscono contesto solido.
+    # 7. Bootstrap: solo se è la prima immagine del capitolo (nessuna prev)
+    # Ogni entry può essere:
+    #   - un file PNG esplicito:  "00-prologo/P-03.png"
+    #   - un file senza estensione: "00-prologo/P-03"  → prova con .png
+    #   - una cartella: "selezione/bootstrap/elena/pro" → carica tutti i PNG dentro
     if not prev:
         for rel_path in CHAPTER_BOOTSTRAP.get(chapter_folder, []):
-            boot_img = OUTPUT_DIR / rel_path
-            if boot_img.exists():
-                context.append(boot_img.read_bytes())
+            boot_path = OUTPUT_DIR / rel_path
+            boot_imgs: list[Path] = []
+            if boot_path.is_dir():
+                boot_imgs = sorted(boot_path.glob("*.png"), key=lambda f: f.name)
+            elif boot_path.exists():
+                boot_imgs = [boot_path]
+            else:
+                # prova aggiungendo .png
+                with_ext = boot_path.with_suffix(".png")
+                if with_ext.exists():
+                    boot_imgs = [with_ext]
+            for bp in boot_imgs:
+                context.append((
+                    bp.read_bytes(),
+                    f"bootstrap reference ({bp.parent.name}/{bp.stem}) — "
+                    "visual anchor for this chapter: match style, characters and setting",
+                ))
 
     return context
 
@@ -400,28 +503,67 @@ def generate_with_gemini(
     model: str,
     prompt: str,
     output_path: Path,
-    context_images: list[bytes],
+    context_images: list[tuple[bytes, str]],
 ) -> bool:
     """
-    Genera un'immagine passando le immagini di contesto prima del prompt testuale.
-    Ogni immagine di contesto aiuta il modello a mantenere consistenza visiva.
+    Genera un'immagine con immagini di contesto etichettate.
+
+    Ogni elemento di context_images è (image_bytes, label).
+    Le etichette vengono usate nel preambolo testuale per indicare al modello
+    il ruolo preciso di ciascuna immagine:
+      - riferimenti CANONICI (massima autorità sull'identità dei personaggi)
+      - riferimenti di continuità (contesto di stile, capitoli precedenti)
+
+    Regole applicate a ogni generazione:
+      - Ogni personaggio appare ESATTAMENTE UNA VOLTA
+      - I riferimenti canonici hanno priorità assoluta su tutti gli altri
+      - L'aspetto visivo di ogni personaggio non cambia mai tra un'illustrazione e l'altra
     """
     parts = []
 
     if context_images:
-        # Immagini di contesto: personaggi canonici + scene precedenti del capitolo
-        for img_bytes in context_images:
+        # Passa tutte le immagini al modello nell'ordine stabilito
+        for img_bytes, _label in context_images:
             parts.append(
                 types.Part(
                     inline_data=types.Blob(mime_type="image/png", data=img_bytes)
                 )
             )
-        # Istruzione esplicita di consistenza prima del prompt di scena
+
+        # Costruisce il registro delle immagini: ogni immagine ha un indice e una label
+        image_index = "\n".join(
+            f"  Image {i}: {label}"
+            for i, (_, label) in enumerate(context_images, 1)
+        )
+
+        # Individua i personaggi con riferimento canonico per la regola di non-duplicazione
+        canonical_chars = [
+            label.split("CANONICAL character reference:")[1].split("—")[0].strip()
+            for _, label in context_images
+            if "CANONICAL character reference:" in label
+        ]
+        no_dup_rule = ""
+        if canonical_chars:
+            char_list = ", ".join(canonical_chars)
+            no_dup_rule = (
+                f"\n\nCHARACTER DUPLICATION RULE (strict — no exceptions):\n"
+                f"  Characters in this scene: {char_list}\n"
+                f"  Each character appears EXACTLY ONCE — no copies, no doubles, no repeated figures.\n"
+                f"  If a character is shown in a reference image, draw them ONCE in this scene only.\n"
+                f"  Do not add any character not listed in the scene description below."
+            )
+
         full_text = (
-            "The images above show the visual style and characters of this picture book. "
-            "IMPORTANT: maintain exact visual consistency with these references — "
-            "same character appearances, same art style, same color palette, "
-            "same illustration technique. Now generate the next scene:\n\n"
+            "REFERENCE IMAGES (in order):\n"
+            + image_index
+            + "\n\nGENERATION RULES:\n"
+            "  1. CANONICAL references define the exact, permanent appearance of each character and setting.\n"
+            "     They have absolute priority — your output MUST match them in colors, proportions, and features.\n"
+            "  2. Consistency references (previous illustrations, cross-chapter) are secondary context.\n"
+            "     If they conflict with a canonical reference, the canonical reference wins.\n"
+            "  3. Maintain the same art style, line quality, and color palette throughout."
+            + no_dup_rule
+            + "\n\nSCENE TO GENERATE:\n\n"
             + prompt
         )
     else:
@@ -437,8 +579,11 @@ def generate_with_gemini(
         ),
     )
 
-    for candidate in response.candidates:
-        for part in candidate.content.parts:
+    for candidate in (response.candidates or []):
+        content = getattr(candidate, "content", None)
+        if content is None:
+            continue
+        for part in (content.parts or []):
             if getattr(part, "inline_data", None) is not None:
                 output_path.write_bytes(part.inline_data.data)
                 return True
@@ -449,7 +594,7 @@ def generate_with_gemini(
 # Consistency check
 # ---------------------------------------------------------------------------
 
-EVAL_MODEL = "gemini-2.5-flash"   # modello testuale per la valutazione (no image output)
+EVAL_MODEL = "gemini-3-pro-preview"   # modello testuale per la valutazione (no image output)
 
 
 def _extract_text(response) -> str | None:
@@ -488,6 +633,7 @@ For each character, verify:
 - Correct visual appearance (proportions, colors, key features)
 - Correct state (e.g. for Chucharon: normal/siesta vs El Chucharito transformation)
 - Correct details (mustache direction, sombrero position, clothing, expressions)
+- Each character appears EXACTLY ONCE — flag any duplication (two Chucharons, two dads, etc.)
 
 Respond ONLY with a valid JSON object, no markdown, no extra text:
 {{
@@ -755,6 +901,88 @@ def save_status(status: dict):
 # Parser dei prompt
 # ---------------------------------------------------------------------------
 
+def _parse_frontmatter(text: str) -> tuple[dict, str]:
+    """
+    Estrae il frontmatter YAML (---...---) da un file Markdown.
+    Supporta:
+      - key: value semplice
+      - key: [a, b, c] inline array
+      - key: |           YAML literal block scalar (multiriga)
+          line one
+          line two
+    """
+    if not text.startswith("---"):
+        return {}, text
+    lines = text.split("\n")
+    end = 1
+    while end < len(lines) and lines[end].strip() != "---":
+        end += 1
+    body = "\n".join(lines[end + 1:]).strip()
+    meta: dict = {}
+    i = 1
+    while i < end:
+        line = lines[i]
+        # Skip blank lines and indented lines (content of a block scalar)
+        if not line.strip() or line[0] in (" ", "\t"):
+            i += 1
+            continue
+        if ":" not in line:
+            i += 1
+            continue
+        key, _, val = line.partition(":")
+        key = key.strip()
+        val = val.strip()
+        if val == "|":
+            # YAML literal block scalar — collect following indented lines
+            block_lines = []
+            i += 1
+            while i < end:
+                next_line = lines[i]
+                # Empty lines inside the block are preserved
+                if next_line and next_line[0] not in (" ", "\t"):
+                    break  # back to root-level key
+                block_lines.append(next_line.strip())
+                i += 1
+            meta[key] = "\n".join(block_lines).strip()
+        elif val.startswith("[") and val.endswith("]"):
+            inner = val[1:-1].strip()
+            meta[key] = [x.strip() for x in inner.split(",")] if inner else []
+            i += 1
+        else:
+            meta[key] = val
+            i += 1
+    return meta, body
+
+
+def parse_scenes_dir() -> list[dict]:
+    """
+    Legge tutti i file *.md in scenes/ con frontmatter YAML.
+    Ritorna una lista di prompt dict con metadata (characters, setting) dal frontmatter.
+    Usato come sorgente principale al posto di illustration-prompts.md.
+    """
+    if not SCENES_DIR.exists():
+        return []
+    folder_to_chapter = {v: k for k, v in CHAPTER_FOLDERS.items()}
+    results = []
+    for f in sorted(SCENES_DIR.glob("*.md")):
+        text = f.read_text(encoding="utf-8")
+        fm, body = _parse_frontmatter(text)
+        if not fm or not body:
+            continue
+        chapter_folder = fm.get("chapter_folder", "")
+        chapter = folder_to_chapter.get(chapter_folder, chapter_folder.upper())
+        results.append({
+            "chapter":    chapter,
+            "folder":     chapter_folder,
+            "id":         fm.get("id", f.stem),
+            "prompt":     body,
+            "characters": fm.get("characters", []),   # lista esplicita dal frontmatter
+            "setting":    fm.get("setting"),           # ambientazione esplicita dal frontmatter
+            "text_block": fm.get("text_block", ""),   # testo della pagina (contesto narrativo)
+        })
+    return results
+
+
 def parse_prompts(filepath: Path, source_type: str = "scenes") -> list[dict]:
     """source_type: 'scenes' | 'characters' | 'settings'"""
     content = filepath.read_text(encoding="utf-8")
@@ -830,8 +1058,9 @@ def main():
     parser.add_argument("--only",        help="IDs separati da virgola, es: P-01,C1-02")
     parser.add_argument("--dry-run",     action="store_true")
     parser.add_argument("--force",       action="store_true")
-    parser.add_argument("--delay",       type=float, default=4.0)
-    parser.add_argument("--aspect",      default="9:16",
+    _def = _CFG.get("defaults", {})
+    parser.add_argument("--delay",       type=float, default=_def.get("delay", 4.0))
+    parser.add_argument("--aspect",      default=_def.get("aspect", "9:16"),
                         choices=["9:16", "1:1", "3:4", "4:3", "16:9"])
     parser.add_argument("--model",       help="Forza modello specifico")
     parser.add_argument("--list-models", action="store_true")
@@ -854,17 +1083,17 @@ def main():
                         help="Confronta le immagini tra loro per personaggio e ambientazione")
     parser.add_argument("--auto-fix",           action="store_true",
                         help="Valuta + rigenera le immagini inconsistenti automaticamente")
-    parser.add_argument("--fix-rounds",         type=int, default=2,
+    parser.add_argument("--fix-rounds",         type=int, default=_def.get("fix_rounds", 2),
                         help="Numero massimo di round di auto-fix (default: 2)")
-    parser.add_argument("--threshold",          type=int, default=7,
+    parser.add_argument("--threshold",          type=int, default=_def.get("threshold", 7),
                         help="Soglia minima di consistenza 0-10 (default: 7)")
     parser.add_argument("--no-context",         action="store_true",
                         help="Non aggiunge il contesto testuale gem-context/ ai prompt")
     parser.add_argument("--no-chapter-context", action="store_true",
                         help="Non passa le immagini di capitolo come contesto visivo")
-    parser.add_argument("--max-prev",    type=int, default=3,
+    parser.add_argument("--max-prev",    type=int, default=_def.get("max_prev", 3),
                         help="Numero massimo di immagini precedenti del capitolo da passare come contesto (default: 3)")
-    parser.add_argument("--max-cross",   type=int, default=2,
+    parser.add_argument("--max-cross",   type=int, default=_def.get("max_cross", 2),
                         help="Numero massimo di immagini da capitoli cross-context (default: 2)")
     args = parser.parse_args()
 
@@ -897,8 +1126,8 @@ def main():
             print("❌ Nessun modello trovato. Esegui --list-models")
             raise SystemExit(1)
 
-        # Trova il prompt corrispondente all'ID
-        all_p = parse_prompts(PROMPTS_FILE, "scenes")
+        # Trova il prompt corrispondente all'ID — prova prima scenes/
+        all_p = parse_scenes_dir() or parse_prompts(PROMPTS_FILE, "scenes")
         target = next((p for p in all_p if p["id"] == target_id), None)
         if not target:
             print(f"❌ ID non trovato: {target_id}")
@@ -908,14 +1137,18 @@ def main():
         out_path.parent.mkdir(parents=True, exist_ok=True)
 
         # Carica le reference esplicite passate con --refs
-        explicit_refs: list[bytes] = []
+        explicit_refs: list[tuple[bytes, str]] = []
         if args.refs:
             ref_ids = [r.strip().upper() for r in args.refs.split(",")]
             missing = []
             for rid in ref_ids:
                 matches = list(OUTPUT_DIR.glob(f"**/{rid}.png"))
                 if matches:
-                    explicit_refs.append(matches[0].read_bytes())
+                    explicit_refs.append((
+                        matches[0].read_bytes(),
+                        f"CANONICAL character reference: {rid} — "
+                        "match this image exactly in colors, proportions, and features",
+                    ))
                     print(f"  📎 ref: {rid}  ({matches[0].relative_to(OUTPUT_DIR)})")
                 else:
                     missing.append(rid)
@@ -923,8 +1156,9 @@ def main():
                 print(f"  ⚠️  non trovate: {', '.join(missing)}")
 
         # Contesto automatico (canoniche + capitolo) come base
-        chars   = detect_characters(target["prompt"])
-        setting = detect_setting(target["prompt"])
+        # Usa frontmatter se disponibile, altrimenti keyword-detection come fallback
+        chars   = target.get("characters") or detect_characters(target["prompt"])
+        setting = target.get("setting")    or detect_setting(target["prompt"])
         auto_ctx = build_context_images(
             refs=refs, chars=chars,
             chapter_folder=target["folder"],
@@ -936,7 +1170,11 @@ def main():
         context_imgs = explicit_refs + auto_ctx
 
         full_prompt = (
-            build_enriched_prompt(target["prompt"], gem_context, args.aspect)
+            build_enriched_prompt(
+                target["prompt"], gem_context, args.aspect,
+                characters=target.get("characters"),
+                text_block=target.get("text_block", ""),
+            )
             if gem_context else target["prompt"]
         )
 
@@ -985,19 +1223,30 @@ def main():
 
     if args.characters:
         source_file = CHAR_TESTS_FILE
+        if not source_file.exists():
+            print(f"❌ File non trovato: {source_file}")
+            raise SystemExit(1)
+        all_prompts = parse_prompts(source_file, "characters")
         print(f"🎭 Modalità character test — {source_file.name}")
     elif args.settings:
         source_file = SETTING_TESTS_FILE
+        if not source_file.exists():
+            print(f"❌ File non trovato: {source_file}")
+            raise SystemExit(1)
+        all_prompts = parse_prompts(source_file, "settings")
         print(f"🏞️  Modalità setting test — {source_file.name}")
     else:
-        source_file = PROMPTS_FILE
+        # Prova prima scenes/ con frontmatter esplicito, poi illustration-prompts.md
+        all_prompts = parse_scenes_dir()
+        if all_prompts:
+            print(f"📂 Sorgente: scenes/  ({len(all_prompts)} scene con frontmatter)")
+        else:
+            if not PROMPTS_FILE.exists():
+                print(f"❌ File non trovato: {PROMPTS_FILE}")
+                raise SystemExit(1)
+            all_prompts = parse_prompts(PROMPTS_FILE, "scenes")
+            print(f"📂 Sorgente: {PROMPTS_FILE.name}")
 
-    if not source_file.exists():
-        print(f"❌ File non trovato: {source_file}")
-        raise SystemExit(1)
-
-    src_type = "characters" if args.characters else ("settings" if args.settings else "scenes")
-    all_prompts = parse_prompts(source_file, src_type)
     print(f"📝 Prompt totali: {len(all_prompts)}")
 
     if args.regen_firsts:
@@ -1045,8 +1294,12 @@ def main():
                 break
 
             # Le immagini consistenti diventano contesto aggiuntivo per le rigenerazioni
-            consistent_imgs: list[bytes] = [
-                (OUTPUT_DIR / p["folder"] / f"{p['id']}.png").read_bytes()
+            consistent_imgs: list[tuple[bytes, str]] = [
+                (
+                    (OUTPUT_DIR / p["folder"] / f"{p['id']}.png").read_bytes(),
+                    f"validated consistent reference: {p['id']} — "
+                    "maintain visual continuity with this approved illustration",
+                )
                 for p in all_prompts
                 if p["id"] in consistent_ids
                 and (OUTPUT_DIR / p["folder"] / f"{p['id']}.png").exists()
@@ -1059,12 +1312,16 @@ def main():
                 out_path = OUTPUT_DIR / p["folder"] / f"{p['id']}.png"
                 print(f"  {p['id']:8s} 🖌️  ...", end=" ", flush=True)
 
+                chars   = p.get("characters") or detect_characters(p["prompt"])
+                setting = p.get("setting")    or detect_setting(p["prompt"])
                 full_prompt = (
-                    build_enriched_prompt(p["prompt"], gem_context, args.aspect)
+                    build_enriched_prompt(
+                        p["prompt"], gem_context, args.aspect,
+                        characters=p.get("characters"),
+                        text_block=p.get("text_block", ""),
+                    )
                     if gem_context else p["prompt"]
                 )
-                chars   = detect_characters(p["prompt"])
-                setting = detect_setting(p["prompt"])
                 ctx = build_context_images(
                     refs=refs,
                     chars=chars,
@@ -1108,29 +1365,39 @@ def main():
         print(f"{prefix} 🖌️  ...", end=" ", flush=True)
 
         if args.dry_run:
-            chars = detect_characters(p["prompt"])
-            print(f"OK (dry run)  personaggi: {chars or ['nessuno']}")
+            chars = p.get("characters") or detect_characters(p["prompt"])
+            setting = p.get("setting") or detect_setting(p["prompt"])
+            print(f"OK (dry run)  personaggi: {chars or ['nessuno']}  setting: {setting or '?'}")
             continue
 
         # Prompt testuale arricchito
+        # Usa la lista characters dal frontmatter se disponibile
+        chars   = p.get("characters") or detect_characters(p["prompt"])
+        setting = p.get("setting")    or detect_setting(p["prompt"])
         full_prompt = (
-            build_enriched_prompt(p["prompt"], gem_context, args.aspect)
+            build_enriched_prompt(
+                p["prompt"], gem_context, args.aspect,
+                characters=p.get("characters"),
+                text_block=p.get("text_block", ""),
+            )
             if gem_context else p["prompt"]
         )
 
         # Contesto visivo: ambientazione + personaggi + immagini precedenti del capitolo
-        chars   = detect_characters(p["prompt"])
-        setting = detect_setting(p["prompt"])
-        context_imgs: list[bytes] = []
+        # In modalità --characters/--settings non aggiungere immagini "sorelle" della stessa
+        # sezione: evita che test di bebè (es. SOF-02 — morde la scarpa) contaminino il
+        # contesto dei genitori e attivino i safety filter di Gemini.
+        context_imgs: list[tuple[bytes, str]] = []
         if use_chapter_context:
+            is_test_mode = args.characters or args.settings
             context_imgs = build_context_images(
                 refs=refs,
                 chars=chars,
                 chapter_folder=p["folder"],
                 current_id=p["id"],
                 setting=setting,
-                max_prev_images=args.max_prev,
-                max_cross_images=args.max_cross,
+                max_prev_images=0 if is_test_mode else args.max_prev,
+                max_cross_images=0 if is_test_mode else args.max_cross,
             )
 
         try:
