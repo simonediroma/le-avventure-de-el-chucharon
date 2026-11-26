@@ -18,6 +18,7 @@ Uso:
   python impagina.py --solo cap3           → solo un capitolo (anteprima veloce)
   python impagina.py --font-size 15.5      → corpo del testo
   python impagina.py --guide               → mostra area di rifilo e margine di sicurezza
+  python impagina.py --web                 → versione per il sito, con copertina (copertina/fronte.pdf)
 """
 import argparse, io, json, re
 from pathlib import Path
@@ -37,7 +38,7 @@ PAGE = 630.0                 # pt
 BLEED = 9.0                  # 0,125" per lato
 TEXT_X0, TEXT_X1 = 63.0, 567.0
 TEXT_CENTER_Y = 300.0        # centro verticale del blocco testo (dall'alto), come in Canva
-JPEG_Q = 92
+JPEG_Q = [92]   # qualità JPEG delle immagini (la versione web usa --web → 78)
 SIZE = [16.5]   # corpo corrente, usato da nota()
 
 # ---------------------------------------------------------------- font
@@ -129,7 +130,7 @@ def immagine(path):
             im = im.convert("RGBA"); bg.paste(im, mask=im.split()[3]); im = bg
         else:
             im = im.convert("RGB")
-        buf = io.BytesIO(); im.save(buf, "JPEG", quality=JPEG_Q, subsampling=0)
+        buf = io.BytesIO(); im.save(buf, "JPEG", quality=JPEG_Q[0], subsampling=0)
         buf.seek(0); _cache[path] = ImageReader(buf)
     return _cache[path]
 
@@ -153,7 +154,14 @@ def main():
     ap.add_argument("--leading", type=float, default=None, help="interlinea in pt (default 1.36 × corpo)")
     ap.add_argument("--no-halo", action="store_true")
     ap.add_argument("--guide", action="store_true")
+    ap.add_argument("--web", action="store_true",
+                    help="versione per il sito: copertina in testa, immagini più leggere")
+    ap.add_argument("--copertina", default=str(DIR / "copertina" / "fronte.pdf"))
     a = ap.parse_args()
+    if a.web:
+        JPEG_Q[0] = 78
+        if a.output == ap.get_default("output"):
+            a.output = str(DIR / "output" / "chucharon-2a-edizione-web.pdf")
 
     registra_font()
     cfg = json.loads((DIR / "pagine.json").read_text(encoding="utf-8"))
@@ -180,6 +188,15 @@ def main():
         c.showPage()
         print(f"✓ {pg['id']}")
     c.save()
+    if a.web:
+        from pypdf import PdfReader, PdfWriter
+        w = PdfWriter()
+        w.append(PdfReader(a.copertina))          # pagina di copertina originale (vettoriale)
+        w.append(PdfReader(str(out)))
+        w.add_metadata({"/Title": "Le Avventure de El Chucharon — 2ª edizione"})
+        with open(out, "wb") as f:
+            w.write(f)
+        print("✓ copertina in testa")
     orfani = set(testi) - usati
     if orfani and not a.solo:
         print(f"⚠️  testi non usati: {sorted(orfani)}")
