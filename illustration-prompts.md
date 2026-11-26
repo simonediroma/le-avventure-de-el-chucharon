@@ -1,4 +1,4 @@
-# Illustration Prompts — Le Avventure di Chucharon
+# Illustration Prompts — Le Avventure de El Chucharon
 *Per Gemini Image Generation*
 *Versione 4.0 — 18 illustrazioni: 3 prologo, 4 per capitolo, 3 epilogo*
 

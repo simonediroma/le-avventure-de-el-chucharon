@@ -1,4 +1,4 @@
-# Diario di Bordo — Le Avventure di Chucharon
+# Diario di Bordo — Le Avventure de El Chucharon
 
 > Riflessione sul metodo di lavoro usato per costruire questo libro.
 > Non un registro di attività, ma una traccia di come si ragiona quando si costruisce

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-layout.py — Genera il PDF stampabile di "Le Avventure di Chucharon".
+layout.py — Genera il PDF stampabile di "Le Avventure de El Chucharon".
 
 Legge le illustrazioni da output/, il testo da scenes/ (campo text_block)
 e produce un PDF A4 landscape multi-pagina pronto per la stampa.
@@ -617,7 +617,7 @@ def main() -> None:
     print(f"   Font   : {font_name}  {args.font_size}pt\n")
 
     c = rl_canvas.Canvas(str(out_path), pagesize=landscape(A4))
-    c.setTitle("Le Avventure di Chucharon")
+    c.setTitle("Le Avventure de El Chucharon")
 
     generated = 0
     for scene_id in SCENE_ORDER:

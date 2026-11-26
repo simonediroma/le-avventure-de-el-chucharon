@@ -1,4 +1,4 @@
-# Setting Tests — Le Avventure di Chucharon
+# Setting Tests — Le Avventure de El Chucharon
 *Ambientazioni vuote, senza personaggi. Genera, scegli le migliori, salvale come reference.*
 *Uso: python main.py --settings*
 *Dopo: python main.py --save-ref SET-01 park*

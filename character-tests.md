@@ -1,4 +1,4 @@
-# Character Tests — Le Avventure di Chucharon
+# Character Tests — Le Avventure de El Chucharon
 *Prompt per definire le ancore visive dei personaggi.*
 *Genera, scegli le migliori, salvale come reference con --save-ref.*
 

@@ -1,4 +1,4 @@
-# Book Memory — Le Avventure di Chucharon
+# Book Memory — Le Avventure de El Chucharon
 
 ## Personaggi definiti
 
