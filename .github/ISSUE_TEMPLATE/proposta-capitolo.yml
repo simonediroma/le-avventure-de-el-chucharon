@@ -51,5 +51,5 @@ body:
     attributes:
       label: Consenso
       options:
-        - label: Accetto la pubblicazione e la rielaborazione con licenza CC BY-NC 4.0 e non inserisco dati personali di minori reali.
+        - label: Accetto i termini per le proposte (LICENSE-CONTENT.md) — concedo all'autore del libro il diritto di pubblicare e vendere il capitolo, anche in versione cartacea — e non inserisco dati personali di minori reali.
           required: true

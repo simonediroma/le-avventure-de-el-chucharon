@@ -66,7 +66,7 @@ export default {
 
     const body = Object.entries(FIELDS)
       .map(([k, [title]]) => `### ${title}\n\n${clean[k] || "_No response_"}`)
-      .join("\n\n") + "\n\n### Consenso\n\n- [X] Accettato dal form del sito";
+      .join("\n\n") + "\n\n### Consenso\n\n- [X] Accettati i termini per le proposte (LICENSE-CONTENT.md) dal form del sito";
 
     const gh = await fetch(`https://api.github.com/repos/${env.GITHUB_REPO}/issues`, {
       method: "POST",

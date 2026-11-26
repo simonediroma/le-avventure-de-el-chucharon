@@ -69,7 +69,7 @@ def render_comment(v: Verdict) -> str:
     if v.esito == "da_rivedere":
         out += ["", "_Modifica la proposta (Edit dell'issue): la validazione ripartirà da sola._"]
     if v.esito == "approvata":
-        out += ["", "_La proposta passa in produzione: testo e illustrazioni verranno generati e aperti in una pull request per la revisione finale._"]
+        out += ["", "_Proposta approvata! Il prossimo passo è la produzione di testo e illustrazioni, con revisione finale prima della pubblicazione._"]
     out += ["", "---", "_Validazione automatica eseguita da Claude._"]
     return "\n".join(out)
 

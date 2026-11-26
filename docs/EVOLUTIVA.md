@@ -74,4 +74,4 @@ Per la stampa servirà un PDF con abbondanza (bleed 3 mm) e copertina separata: 
 - Il testo delle proposte è trattato come dato (prompt con istruzione esplicita + revisione umana in PR).
 - Il body dell'issue passa ai workflow solo via variabile d'ambiente (niente injection nella shell).
 - Il worker limita lunghezze, neutralizza `###` e `@menzioni`, verifica Turnstile.
-- Licenza contributi: CC BY-NC 4.0 (consenso obbligatorio nel form) — da validare con un legale prima della vendita.
+- Licenze: contenuti CC BY-NC 4.0 verso il pubblico, concessione non esclusiva anche commerciale dai proponenti al titolare (`LICENSE-CONTENT.md`), codice MIT (`LICENSE`). Da validare con un legale prima della vendita.
