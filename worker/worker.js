@@ -5,7 +5,7 @@
  * Secrets/vars (wrangler):
  *   GITHUB_TOKEN      fine-grained PAT con permesso Issues: Read & Write sul solo repo
  *   GITHUB_REPO       es. "simonediroma/le-avventure-de-el-chucharon"
- *   ALLOWED_ORIGIN    es. "https://simonediroma.github.io"
+ *   ALLOWED_ORIGIN    origini ammesse separate da virgola, es. "https://elchucharon.com,https://www.elchucharon.com"
  *   TURNSTILE_SECRET  (facoltativo) secret Cloudflare Turnstile anti-spam
  *
  * Nota: l'evento creato con un PAT attiva regolarmente il workflow di validazione.
@@ -26,8 +26,14 @@ const PARENTS = ["Mamma e papà", "Solo mamma", "Solo papà"];
 
 export default {
   async fetch(req, env) {
+    const allowed = (env.ALLOWED_ORIGIN || "").split(",").map((o) => o.trim()).filter(Boolean);
+    const origin = req.headers.get("Origin") || "";
+    if (allowed.length && origin && !allowed.includes(origin)) {
+      return new Response("Origine non ammessa", { status: 403 });
+    }
     const cors = {
-      "Access-Control-Allow-Origin": env.ALLOWED_ORIGIN || "*",
+      "Access-Control-Allow-Origin": allowed.length ? (origin || allowed[0]) : "*",
+      Vary: "Origin",
       "Access-Control-Allow-Methods": "POST, OPTIONS",
       "Access-Control-Allow-Headers": "Content-Type",
     };

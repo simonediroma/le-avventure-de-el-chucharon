@@ -4,5 +4,5 @@ compatibility_date = "2026-06-01"
 
 [vars]
 GITHUB_REPO = "simonediroma/le-avventure-de-el-chucharon"
-ALLOWED_ORIGIN = "https://simonediroma.github.io"
+ALLOWED_ORIGIN = "https://elchucharon.com,https://www.elchucharon.com,https://simonediroma.github.io"
 # Secrets: wrangler secret put GITHUB_TOKEN  /  wrangler secret put TURNSTILE_SECRET

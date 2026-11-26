@@ -37,6 +37,22 @@
 
 Test locale: `python pipeline/publish.py && cd site && python -m http.server`.
 
+## Dominio elchucharon.com
+`site/CNAME` contiene `elchucharon.com` (dominio principale; `www` viene reindirizzato da GitHub).
+DNS (pannello del registrar, proxy Cloudflare **disattivato** / "DNS only" finché GitHub non emette il certificato):
+
+| Tipo | Nome | Valore |
+|---|---|---|
+| A | `@` | 185.199.108.153 |
+| A | `@` | 185.199.109.153 |
+| A | `@` | 185.199.110.153 |
+| A | `@` | 185.199.111.153 |
+| CNAME | `www` | `simonediroma.github.io` |
+
+Poi: GitHub → Settings → Pages → Custom domain `elchucharon.com` → "Enforce HTTPS".
+Consigliato: verificare il dominio in GitHub (Settings profilo → Pages → Add a domain, record TXT) contro i domain takeover.
+Worker (facoltativo): rotta `api.elchucharon.com` in Cloudflare → aggiornare `proposalEndpoint` in `site/config.js`.
+
 ## Costi indicativi per capitolo
 - Validazione Claude: pochi centesimi. Scrittura capitolo (effort high): ~0,30–0,80 €.
 - 5 illustrazioni Gemini + auto-fix: dipende dal modello immagine (~1–3 €).
