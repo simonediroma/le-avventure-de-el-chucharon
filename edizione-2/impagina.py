@@ -162,7 +162,7 @@ def main():
     leading = a.leading or round(a.font_size * 1.36, 2)
 
     out = Path(a.output); out.parent.mkdir(parents=True, exist_ok=True)
-    c = canvas.Canvas(str(out), pagesize=(PAGE, PAGE))
+    c = canvas.Canvas(str(out), pagesize=(PAGE, PAGE), initialFontName="OS", initialFontSize=12)
     c.setTitle("Le Avventure de El Chucharon — 2ª edizione")
     usati = set()
     for pg in cfg["pagine"]:
