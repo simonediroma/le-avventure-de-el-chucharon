@@ -130,12 +130,12 @@
    "id": "cap2-p02",
    "img": "assets/da-colorare/cap2.png",
    "box": [
-    36,
-    36,
-    594,
-    594
+    0,
+    0,
+    630,
+    630
    ],
-   "nota": "2a ed.: copertina capitolo da colorare (Gemini), dentro il margine di sicurezza KDP"
+   "nota": "2a ed.: copertina capitolo in bianco e nero da colorare (Gemini), a tutta pagina come la copertina"
   },
   {
    "id": "cap2-p03",
@@ -235,12 +235,12 @@
    "id": "cap3-p02",
    "img": "assets/da-colorare/cap3.png",
    "box": [
-    36,
-    36,
-    594,
-    594
+    0,
+    0,
+    630,
+    630
    ],
-   "nota": "2a ed.: copertina capitolo da colorare (Gemini), dentro il margine di sicurezza KDP"
+   "nota": "2a ed.: copertina capitolo in bianco e nero da colorare (Gemini), a tutta pagina come la copertina"
   },
   {
    "id": "cap3-p03",
@@ -340,12 +340,12 @@
    "id": "cap4-p02",
    "img": "assets/da-colorare/cap4.png",
    "box": [
-    36,
-    36,
-    594,
-    594
+    0,
+    0,
+    630,
+    630
    ],
-   "nota": "2a ed.: copertina capitolo da colorare (Gemini), dentro il margine di sicurezza KDP"
+   "nota": "2a ed.: copertina capitolo in bianco e nero da colorare (Gemini), a tutta pagina come la copertina"
   },
   {
    "id": "cap4-p03",
@@ -445,12 +445,12 @@
    "id": "cap5-p02",
    "img": "assets/da-colorare/cap5.png",
    "box": [
-    36,
-    36,
-    594,
-    594
+    0,
+    0,
+    630,
+    630
    ],
-   "nota": "2a ed.: copertina capitolo da colorare (Gemini), dentro il margine di sicurezza KDP"
+   "nota": "2a ed.: copertina capitolo in bianco e nero da colorare (Gemini), a tutta pagina come la copertina"
   },
   {
    "id": "cap5-p03",
