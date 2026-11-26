@@ -6,6 +6,6 @@ window.CHUCHARON_CONFIG = {
   proposalEndpoint: "",
   // Cloudflare Turnstile (anti-spam) — site key pubblica, facoltativa.
   turnstileSiteKey: "",
-  // Link alla versione cartacea (es. Amazon KDP / Lulu). Vuoto = "presto disponibile".
-  printUrl: "",
+  // Link alla copia cartacea in vendita (pulsante "Compra una copia").
+  printUrl: "https://www.amazon.it/dp/B0H63PYG5S",
 };
