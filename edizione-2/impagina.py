@@ -1,0 +1,189 @@
+#!/usr/bin/env python3
+"""
+impagina.py — Genera il PDF di stampa KDP della 2ª edizione di
+"Le Avventure de El Chucharon", senza Canva.
+
+Input:
+  pagine.json   ordine delle pagine, immagine e posizione (in pt, origine in alto a sx)
+  testo.md      testo delle pagine (vedi convenzioni in testa al file)
+  assets/       illustrazioni e sfondi estratti dal PDF della 1ª edizione
+  fonts/        Open Sans (OFL) + DejaVu Sans per il simbolo ♪
+
+Formato: 630×630 pt = 8,75" quadrato = rifilo 8,5"×8,5" con abbondanza (bleed),
+identico al PDF caricato su KDP per la 1ª edizione.
+
+Uso:
+  pip install reportlab pillow
+  python impagina.py                       → output/chucharon-2a-edizione.pdf
+  python impagina.py --solo cap3           → solo un capitolo (anteprima veloce)
+  python impagina.py --font-size 15.5      → corpo del testo
+  python impagina.py --guide               → mostra area di rifilo e margine di sicurezza
+"""
+import argparse, io, json, re
+from pathlib import Path
+
+from PIL import Image
+from reportlab.pdfgen import canvas
+from reportlab.pdfbase import pdfmetrics
+from reportlab.pdfbase.ttfonts import TTFont
+from reportlab.lib.fonts import addMapping
+from reportlab.lib.styles import ParagraphStyle
+from reportlab.lib.enums import TA_JUSTIFY, TA_LEFT
+from reportlab.lib.utils import ImageReader
+from reportlab.platypus import Paragraph
+
+DIR = Path(__file__).parent
+PAGE = 630.0                 # pt
+BLEED = 9.0                  # 0,125" per lato
+TEXT_X0, TEXT_X1 = 63.0, 567.0
+TEXT_CENTER_Y = 300.0        # centro verticale del blocco testo (dall'alto), come in Canva
+JPEG_Q = 92
+SIZE = [16.5]   # corpo corrente, usato da nota()
+
+# ---------------------------------------------------------------- font
+def registra_font():
+    F = DIR / "fonts"
+    pdfmetrics.registerFont(TTFont("OS", F / "OpenSans_400Regular.ttf"))
+    pdfmetrics.registerFont(TTFont("OS-B", F / "OpenSans_700Bold.ttf"))
+    pdfmetrics.registerFont(TTFont("OS-I", F / "OpenSans_400Regular_Italic.ttf"))
+    pdfmetrics.registerFont(TTFont("OS-BI", F / "OpenSans_700Bold_Italic.ttf"))
+    pdfmetrics.registerFont(TTFont("DJ-B", F / "DejaVuSans-Bold.ttf"))
+    addMapping("OS", 0, 0, "OS"); addMapping("OS", 1, 0, "OS-B")
+    addMapping("OS", 0, 1, "OS-I"); addMapping("OS", 1, 1, "OS-BI")
+
+# ---------------------------------------------------------------- testo
+def leggi_testo(path):
+    """Ritorna {page_id: [blocchi]}; blocco = ('p', markup) | ('song', [righe])."""
+    src = re.sub(r"<!--.*?-->", "", path.read_text(encoding="utf-8"), flags=re.S)
+    out = {}
+    for sez in re.split(r"^## ", src, flags=re.M)[1:]:
+        pid, _, body = sez.partition("\n")
+        blocchi = []
+        for par in re.split(r"\n\s*\n", body.strip()):
+            righe = [r.strip() for r in par.strip().splitlines() if r.strip()]
+            if not righe:
+                continue
+            if all(r.startswith(">") for r in righe):
+                blocchi.append(("song", [r.lstrip("> ").strip() for r in righe]))
+            else:
+                blocchi.append(("p", " ".join(righe)))
+        out[pid.strip()] = blocchi
+    return out
+
+def md2rl(s):
+    s = s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+    s = re.sub(r"\*\*(.+?)\*\*", r"<b>\1</b>", s)
+    s = re.sub(r"\*(.+?)\*", r"<b><i>\1</i></b>", s)
+    return s
+
+def nota(s):
+    return f'<font name="DJ-B" size="{SIZE[0]:.1f}">♪</font>'
+
+def paragrafi(blocchi, size, leading):
+    base = ParagraphStyle("t", fontName="OS", fontSize=size, leading=leading,
+                          alignment=TA_JUSTIFY, textColor=(0, 0, 0))
+    song = ParagraphStyle("s", parent=base, alignment=TA_LEFT)
+    out = []
+    for kind, val in blocchi:
+        if kind == "p":
+            out.append(Paragraph(md2rl(val), base))
+        else:
+            for i, r in enumerate(val):
+                txt = f"<b><i>{md2rl(r)}</i></b>"
+                if i == 0:
+                    txt = nota(0) + " " + txt
+                    out.append(Paragraph(txt, song))
+                else:
+                    txt = txt + " " + nota(0)
+                    out.append(Paragraph(txt, ParagraphStyle("s2", parent=song, leftIndent=size * 1.15)))
+    return out
+
+def disegna_testo(c, blocchi, size, leading, halo):
+    w = TEXT_X1 - TEXT_X0
+    paras = paragrafi(blocchi, size, leading)
+    hs = [p.wrap(w, PAGE)[1] for p in paras]
+    tot = sum(hs)
+    top = TEXT_CENTER_Y - tot / 2            # dall'alto
+    if top < 95 or top + tot > 535:
+        print(f"   ⚠️  testo lungo: occupa {tot:.0f}pt, sconfina sulle decorazioni")
+    y = PAGE - top
+    for p, h in zip(paras, hs):
+        y -= h
+        if halo:   # alone chiaro dietro al testo (sostituisce l'ombra di Canva)
+            for dx, dy in [(-.7, 0), (.7, 0), (0, -.7), (0, .7), (-.5, -.5), (.5, .5), (-.5, .5), (.5, -.5)]:
+                c.saveState(); c.setFillAlpha(0.55)
+                p2 = Paragraph(p.text, ParagraphStyle("h", parent=p.style, textColor=(1, 1, 1)))
+                p2.wrap(w, PAGE); p2.drawOn(c, TEXT_X0 + dx, y + dy)
+                c.restoreState()
+        p.drawOn(c, TEXT_X0, y)
+    return tot
+
+# ---------------------------------------------------------------- immagini
+_cache = {}
+def immagine(path):
+    """Converte in JPEG (RGB) in memoria per contenere il peso del PDF."""
+    if path not in _cache:
+        im = Image.open(path)
+        if im.mode in ("RGBA", "LA", "P"):
+            bg = Image.new("RGB", im.size, "white")
+            im = im.convert("RGBA"); bg.paste(im, mask=im.split()[3]); im = bg
+        else:
+            im = im.convert("RGB")
+        buf = io.BytesIO(); im.save(buf, "JPEG", quality=JPEG_Q, subsampling=0)
+        buf.seek(0); _cache[path] = ImageReader(buf)
+    return _cache[path]
+
+def disegna_immagine(c, path, box):
+    x0, t, x1, b = box
+    c.drawImage(immagine(path), x0, PAGE - b, width=x1 - x0, height=b - t)
+
+def guide(c):
+    c.saveState(); c.setLineWidth(0.4)
+    c.setStrokeColorRGB(1, 0, 0); c.rect(BLEED, BLEED, PAGE - 2 * BLEED, PAGE - 2 * BLEED)   # rifilo
+    m = BLEED + 27  # 0,375" di sicurezza KDP
+    c.setStrokeColorRGB(0, 0, 1); c.rect(m, m, PAGE - 2 * m, PAGE - 2 * m)
+    c.restoreState()
+
+# ---------------------------------------------------------------- main
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--output", default=str(DIR / "output" / "chucharon-2a-edizione.pdf"))
+    ap.add_argument("--solo", help="prefisso id pagina, es. cap3")
+    ap.add_argument("--font-size", type=float, default=16.5)
+    ap.add_argument("--leading", type=float, default=None, help="interlinea in pt (default 1.36 × corpo)")
+    ap.add_argument("--no-halo", action="store_true")
+    ap.add_argument("--guide", action="store_true")
+    a = ap.parse_args()
+
+    registra_font()
+    cfg = json.loads((DIR / "pagine.json").read_text(encoding="utf-8"))
+    testi = leggi_testo(DIR / "testo.md")
+    SIZE[0] = a.font_size
+    leading = a.leading or round(a.font_size * 1.36, 2)
+
+    out = Path(a.output); out.parent.mkdir(parents=True, exist_ok=True)
+    c = canvas.Canvas(str(out), pagesize=(PAGE, PAGE))
+    c.setTitle("Le Avventure de El Chucharon — 2ª edizione")
+    usati = set()
+    for pg in cfg["pagine"]:
+        if a.solo and not pg["id"].startswith(a.solo):
+            continue
+        c.setFillColorRGB(1, 1, 1); c.rect(0, 0, PAGE, PAGE, stroke=0, fill=1)
+        disegna_immagine(c, DIR / pg["img"], pg["box"])
+        if "testo" in pg:
+            if pg["testo"] not in testi:
+                raise SystemExit(f"❌ manca il testo per {pg['testo']} in testo.md")
+            disegna_testo(c, testi[pg["testo"]], a.font_size, leading, not a.no_halo)
+            usati.add(pg["testo"])
+        if a.guide:
+            guide(c)
+        c.showPage()
+        print(f"✓ {pg['id']}")
+    c.save()
+    orfani = set(testi) - usati
+    if orfani and not a.solo:
+        print(f"⚠️  testi non usati: {sorted(orfani)}")
+    print(f"\n📄 {out}  ({out.stat().st_size / 1e6:.1f} MB)")
+
+if __name__ == "__main__":
+    main()
