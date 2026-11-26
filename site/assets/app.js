@@ -4,10 +4,7 @@
   let catalog = null;
 
   document.getElementById("gh-link").href = `https://github.com/${cfg.repo}`;
-  if (cfg.printUrl) {
-    $("#buy-print").href = cfg.printUrl;
-    $("#print-text").innerHTML = `Ordina la versione cartacea: <a href="${cfg.printUrl}" target="_blank" rel="noopener">acquista ora</a>.`;
-  }
+  if (cfg.printUrl) $("#buy-print").href = cfg.printUrl;
 
   // ---------- Galleria ----------
   async function load() {
