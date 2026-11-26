@@ -60,6 +60,11 @@ jobs:
   # Nota: le etichette messe dal GITHUB_TOKEN non attivano altri workflow, per questo la chiamata è diretta.
   produce:
     needs: validate
+    # Un workflow richiamato non può avere più permessi del job chiamante
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
     if: vars.AUTO_PRODUCE == 'true' && needs.validate.outputs.approved == 'true'
     uses: ./.github/workflows/produci-capitolo.yml
     with: { issue: "${{ github.event.issue.number }}" }

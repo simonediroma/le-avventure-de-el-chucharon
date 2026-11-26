@@ -19,7 +19,9 @@ permissions:
 
 jobs:
   produce:
-    if: github.event_name != 'issues' || (github.event.label.name == 'produci' && contains(github.event.issue.labels.*.name, 'approvata'))
+    # inputs.issue è valorizzato quando arriva da workflow_dispatch o workflow_call
+    # (in workflow_call github.event_name resta quello del chiamante, cioè "issues")
+    if: inputs.issue != '' || (github.event.label.name == 'produci' && contains(github.event.issue.labels.*.name, 'approvata'))
     runs-on: ubuntu-latest
     timeout-minutes: 90
     env:
