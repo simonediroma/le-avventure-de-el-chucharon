@@ -1,4 +1,4 @@
-# Visual Bible — Le Avventure di Chucharon
+# Visual Bible — Le Avventure de El Chucharon
 
 ## Art Style
 Italian picture book for children 0–3 years old.

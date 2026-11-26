@@ -1,4 +1,4 @@
-# Demolition History — Le Avventure di Chucharon
+# Demolition History — Le Avventure de El Chucharon
 
 ## Summary
 

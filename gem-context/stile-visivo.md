@@ -1,4 +1,4 @@
-# Stile Visivo — Le Avventure di Chucharon
+# Stile Visivo — Le Avventure de El Chucharon
 
 ## Genere
 Picture book italiano per bambini 0–3 anni. Stile illustrato moderno, caldo, espressivo.

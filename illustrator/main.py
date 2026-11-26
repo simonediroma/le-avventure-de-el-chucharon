@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Chucharon Illustrator — genera illustrazioni per Le Avventure di Chucharon
+Chucharon Illustrator — genera illustrazioni per Le Avventure de El Chucharon
 usando Gemini via generate_content.
 
 SETUP (una volta sola):
@@ -618,7 +618,7 @@ def _strip_json(raw: str) -> str:
     return raw.strip()
 
 CONSISTENCY_PROMPT_TEMPLATE = """\
-You are a visual consistency checker for a children's picture book called "Le Avventure di Chucharon".
+You are a visual consistency checker for a children's picture book called "Le Avventure de El Chucharon".
 
 CHARACTER RULES (these are the ground truth — every illustration must follow them exactly):
 {character_rules}
