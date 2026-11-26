@@ -31,7 +31,7 @@
           <span class="tag ${isCommunity ? "community" : ""}">${ch.kind === "core" ? "Storia di Elena" : isCommunity ? "Dalla community" : "Capitolo"}</span>
           <h3>${esc(ch.title)}</h3>
           ${ch.pain_point ? `<span class="muted small">${esc(ch.pain_point)}</span>` : ""}
-          ${ch.author ? `<span class="muted small">di ${esc(ch.author)}</span>` : ""}
+          ${ch.author ? `<span class="author">Autore: <strong>${esc(ch.author)}</strong></span>` : ""}
           <div class="actions">
             <button type="button" data-read>Leggi</button>
             ${ch.pdf ? `<a href="${ch.pdf}" download>PDF</a>` : ""}
@@ -43,22 +43,73 @@
   }
 
   // ---------- Lettore ----------
-  let rPages = [], rIdx = 0;
-  function openReader(ch) { rPages = ch.pages.filter((p) => p.image); rIdx = 0; showPage(); $("#reader").showModal(); }
+  const reader = $("#reader"), rImg = $("#r-img"), rText = $("#r-text");
+  let rPages = [], rIdx = 0, rTitle = "";
+
+  function openReader(ch) {
+    rPages = ch.pages.filter((p) => p.image);
+    rIdx = 0; rTitle = ch.title;
+    $("#r-title").textContent = ch.title;
+    $("#r-dots").innerHTML = rPages.map(() => "<i></i>").join("");
+    showPage();
+    reader.showModal();
+    document.body.style.overflow = "hidden";
+  }
   function showPage() {
     const p = rPages[rIdx];
-    $("#r-img").src = p.image;
-    $("#r-text").textContent = p.text;
-    $("#r-count").textContent = `${rIdx + 1} / ${rPages.length}`;
+    rImg.classList.add("loading");
+    rImg.onload = () => rImg.classList.remove("loading");
+    rImg.src = p.image;
+    rImg.alt = `${rTitle} — pagina ${rIdx + 1}`;
+    renderText(p);
+    $("#r-count").textContent = `Pagina ${rIdx + 1} di ${rPages.length}`;
+    $("#r-prev").disabled = rIdx === 0;
+    const last = rIdx === rPages.length - 1;
+    $("#r-next").innerHTML = last ? "<span>Fine</span> ✓" : "<span>Avanti</span> ›";
+    $("#r-next").setAttribute("aria-label", last ? "Chiudi il lettore" : "Pagina successiva");
+    $("#r-dots").querySelectorAll("i").forEach((d, i) => d.classList.toggle("on", i === rIdx));
+    $("#r-stage").scrollTop = 0;
+    $(".r-text-wrap").scrollTop = 0;
+    if (rPages[rIdx + 1]) new Image().src = rPages[rIdx + 1].image; // precarica la successiva
   }
-  $("#r-prev").onclick = () => { rIdx = (rIdx - 1 + rPages.length) % rPages.length; showPage(); };
-  $("#r-next").onclick = () => { rIdx = (rIdx + 1) % rPages.length; showPage(); };
-  $("#reader .close").onclick = () => $("#reader").close();
+  // Testo: le strofe tra 🎵 diventano un blocco "canzone", il resto resta narrazione
+  function renderText(p) {
+    $("#r-stage").classList.toggle("is-cover", p.kind === "cover"); // il nome è già nell'illustrazione
+    rText.className = "r-text";
+    rText.replaceChildren();
+    let inSong = false, songEl = null;
+    for (const line of p.text.split("\n")) {
+      const marks = (line.match(/🎵/g) || []).length;
+      if (inSong || marks) {
+        if (!songEl) { songEl = document.createElement("span"); songEl.className = "r-song"; rText.append(songEl); }
+        songEl.append(line.replace(/🎵/g, "").trim().replace(/\s*\/\s*/g, "\n") + "\n");
+        if (marks % 2) inSong = !inSong;
+        if (!inSong) songEl = null;
+      } else {
+        rText.append(line + "\n");
+      }
+    }
+  }
+  const go = (d) => { const n = rIdx + d; if (n >= 0 && n < rPages.length) { rIdx = n; showPage(); } };
+  $("#r-prev").onclick = () => go(-1);
+  $("#r-next").onclick = () => (rIdx === rPages.length - 1 ? reader.close() : go(1));
+  $(".r-close").onclick = () => reader.close();
+  reader.addEventListener("close", () => { document.body.style.overflow = ""; });
+  reader.addEventListener("click", (e) => { if (e.target === reader) reader.close(); }); // click sullo sfondo
   document.addEventListener("keydown", (e) => {
-    if (!$("#reader").open) return;
-    if (e.key === "ArrowRight") $("#r-next").click();
-    if (e.key === "ArrowLeft") $("#r-prev").click();
+    if (!reader.open) return;
+    if (e.key === "ArrowRight") go(1);
+    if (e.key === "ArrowLeft") go(-1);
   });
+  // Swipe su mobile
+  let tx = null, ty = null;
+  $("#r-stage").addEventListener("touchstart", (e) => { tx = e.touches[0].clientX; ty = e.touches[0].clientY; }, { passive: true });
+  $("#r-stage").addEventListener("touchend", (e) => {
+    if (tx === null) return;
+    const dx = e.changedTouches[0].clientX - tx, dy = e.changedTouches[0].clientY - ty;
+    if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 1.5) go(dx < 0 ? 1 : -1);
+    tx = ty = null;
+  }, { passive: true });
 
   // ---------- Crea il tuo libro ----------
   function renderBuilder() {

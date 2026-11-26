@@ -72,7 +72,9 @@ def main() -> None:
         pages = []
         for sid in ch["scenes"]:
             img = export_image(ch["folder"], sid, args.max_width, args.quality)
-            pages.append({"id": sid, "image": img, "text": read_text_block(sid)})
+            kind = ("cover" if sid == ch.get("cover_page") else
+                    "song" if sid in ch.get("song_pages", []) else "page")
+            pages.append({"id": sid, "image": img, "text": read_text_block(sid), "kind": kind})
         item = {k: ch.get(k) for k in ("slug", "kind", "title", "child", "pain_point", "mexico_hook",
                                        "parents", "author", "issue")}
         item["pages"] = pages
