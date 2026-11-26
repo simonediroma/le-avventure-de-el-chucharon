@@ -26,9 +26,9 @@ class Check(BaseModel):
 
 
 class Verdict(BaseModel):
-    protagonista: Check = Field(description="1) Bambino protagonista con un nome, età 0-3 anni coerente col target")
+    protagonista: Check = Field(description="1) Bambino o ragazzo protagonista con un nome, età da 0 a 18 anni")
     gancio_messico: Check = Field(description="2) Gancio con il Messico: una parola/oggetto/situazione 'messicana' detta in scena che invoca Chucharon senza che nessuno lo sappia")
-    pain_point: Check = Field(description="3) Pain point reale e riconoscibile della crescita 0-3 anni che El Chucharito può risolvere (la soluzione/canzone non è richiesta al proponente)")
+    pain_point: Check = Field(description="3) Pain point reale e riconoscibile della crescita, adatto all'età del protagonista, che El Chucharito può risolvere (la soluzione/canzone non è richiesta al proponente)")
     genitori: Check = Field(description="4) Almeno un genitore (mamma, papà o entrambi) presente e che rende la scena comica")
     sicurezza: Check = Field(description="Contenuto adatto a bambini 0-3: niente violenza, paura, contenuti sessuali, marchi, persone reali famose, dati personali sensibili, insulti, spam")
     originalita: Check = Field(description="Non duplica un capitolo esistente (stesso bambino o stesso identico problema)")
@@ -38,7 +38,8 @@ class Verdict(BaseModel):
     titolo_proposto: str = Field(description="Titolo nello stile 'La tummy time di Leo', 'I dentini di Sofia'")
 
 
-SYSTEM = """Sei l'editor di "Le Avventure de El Chucharon", libro illustrato per bambini 0-3 anni.
+SYSTEM = """Sei l'editor di "Le Avventure de El Chucharon", libro illustrato da leggere ai bambini piccoli.
+Il protagonista di ogni capitolo può avere da 0 a 18 anni; il tono resta adatto a una lettura con i più piccoli.
 Il libro è collaborativo: chiunque può proporre un capitolo. Il tuo compito è valutare la proposta
 rispetto alla struttura fissa di ogni capitolo:
 1) un bambino protagonista con un nome;
