@@ -16,10 +16,17 @@
 </head>
 <body>
   <header class="hero">
-    <nav class="nav">
-      <a href="#galleria">Galleria</a>
-      <a href="#crea">Crea il tuo libro</a>
-      <a href="#proponi">Proponi un capitolo</a>
+    <nav class="nav" aria-label="Menu principale">
+      <a class="brand" href="#"><img src="assets/icons/favicon-32.png" alt="" width="32" height="32"> El Chucharon</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu" aria-label="Apri il menu">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="menu" id="menu">
+        <a href="#galleria">Galleria</a>
+        <a href="#crea">Crea il tuo libro</a>
+        <a href="#proponi">Proponi un capitolo</a>
+        <a class="menu-buy" href="https://www.amazon.it/dp/B0H63PYG5S" target="_blank" rel="noopener">Compra una copia</a>
+      </div>
     </nav>
     <div class="hero-inner">
       <img id="hero-cover" class="hero-cover" alt="Copertina del libro" src="media/00-cover/COVER.jpg">

@@ -4,7 +4,19 @@
   let catalog = null;
 
   document.getElementById("gh-link").href = `https://github.com/${cfg.repo}`;
-  if (cfg.printUrl) $("#buy-print").href = cfg.printUrl;
+  if (cfg.printUrl) { $("#buy-print").href = cfg.printUrl; $(".menu-buy").href = cfg.printUrl; }
+
+  // ---------- Menu mobile ----------
+  const toggle = $(".menu-toggle"), menu = $("#menu");
+  const setMenu = (open) => {
+    menu.classList.toggle("open", open);
+    toggle.setAttribute("aria-expanded", String(open));
+    toggle.setAttribute("aria-label", open ? "Chiudi il menu" : "Apri il menu");
+  };
+  toggle.addEventListener("click", () => setMenu(!menu.classList.contains("open")));
+  menu.addEventListener("click", (e) => { if (e.target.closest("a")) setMenu(false); });
+  document.addEventListener("click", (e) => { if (!e.target.closest(".nav")) setMenu(false); });
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape") setMenu(false); });
 
   // ---------- Galleria ----------
   async function load() {
