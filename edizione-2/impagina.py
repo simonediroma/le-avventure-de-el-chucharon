@@ -9,8 +9,13 @@ Input:
   assets/       illustrazioni e sfondi estratti dal PDF della 1ª edizione
   fonts/        Open Sans (OFL) + DejaVu Sans per il simbolo ♪
 
-Formato: 630×630 pt = 8,75" quadrato = rifilo 8,5"×8,5" con abbondanza (bleed),
-identico al PDF caricato su KDP per la 1ª edizione.
+Formato KDP (guida "Linee guida per l'invio della versione cartacea"):
+  gabbia 8,5"×8,5" con smarginatura → pagina 8,625" × 8,75" (621×630 pt):
+  +0,125" sui bordi superiore, inferiore ed esterno, nessuna abbondanza verso la rilegatura.
+  Il disegno resta su una tela 630×630 (stesse coordinate della 1ª ed.) e ogni pagina
+  viene ritagliata di 9 pt sul lato della rilegatura: sinistra per le dispari, destra per le pari.
+  Nessuna trasparenza (alone disattivato), nessun metadato titolo.
+La versione --web resta 630×630, senza ritaglio.
 
 Uso:
   pip install reportlab pillow
@@ -152,7 +157,8 @@ def main():
     ap.add_argument("--solo", help="prefisso id pagina, es. cap3")
     ap.add_argument("--font-size", type=float, default=16.5)
     ap.add_argument("--leading", type=float, default=None, help="interlinea in pt (default 1.36 × corpo)")
-    ap.add_argument("--no-halo", action="store_true")
+    ap.add_argument("--halo", action="store_true",
+                    help="alone chiaro dietro al testo (usa trasparenze: NON per KDP)")
     ap.add_argument("--guide", action="store_true")
     ap.add_argument("--web", action="store_true",
                     help="versione per il sito: copertina in testa, immagini più leggere")
@@ -170,18 +176,25 @@ def main():
     leading = a.leading or round(a.font_size * 1.36, 2)
 
     out = Path(a.output); out.parent.mkdir(parents=True, exist_ok=True)
-    c = canvas.Canvas(str(out), pagesize=(PAGE, PAGE), initialFontName="OS", initialFontSize=12)
-    c.setTitle("Le Avventure de El Chucharon — 2ª edizione")
+    kdp = not a.web
+    page_w = PAGE - BLEED if kdp else PAGE
+    c = canvas.Canvas(str(out), pagesize=(page_w, PAGE), initialFontName="OS", initialFontSize=12)
+    if not kdp:
+        c.setTitle("Le Avventure de El Chucharon — 2ª edizione")
     usati = set()
+    n = 0
     for pg in cfg["pagine"]:
         if a.solo and not pg["id"].startswith(a.solo):
             continue
+        n += 1
+        if kdp and n % 2 == 1:      # pagina destra: rilegatura a sinistra → taglia 9 pt a sinistra
+            c.translate(-BLEED, 0)
         c.setFillColorRGB(1, 1, 1); c.rect(0, 0, PAGE, PAGE, stroke=0, fill=1)
         disegna_immagine(c, DIR / pg["img"], pg["box"])
         if "testo" in pg:
             if pg["testo"] not in testi:
                 raise SystemExit(f"❌ manca il testo per {pg['testo']} in testo.md")
-            disegna_testo(c, testi[pg["testo"]], a.font_size, leading, not a.no_halo)
+            disegna_testo(c, testi[pg["testo"]], a.font_size, leading, a.halo)
             usati.add(pg["testo"])
         if a.guide:
             guide(c)
@@ -197,6 +210,14 @@ def main():
         with open(out, "wb") as f:
             w.write(f)
         print("✓ copertina in testa")
+    if kdp:   # KDP: nessun metadato nel file
+        from pypdf import PdfReader, PdfWriter
+        w = PdfWriter(clone_from=PdfReader(str(out)))
+        if "/Info" in w._root_object:
+            del w._root_object["/Info"]
+        w._info = None
+        with open(out, "wb") as f:
+            w.write(f)
     orfani = set(testi) - usati
     if orfani and not a.solo:
         print(f"⚠️  testi non usati: {sorted(orfani)}")
