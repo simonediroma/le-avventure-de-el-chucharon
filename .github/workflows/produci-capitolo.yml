@@ -1,0 +1,88 @@
+name: Produci capitolo (testo + illustrazioni)
+
+# Avvio: un maintainer aggiunge l'etichetta "produci" a una proposta approvata,
+# oppure automatico da valida-proposta.yml (AUTO_PRODUCE=true), oppure manuale.
+on:
+  issues:
+    types: [labeled]
+  workflow_dispatch:
+    inputs:
+      issue: { description: "Numero issue della proposta", required: true }
+  workflow_call:
+    inputs:
+      issue: { type: string, required: true }
+
+permissions:
+  contents: write
+  issues: write
+  pull-requests: write
+
+jobs:
+  produce:
+    if: github.event_name != 'issues' || (github.event.label.name == 'produci' && contains(github.event.issue.labels.*.name, 'approvata'))
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    env:
+      N: ${{ inputs.issue || github.event.issue.number }}
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: pip install -r pipeline/requirements.txt
+
+      - name: Rivalida e scrivi il capitolo con Claude
+        id: gen
+        env: { ANTHROPIC_API_KEY: "${{ secrets.ANTHROPIC_API_KEY }}" }
+        run: |
+          gh issue view "$N" --repo "$GITHUB_REPOSITORY" --json body -q .body > issue.md
+          python pipeline/validate_proposal.py --body-file issue.md --out validation.json --comment comment.md
+          ids=$(python pipeline/generate_chapter.py --validation validation.json --issue "$N" | tail -1)
+          echo "ids=$ids" >> "$GITHUB_OUTPUT"
+
+      - name: Illustrazioni con Gemini
+        env: { GEMINI_API_KEY: "${{ secrets.GEMINI_API_KEY }}" }
+        working-directory: illustrator
+        run: python main.py --only "${{ steps.gen.outputs.ids }}"
+
+      - name: Controllo coerenza (cross-check + auto-fix)
+        env: { GEMINI_API_KEY: "${{ secrets.GEMINI_API_KEY }}" }
+        working-directory: illustrator
+        continue-on-error: true
+        run: python main.py --only "${{ steps.gen.outputs.ids }}" --auto-fix
+
+      - name: Anteprima PDF del capitolo
+        run: |
+          slug=$(python -c "import json;print(json.load(open('proposals/$N.json'))['slug'])")
+          python illustrator/layout.py --chapters "$slug" --output "preview-$slug.pdf" --skip-missing
+          echo "SLUG=$slug" >> "$GITHUB_ENV"
+      - uses: actions/upload-artifact@v4
+        with: { name: "anteprima-${{ env.SLUG }}", path: "preview-*.pdf" }
+
+      - name: Apri la pull request
+        id: pr
+        uses: peter-evans/create-pull-request@v7
+        with:
+          branch: capitolo/${{ env.SLUG }}
+          title: "Nuovo capitolo: ${{ env.SLUG }} (proposta #${{ env.N }})"
+          commit-message: "Nuovo capitolo ${{ env.SLUG }} dalla proposta #${{ env.N }}"
+          add-paths: |
+            chapters/
+            scenes/
+            proposals/
+            book/registry.json
+            illustrator/output/${{ env.SLUG }}/
+          body: |
+            Capitolo generato automaticamente dalla proposta #${{ env.N }}.
+
+            - Testo: Claude · Illustrazioni: Gemini (`illustrator/main.py`)
+            - Anteprima PDF negli artifact di questo workflow.
+
+            Rivedi testo e immagini, poi fai merge: il sito verrà ripubblicato in automatico.
+            Closes #${{ env.N }}
+
+      - name: Aggiorna la proposta
+        run: |
+          gh label create in-produzione --color 1D76DB --repo "$GITHUB_REPOSITORY" 2>/dev/null || true
+          gh issue edit "$N" --repo "$GITHUB_REPOSITORY" --add-label in-produzione --remove-label produci || true
+          gh issue comment "$N" --repo "$GITHUB_REPOSITORY" --body "🎨 Capitolo prodotto! Revisione in corso: ${{ steps.pr.outputs.pull-request-url }}"

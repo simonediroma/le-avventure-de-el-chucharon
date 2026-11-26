@@ -67,43 +67,54 @@ TEXT_MAX_W  = PAGE_W - 2 * TEXT_PAD_X
 # Ordine di stampa (26 pagine: copertina + 25 pagine interne)
 # ---------------------------------------------------------------------------
 
-SCENE_ORDER = [
-    # Copertina libro
-    "COVER",
-    # Prologo
-    "P-01", "P-02", "P-03", "P-04", "P-05",
-    # Capitolo 1 — Leo
-    "C1-00",
-    "C1-01", "C1-02", "C1-03", "C1-04",
-    # Capitolo 2 — Sofia
-    "C2-00",
-    "C2-01", "C2-02", "C2-03", "C2-04",
-    # Capitolo 3 — Marco
-    "C3-00",
-    "C3-01", "C3-02", "C3-03", "C3-04",
-    # Epilogo
-    "E-00",
-    "E-01",  "E-02",  "E-03",  "E-04",
-]
+REGISTRY_FILE = SCRIPT_DIR.parent / "book" / "registry.json"
+
+
+def load_registry() -> dict:
+    """Registro capitoli (book/registry.json) — fonte unica per ordine pagine e cartelle."""
+    return json.loads(REGISTRY_FILE.read_text(encoding="utf-8"))
+
+
+_REG = load_registry()
+_CHAPTERS = _REG["chapters"]
+
+
+def scene_order_for(slugs: list[str] | None = None, include_cover: bool = True) -> list[str]:
+    """Ordine pagine. slugs=None → tutti i capitoli. Prologo/epilogo (kind=core) sempre inclusi."""
+    order = [_REG["cover"]] if include_cover else []
+    for ch in _CHAPTERS:
+        if slugs is None or ch["slug"] in slugs or ch["kind"] == "core":
+            order += ch["scenes"]
+    return order
+
+
+SCENE_ORDER = scene_order_for()
 
 # Pagine canzone: testo centrato, bold + pseudo-italic
-SONG_PAGES = {"C1-03", "C2-03", "C3-03", "E-03"}
+SONG_PAGES = {sid for ch in _CHAPTERS for sid in ch.get("song_pages", [])}
 
 # Copertine di capitolo: solo il nome del bambino, centrato e grande
-CHAPTER_COVER_PAGES = {"C1-00", "C2-00", "C3-00", "E-00"}
+CHAPTER_COVER_PAGES = {ch["cover_page"] for ch in _CHAPTERS if ch.get("cover_page")}
 
-# ---------------------------------------------------------------------------
-# Mappa ID → cartella output
-# ---------------------------------------------------------------------------
+_SCENE_TO_FOLDER = {sid: ch["folder"] for ch in _CHAPTERS for sid in ch["scenes"]}
+
+
+IMAGE_EXTS = (".png", ".jpg", ".jpeg", ".webp")
+
+
+def find_image(folder: str, scene_id: str) -> Path:
+    """Cerca l'illustrazione in OUTPUT_DIR (png o versioni web compresse jpg/webp)."""
+    for ext in IMAGE_EXTS:
+        p = OUTPUT_DIR / folder / f"{scene_id}{ext}"
+        if p.exists():
+            return p
+    return OUTPUT_DIR / folder / f"{scene_id}.png"
+
 
 def chapter_folder(scene_id: str) -> str:
-    if scene_id == "COVER":        return "00-cover"
-    if scene_id.startswith("P-"):  return "00-prologo"
-    if scene_id.startswith("C1-"): return "01-leo"
-    if scene_id.startswith("C2-"): return "02-sofia"
-    if scene_id.startswith("C3-"): return "03-marco"
-    if scene_id.startswith("E-"):  return "04-epilogo"
-    return "other"
+    if scene_id == _REG["cover"]:
+        return "00-cover"
+    return _SCENE_TO_FOLDER.get(scene_id, "other")
 
 # ---------------------------------------------------------------------------
 # Lettura text_block dal frontmatter YAML
@@ -349,7 +360,7 @@ def draw_cover(
     skip_missing: bool,
     dry_run: bool,
 ) -> bool:
-    img_path = OUTPUT_DIR / "00-cover" / "COVER.png"
+    img_path = find_image("00-cover", "COVER")
 
     if dry_run:
         exists = "✅" if img_path.exists() else "❌ mancante"
@@ -389,7 +400,7 @@ def draw_page(
     dry_run: bool,
 ) -> bool:
     folder = chapter_folder(scene_id)
-    img_path = OUTPUT_DIR / folder / f"{scene_id}.png"
+    img_path = find_image(folder, scene_id)
     is_song          = scene_id in SONG_PAGES
     is_chapter_cover = scene_id in CHAPTER_COVER_PAGES
 
@@ -537,6 +548,14 @@ def main() -> None:
                         help="Opacità max sfumatura 0-1 (default: 0.80)")
     parser.add_argument("--skip-missing", action="store_true",
                         help="Salta pagine senza illustrazione")
+    parser.add_argument("--chapters",     default=None,
+                        help="Slug capitoli da includere, separati da virgola (prologo/epilogo sempre inclusi)")
+    parser.add_argument("--scenes",       default=None,
+                        help="Lista esplicita di ID scena (sovrascrive --chapters), es. COVER,P-01,P-02")
+    parser.add_argument("--images-dir",   default=None,
+                        help="Cartella immagini alternativa a output/ (es. versioni web compresse)")
+    parser.add_argument("--no-cover",     action="store_true",
+                        help="Non includere la copertina del libro")
     parser.add_argument("--dry-run",      action="store_true",
                         help="Mostra le pagine senza generare il PDF")
     args = parser.parse_args()
@@ -557,6 +576,16 @@ def main() -> None:
         print("⚠️  Formato --overlay-color non valido — uso default")
         overlay_color = (0.97, 0.94, 0.88)
 
+    global SCENE_ORDER, OUTPUT_DIR
+    default_out_dir = OUTPUT_DIR
+    if args.images_dir:
+        OUTPUT_DIR = Path(args.images_dir)
+    if args.scenes:
+        SCENE_ORDER = [x.strip() for x in args.scenes.split(",") if x.strip()]
+    else:
+        slugs = [x.strip() for x in args.chapters.split(",")] if args.chapters else None
+        SCENE_ORDER = scene_order_for(slugs, include_cover=not args.no_cover)
+
     if args.dry_run:
         print(f"\n📋 Dry run — {len(SCENE_ORDER)} pagine:\n")
         for sid in SCENE_ORDER:
@@ -567,14 +596,14 @@ def main() -> None:
                           args.band_style, False, dry_run=True)
         missing = sum(
             1 for sid in SCENE_ORDER
-            if not (OUTPUT_DIR / chapter_folder(sid) / f"{sid}.png").exists()
+            if not find_image(chapter_folder(sid), sid).exists()
         )
         print(f"\n{'─'*48}")
         print(f"Presenti: {len(SCENE_ORDER) - missing}/{len(SCENE_ORDER)}"
               + (f"  |  Mancanti: {missing}" if missing else ""))
         return
 
-    out_path = Path(args.output) if args.output else OUTPUT_DIR / "book.pdf"
+    out_path = Path(args.output) if args.output else default_out_dir / "book.pdf"
     out_path.parent.mkdir(parents=True, exist_ok=True)
 
     font_name  = register_font(args.font,       "corpo")
@@ -583,7 +612,7 @@ def main() -> None:
 
     print(f"\n📖 Generazione PDF")
     print(f"   Output : {out_path}")
-    print(f"   Pagine : {len(SCENE_ORDER)}  (copertina libro + 4 copertine capitolo + 21 pagine)")
+    print(f"   Pagine : {len(SCENE_ORDER)}  ")
     print(f"   Formato: A4 landscape (297×210mm)")
     print(f"   Font   : {font_name}  {args.font_size}pt\n")
 

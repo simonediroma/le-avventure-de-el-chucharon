@@ -1,0 +1,53 @@
+:root{--cream:#FFF8F0;--ink:#2a211b;--muted:#6b5d52;--red:#C8102E;--green:#0B7A3B;--yellow:#F2B705;--terra:#C65D3B;--card:#fff;--line:#eadfd2}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--ink);font:17px/1.55 Nunito,system-ui,sans-serif}
+a{color:var(--terra)}
+h1,h2{font-family:Pacifico,cursive;font-weight:400;line-height:1.2}
+h2{font-size:2rem;margin:0 0 .3rem;color:var(--terra)}
+.muted{color:var(--muted)}.small{font-size:.95rem}
+.hero{background:linear-gradient(180deg,#f6b25a 0%,#f08a3c 55%,#e0653a 100%);color:#fff;position:relative}
+.nav{display:flex;gap:1.2rem;justify-content:flex-end;padding:1rem 16px;max-width:1100px;margin:0 auto;flex-wrap:wrap}
+.nav a{color:#fff;text-decoration:none;font-weight:700}
+.hero-inner{max-width:1100px;margin:0 auto;padding:1rem 16px 3rem;display:grid;grid-template-columns:1.1fr 1fr;gap:2rem;align-items:center}
+.hero h1{font-size:clamp(2rem,5vw,3.4rem);margin:0 0 1rem;text-shadow:0 2px 0 rgba(0,0,0,.15)}
+.hero h1 span{color:var(--yellow)}
+.hero-cover{width:100%;border-radius:14px;box-shadow:0 12px 30px rgba(0,0,0,.25)}
+.lead{font-size:1.1rem}
+.band{height:14px;background:repeating-linear-gradient(90deg,var(--red) 0 40px,var(--yellow) 40px 80px,var(--green) 80px 120px,#fff 120px 140px)}
+.cta{display:flex;gap:.8rem;flex-wrap:wrap;margin-top:1.2rem}
+.btn{display:inline-block;border:0;cursor:pointer;background:var(--green);color:#fff;padding:.75rem 1.3rem;border-radius:999px;font:800 1rem Nunito,sans-serif;text-decoration:none}
+.btn:hover{filter:brightness(1.08)}.btn:disabled{opacity:.6;cursor:wait}
+.btn-alt{background:#fff;color:var(--terra)}
+main{max-width:1100px;margin:0 auto;padding:0 16px}
+section{padding:3rem 0}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:2rem;margin:1rem 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:1.2rem;margin-top:1.2rem}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column}
+.card img{width:100%;aspect-ratio:16/9;object-fit:cover;cursor:zoom-in;background:#f3e7da}
+.card .body{padding:1rem;flex:1;display:flex;flex-direction:column;gap:.35rem}
+.card h3{margin:0;font-size:1.15rem}
+.tag{display:inline-block;font-size:.75rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--green)}
+.tag.community{color:var(--red)}
+.card .actions{margin-top:auto;display:flex;gap:.6rem;padding-top:.6rem}
+.card .actions a,.card .actions button{font:700 .9rem Nunito;background:none;border:1px solid var(--line);border-radius:999px;padding:.35rem .8rem;cursor:pointer;color:var(--ink);text-decoration:none}
+.checks{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:.6rem;margin:1rem 0}
+.checks label{border:1px solid var(--line);border-radius:12px;padding:.6rem .8rem;display:flex;gap:.6rem;align-items:center;background:var(--cream)}
+.checks label.locked{opacity:.7}
+.inline{display:flex;gap:.5rem;align-items:flex-start;margin:.6rem 0}
+.rules{background:#fff;border-left:6px solid var(--yellow);border-radius:10px;padding:1rem 1rem 1rem 2.4rem}
+.form{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1.4rem}
+.form label{display:flex;flex-direction:column;font-weight:700;font-size:.95rem;gap:.3rem}
+.form label.inline{flex-direction:row;font-weight:400}
+.form .full{grid-column:1/-1}
+input,textarea,select{font:1rem Nunito,sans-serif;padding:.6rem .7rem;border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--ink)}
+input:focus,textarea:focus,select:focus{outline:3px solid #f2b70555;border-color:var(--yellow)}
+#p-status.ok{color:var(--green);font-weight:700}#p-status.err{color:var(--red);font-weight:700}
+dialog{border:0;border-radius:16px;padding:0;max-width:min(1000px,96vw);background:var(--cream)}
+dialog::backdrop{background:rgba(30,20,10,.7)}
+dialog figure{margin:0}dialog img{width:100%;display:block}
+dialog figcaption{padding:1rem 1.4rem;white-space:pre-line;font-size:1.05rem}
+.r-nav{display:flex;justify-content:center;align-items:center;gap:1rem;padding:0 0 1rem}
+.r-nav button,.close{font-size:1.6rem;border:0;background:none;cursor:pointer;color:var(--terra)}
+.close{position:absolute;right:.6rem;top:.2rem;color:#fff;text-shadow:0 1px 3px #000}
+footer{text-align:center;padding:2rem 16px;color:var(--muted);font-size:.9rem}
+@media (max-width:760px){.hero-inner{grid-template-columns:1fr}.form{grid-template-columns:1fr}.panel{padding:1.2rem}}

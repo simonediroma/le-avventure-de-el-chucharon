@@ -1,0 +1,66 @@
+name: Valida proposta capitolo
+
+on:
+  issues:
+    types: [opened, edited, labeled]
+
+permissions:
+  issues: write
+  contents: read
+
+concurrency:
+  group: proposta-${{ github.event.issue.number }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    # Parte su nuove proposte/modifiche, o se un maintainer aggiunge "rivaluta"
+    if: >
+      contains(github.event.issue.labels.*.name, 'proposta') &&
+      !contains(github.event.issue.labels.*.name, 'in-produzione') &&
+      !contains(github.event.issue.labels.*.name, 'pubblicata') &&
+      (github.event.action != 'labeled' || github.event.label.name == 'rivaluta')
+    runs-on: ubuntu-latest
+    outputs:
+      approved: ${{ steps.v.outputs.approved }}
+    steps:
+      - uses: actions/checkout@v4
+        with: { sparse-checkout: "book\nchapters\ncharacters\npipeline\nbook.config.json", sparse-checkout-cone-mode: false }
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: pip install anthropic pydantic
+      - name: Validazione con Claude
+        id: v
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          ISSUE_BODY: ${{ github.event.issue.body }}
+        run: |
+          printf '%s' "$ISSUE_BODY" > issue.md
+          set +e; python pipeline/validate_proposal.py --body-file issue.md --out validation.json --comment comment.md; code=$?; set -e
+          if [ $code -eq 1 ]; then exit 1; fi
+          echo "approved=$([ $code -eq 0 ] && echo true || echo false)" >> "$GITHUB_OUTPUT"
+      - name: Commento ed etichette
+        env:
+          GH_TOKEN: ${{ github.token }}
+          N: ${{ github.event.issue.number }}
+        run: |
+          gh issue comment "$N" --repo "$GITHUB_REPOSITORY" --body-file comment.md
+          gh label create approvata --color 0B7A3B --repo "$GITHUB_REPOSITORY" 2>/dev/null || true
+          gh label create da-rivedere --color F2B705 --repo "$GITHUB_REPOSITORY" 2>/dev/null || true
+          gh issue edit "$N" --repo "$GITHUB_REPOSITORY" --remove-label rivaluta,approvata,da-rivedere || true
+          if [ "${{ steps.v.outputs.approved }}" = "true" ]; then
+            gh issue edit "$N" --repo "$GITHUB_REPOSITORY" --add-label approvata
+          else
+            gh issue edit "$N" --repo "$GITHUB_REPOSITORY" --add-label da-rivedere
+          fi
+      - uses: actions/upload-artifact@v4
+        with: { name: "validation-${{ github.event.issue.number }}", path: validation.json }
+
+  # Produzione automatica (se la variabile di repo AUTO_PRODUCE = true).
+  # Nota: le etichette messe dal GITHUB_TOKEN non attivano altri workflow, per questo la chiamata è diretta.
+  produce:
+    needs: validate
+    if: vars.AUTO_PRODUCE == 'true' && needs.validate.outputs.approved == 'true'
+    uses: ./.github/workflows/produci-capitolo.yml
+    with: { issue: "${{ github.event.issue.number }}" }
+    secrets: inherit
