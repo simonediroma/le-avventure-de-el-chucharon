@@ -23,7 +23,7 @@ section{padding:3rem 0}
 .panel{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:2rem;margin:1rem 0}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:1.2rem;margin-top:1.2rem}
 .card{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column}
-.card img{width:100%;aspect-ratio:16/9;object-fit:cover;cursor:zoom-in;background:#f3e7da}
+.card img{width:100%;aspect-ratio:1200/896;object-fit:cover;object-position:center bottom;cursor:zoom-in;background:#f3e7da}
 .card .body{padding:1rem;flex:1;display:flex;flex-direction:column;gap:.35rem}
 .card h3{margin:0;font-size:1.15rem}
 .card .author{font-size:.9rem;color:var(--ink)}
