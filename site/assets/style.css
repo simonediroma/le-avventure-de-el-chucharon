@@ -6,8 +6,25 @@ h1,h2{font-family:Pacifico,cursive;font-weight:400;line-height:1.2}
 h2{font-size:2rem;margin:0 0 .3rem;color:var(--terra)}
 .muted{color:var(--muted)}.small{font-size:.95rem}
 .hero{background:linear-gradient(180deg,#f6b25a 0%,#f08a3c 55%,#e0653a 100%);color:#fff;position:relative}
-.nav{display:flex;gap:1.2rem;justify-content:flex-end;padding:1rem 16px;max-width:1100px;margin:0 auto;flex-wrap:wrap}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.8rem 16px;max-width:1100px;margin:0 auto;position:relative}
 .nav a{color:#fff;text-decoration:none;font-weight:700}
+.brand{display:flex;align-items:center;gap:.5rem;font-family:Pacifico,cursive;font-weight:400!important;font-size:1.2rem}
+.brand img{border-radius:8px}
+.menu{display:flex;gap:1.2rem;align-items:center}
+.menu-buy{background:#fff;color:var(--terra)!important;padding:.35rem .9rem;border-radius:999px}
+.menu-toggle{display:none;width:44px;height:44px;border:0;border-radius:12px;background:rgba(255,255,255,.18);cursor:pointer;flex-direction:column;justify-content:center;align-items:center;gap:5px}
+.menu-toggle span{display:block;width:22px;height:2.5px;border-radius:2px;background:#fff;transition:transform .2s,opacity .2s}
+.menu-toggle[aria-expanded="true"] span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
+.menu-toggle[aria-expanded="true"] span:nth-child(2){opacity:0}
+.menu-toggle[aria-expanded="true"] span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
+@media (max-width:760px){
+  .menu-toggle{display:flex}
+  .menu{display:none;position:absolute;top:100%;left:16px;right:16px;z-index:20;flex-direction:column;align-items:stretch;gap:0;background:#fff;border-radius:16px;box-shadow:0 14px 34px rgba(0,0,0,.22);padding:.4rem;overflow:hidden}
+  .menu.open{display:flex}
+  .menu a{color:var(--ink);padding:.9rem 1rem;border-radius:10px;font-size:1.05rem}
+  .menu a:hover,.menu a:focus-visible{background:var(--cream)}
+  .menu .menu-buy{background:var(--green);color:#fff!important;text-align:center;margin:.3rem;border-radius:999px}
+}
 .hero-inner{max-width:1100px;margin:0 auto;padding:1rem 16px 3rem;display:grid;grid-template-columns:1.1fr 1fr;gap:2rem;align-items:center}
 .hero h1{font-size:clamp(2rem,5vw,3.4rem);margin:0 0 1rem;text-shadow:0 2px 0 rgba(0,0,0,.15)}
 .hero h1 span{color:var(--yellow)}
