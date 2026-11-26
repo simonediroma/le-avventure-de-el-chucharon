@@ -1,0 +1,6 @@
+
+# Sito: artefatti generati da pipeline/publish.py
+site/media/
+site/pdf/
+site/data/chapters.json
+__pycache__/

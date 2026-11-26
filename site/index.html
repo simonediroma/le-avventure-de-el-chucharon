@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Le Avventure de El Chucharon</title>
+  <meta name="description" content="Il libro illustrato collaborativo per bambini 0-3 anni: leggi, scarica, crea il tuo libro e proponi un nuovo capitolo.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <header class="hero">
+    <nav class="nav">
+      <a href="#galleria">Galleria</a>
+      <a href="#crea">Crea il tuo libro</a>
+      <a href="#proponi">Proponi un capitolo</a>
+    </nav>
+    <div class="hero-inner">
+      <img id="hero-cover" class="hero-cover" alt="Copertina del libro" src="media/00-cover/COVER.jpg">
+      <div>
+        <h1>Le Avventure de <span>El Chucharon</span></h1>
+        <p class="lead">Un ciuccio messicano volante ha perso la sua bambina. Di tappa in tappa aiuta altri bimbi ad affrontare le sfide della crescita. Ogni storia lascia il bambino con un sorriso e il genitore con un respiro di sollievo.</p>
+        <p class="lead small">È un libro <strong>collaborativo</strong>: il prossimo capitolo puoi scriverlo tu.</p>
+        <div class="cta">
+          <a class="btn" id="dl-full" href="pdf/libro-completo.pdf" download>Scarica il PDF</a>
+          <a class="btn btn-alt" id="buy-print" href="#cartaceo">Versione cartacea</a>
+        </div>
+      </div>
+    </div>
+    <div class="band" aria-hidden="true"></div>
+  </header>
+
+  <main>
+    <section id="galleria">
+      <h2>I capitoli</h2>
+      <p class="muted">Ogni capitolo: un bambino, un problema, una parola messicana… ed ecco El Chucharito.</p>
+      <div id="gallery" class="grid"></div>
+    </section>
+
+    <section id="crea" class="panel">
+      <h2>Crea il tuo libro</h2>
+      <p class="muted">Scegli i capitoli: prologo ed epilogo sono sempre inclusi. Il PDF viene composto nel tuo browser.</p>
+      <form id="builder">
+        <div id="builder-list" class="checks"></div>
+        <label class="inline"><input type="checkbox" id="b-cover" checked> Includi la copertina</label>
+        <button class="btn" type="submit" id="b-go">Genera il mio PDF</button>
+        <span id="b-status" class="muted" role="status"></span>
+      </form>
+    </section>
+
+    <section id="proponi">
+      <h2>Proponi un capitolo</h2>
+      <p class="muted">Ogni capitolo segue la stessa struttura. La proposta viene validata automaticamente da Claude; se passa, testo e illustrazioni vengono prodotti e, dopo la revisione, pubblicati qui.</p>
+      <ol class="rules">
+        <li><strong>Un bambino protagonista</strong> con un nome (0-3 anni).</li>
+        <li><strong>Un gancio con il Messico</strong> che fa entrare in scena Chucharon (es. “la tartaruga messicana”).</li>
+        <li><strong>Un pain point</strong> del bambino che El Chucharito risolve.</li>
+        <li><strong>I genitori</strong> (o solo mamma, o solo papà) che rendono la scena comica.</li>
+      </ol>
+      <form id="proposal" class="form">
+        <label>Nome del bambino o della bambina *<input name="nome_bambino" required maxlength="40"></label>
+        <label>Età *<input name="eta" required placeholder="es. 8 mesi" maxlength="30"></label>
+        <label class="full">Com'è fatto/a (aspetto e vestiti)<textarea name="aspetto" rows="2" maxlength="500" placeholder="es. riccioli rossi, sempre con una tutina gialla"></textarea></label>
+        <label class="full">Il problema da risolvere (pain point) *<textarea name="pain_point" rows="3" required maxlength="800" placeholder="es. non vuole mai fare il bagnetto"></textarea></label>
+        <label class="full">Il gancio con il Messico *<textarea name="gancio_messico" rows="2" required maxlength="500" placeholder="es. il papà dice: sembri un cactus messicano!"></textarea></label>
+        <label>Chi accompagna il bambino *
+          <select name="genitori" required>
+            <option>Mamma e papà</option><option>Solo mamma</option><option>Solo papà</option>
+          </select>
+        </label>
+        <label>Dove si svolge la scena *<input name="ambientazione" required maxlength="120" placeholder="es. il bagno di casa"></label>
+        <label class="full">La scena comica dei genitori *<textarea name="comicita_genitori" rows="3" required maxlength="800" placeholder="es. il papà finisce più bagnato del bambino"></textarea></label>
+        <label class="full">Come lo aiuta El Chucharito (facoltativo)<textarea name="soluzione" rows="2" maxlength="500"></textarea></label>
+        <label>Firma (nome o nickname, sarà pubblica)<input name="autore" maxlength="60"></label>
+        <label class="full inline"><input type="checkbox" name="consenso" required> Accetto che la proposta venga pubblicata e rielaborata nel libro con licenza CC BY-NC 4.0. Non inserisco dati personali di minori reali.</label>
+        <div id="turnstile" class="full"></div>
+        <button class="btn" type="submit">Invia la proposta</button>
+        <p id="p-status" class="full" role="status"></p>
+      </form>
+    </section>
+
+    <section id="cartaceo" class="panel">
+      <h2>La versione cartacea</h2>
+      <p id="print-text" class="muted">La stampa su richiesta è in arrivo: potrai ricevere a casa il libro con i capitoli che preferisci.</p>
+    </section>
+  </main>
+
+  <dialog id="reader">
+    <button class="close" aria-label="Chiudi">×</button>
+    <figure><img id="r-img" alt=""><figcaption id="r-text"></figcaption></figure>
+    <div class="r-nav"><button id="r-prev">‹</button><span id="r-count"></span><button id="r-next">›</button></div>
+  </dialog>
+
+  <footer>Le Avventure de El Chucharon · testi e illustrazioni CC BY-NC 4.0 · <a id="gh-link" href="#">sorgenti su GitHub</a></footer>
+
+  <script src="config.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
+  <script src="assets/app.js"></script>
+</body>
+</html>
