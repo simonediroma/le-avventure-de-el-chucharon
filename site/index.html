@@ -86,10 +86,27 @@
     </section>
   </main>
 
-  <dialog id="reader">
-    <button class="close" aria-label="Chiudi">×</button>
-    <figure><img id="r-img" alt=""><figcaption id="r-text"></figcaption></figure>
-    <div class="r-nav"><button id="r-prev">‹</button><span id="r-count"></span><button id="r-next">›</button></div>
+  <dialog id="reader" aria-labelledby="r-title">
+    <div class="r-shell">
+      <header class="r-head">
+        <div>
+          <h2 id="r-title"></h2>
+          <span id="r-count" class="r-count"></span>
+        </div>
+        <button class="r-close" type="button" aria-label="Chiudi il lettore">✕</button>
+      </header>
+      <div class="r-stage" id="r-stage">
+        <figure class="r-figure">
+          <img id="r-img" alt="">
+        </figure>
+        <div class="r-text-wrap"><p id="r-text" class="r-text"></p></div>
+      </div>
+      <footer class="r-foot">
+        <button id="r-prev" class="r-btn" type="button" aria-label="Pagina precedente">‹ <span>Indietro</span></button>
+        <div id="r-dots" class="r-dots" aria-hidden="true"></div>
+        <button id="r-next" class="r-btn r-btn-main" type="button" aria-label="Pagina successiva"><span>Avanti</span> ›</button>
+      </footer>
+    </div>
   </dialog>
 
   <footer>Le Avventure de El Chucharon · testi e illustrazioni CC BY-NC 4.0 · <a id="gh-link" href="#">sorgenti su GitHub</a></footer>
