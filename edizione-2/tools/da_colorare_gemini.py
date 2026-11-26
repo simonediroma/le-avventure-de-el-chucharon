@@ -23,7 +23,7 @@ from google import genai
 from google.genai import types
 
 DIR = Path(__file__).resolve().parent.parent
-MODELS = ["gemini-3-pro-image-preview", "gemini-3.1-flash-image-preview", "gemini-2.5-flash-image"]
+MODELS = ["gemini-3-pro-image", "gemini-3-pro-image-preview", "gemini-3.1-flash-image", "gemini-2.5-flash-image"]
 
 # copertina a colori (pagina 1) e riferimento di stile (pagina da colorare della 1ª ed.)
 CAPITOLI = {
@@ -40,8 +40,10 @@ Image 2 is a coloring page from the same book: use it ONLY as the reference for 
 Create a BLACK-AND-WHITE COLORING PAGE version of Image 1 for children aged 2-6:
 - Same composition, same characters, same poses, same objects, same setting as Image 1. Do not add or remove anything.
 - Keep the chapter title lettering "{titolo}" at the bottom exactly as in Image 1, as hollow outlined letters ready to color.
-- Clean, smooth, continuous black outlines of uniform medium thickness, like Image 2. Closed shapes that are easy to color.
-- Pure white fills everywhere: NO shading, NO gray, NO hatching, NO textures, NO color.
+- LINE ART ONLY: clean, smooth, continuous pure black outlines of uniform medium thickness, like Image 2. Closed shapes that are easy to color.
+- Every area inside the outlines must be PURE WHITE (#FFFFFF). This is NOT a grayscale or pencil version:
+  absolutely NO shading, NO gray tones, NO gradients, NO hatching, NO shadows, NO textures, NO color, NO filled black areas
+  (hair, chair, shoes: outline only). Only black lines on white paper, like a printed coloring book.
 - Simplify small background details; keep faces sweet and expressive, faithful to Image 1.
 - Surround the drawing with a thin decorative Mexican-style border like the one in Image 2.
 - White background, square format."""
@@ -59,7 +61,7 @@ def genera(client, model, cover, titolo, out):
              types.Part(text=PROMPT.format(titolo=titolo))]
     cfg = types.GenerateContentConfig(response_modalities=["IMAGE", "TEXT"])
     try:
-        cfg.image_config = types.ImageConfig(aspect_ratio="1:1")
+        cfg.image_config = types.ImageConfig(aspect_ratio="1:1", image_size="2K")
     except Exception:
         pass
     r = client.models.generate_content(model=model, contents=parts, config=cfg)

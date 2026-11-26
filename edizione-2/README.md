@@ -11,7 +11,7 @@ python impagina.py --solo cap3
 - `pagine.json` — ordine pagine, immagine e posizione (pt, origine in alto a sinistra).
 - `assets/capN/` — immagini estratte dal PDF della 1ª edizione (Canva).
 - `assets/da-colorare/` — copertine dei capitoli in bianco e nero, generate con
-  `tools/lineart.py` (OpenCV, nessuna AI).
+  `tools/da_colorare_gemini.py` (Gemini 3 Pro Image, 2048px). `tools/lineart.py` = alternativa OpenCV senza AI.
 - Formato: 8,75" × 8,75" = rifilo 8,5" quadrato con abbondanza, come la 1ª edizione.
 - Font: Open Sans (al posto di Canva Sans, non distribuibile) + DejaVu Sans per ♪.
 
