@@ -433,6 +433,110 @@
    ]
   },
   {
+   "id": "cap6-p01",
+   "img": "assets/cap6/p01.png",
+   "box": [
+    -9.0,
+    -16.92,
+    639.0,
+    631.08
+   ]
+  },
+  {
+   "id": "cap6-p02",
+   "img": "assets/da-colorare/cap6.png",
+   "box": [
+    0,
+    0,
+    630,
+    630
+   ]
+  },
+  {
+   "id": "cap6-p03",
+   "img": "assets/cap6/p03.png",
+   "box": [
+    -9.0,
+    -16.92,
+    639.0,
+    631.08
+   ]
+  },
+  {
+   "id": "cap6-p04",
+   "img": "assets/cap6/cornice.png",
+   "box": [
+    -115.87,
+    -16.92,
+    745.87,
+    631.08
+   ],
+   "testo": "cap6-p04"
+  },
+  {
+   "id": "cap6-p05",
+   "img": "assets/cap6/cornice.png",
+   "box": [
+    -115.87,
+    -16.92,
+    745.87,
+    631.08
+   ],
+   "testo": "cap6-p05"
+  },
+  {
+   "id": "cap6-p06",
+   "img": "assets/cap6/p06.png",
+   "box": [
+    -9.0,
+    -16.92,
+    639.0,
+    631.08
+   ]
+  },
+  {
+   "id": "cap6-p07",
+   "img": "assets/cap6/p07.png",
+   "box": [
+    -9.0,
+    -16.92,
+    639.0,
+    631.08
+   ]
+  },
+  {
+   "id": "cap6-p08",
+   "img": "assets/cap6/cornice.png",
+   "box": [
+    -115.87,
+    -16.92,
+    745.87,
+    631.08
+   ],
+   "testo": "cap6-p08"
+  },
+  {
+   "id": "cap6-p09",
+   "img": "assets/cap6/cornice.png",
+   "box": [
+    -115.87,
+    -16.92,
+    745.87,
+    631.08
+   ],
+   "testo": "cap6-p09"
+  },
+  {
+   "id": "cap6-p10",
+   "img": "assets/cap6/p10.png",
+   "box": [
+    -9.0,
+    -16.92,
+    639.0,
+    631.08
+   ]
+  },
+  {
    "id": "cap5-p01",
    "img": "assets-stampa/cap5/p01.png",
    "box": [

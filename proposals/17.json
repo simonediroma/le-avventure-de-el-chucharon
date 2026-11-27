@@ -1,0 +1,52 @@
+{
+  "proposal": {
+    "nome_bambino": "Gabriel omar",
+    "eta": "10 anni",
+    "aspetto": "giallo rosso dalla testa ai piedi capelli mossi lunghi maglietta giallorossa della roma pantaloncini bianchi scarpini da calcio e una palla di cuoio bianca sempre ai piedi.",
+    "pain_point": "DISTRUGGE CASA GIOCANDO A PALLONE e il papà lo rimprovera mentre sta sdraiato sul divano e si guarda la partita della roma. gabriel deve giocare a calcio sempre anche mentre c'è il calcio in tv.",
+    "gancio_messico": "il papà gli dice: fai casino come quel difensore messicnao che si è comprata la roma qualche anno fa, basta tirare calcio siediti con me e guardati la roma.",
+    "genitori": "Solo papà",
+    "comicita_genitori": "dopo che è comparso il chucharon la roma segna un goal ed il papà tira un calcio fortissimo al pallone rompendo la televisione.",
+    "ambientazione": "salotto di casa papà sul divano mentre guarda la tv e gabriel gioca con il pallone distruggendo tutto.",
+    "soluzione": "il chucharon disegna in aria i cpaitani storici della roma e gabriel omar si ferma a bocca aperta e smette di giocare a pallone.",
+    "autore": "simone di roma"
+  },
+  "verdict": {
+    "protagonista": {
+      "passed": true,
+      "note": "Gabriel Omar, 10 anni, ha un nome e un aspetto molto riconoscibile: capelli mossi, completo giallorosso e pallone sempre ai piedi. L'età rientra nella fascia 0-18. In produzione la maglia diventerà una generica maglia giallorossa senza stemma."
+    },
+    "gancio_messico": {
+      "passed": true,
+      "note": "Il papà che paragona Gabriel al 'difensore messicano' della squadra funziona come richiamo: è la parola chiave che fa arrivare Chucharon. È un po' debole e legato a un giocatore reale, quindi conviene renderlo generico o più evocativo."
+    },
+    "pain_point": {
+      "passed": true,
+      "note": "Il problema è concreto e familiare: un bambino che non riesce a smettere di giocare a pallone in casa e combina disastri. El Chucharito può risolverlo, per esempio aiutandolo a capire dove e quando giocare. Meglio non spegnere del tutto la sua passione."
+    },
+    "genitori": {
+      "passed": true,
+      "note": "Il papà sul divano che rimprovera Gabriel e poi, al gol, tira lui stesso il calcio più disastroso è un ribaltamento comico efficace, nello spirito dei papà del libro (il canovaccio in testa, le espadrillas)."
+    },
+    "sicurezza": {
+      "passed": true,
+      "note": "Nessun contenuto inadatto. Conviene però ammorbidire la TV che si rompe: niente schermo in frantumi o vetri, meglio una gag innocua, come lo schermo che si spegne con un 'PUF' o il pallone che rimbalza sulla TV. Evitiamo anche di presentare il calcio in casa come qualcosa di divertente da imitare."
+    },
+    "originalita": {
+      "passed": true,
+      "note": "Il calcio in salotto è un tema nuovo per il libro e il papà che 'cade nella stessa trappola' è divertente. La soluzione dei campioni disegnati in aria ricorda le piramidi di Marco: si può differenziare."
+    },
+    "score": 7,
+    "esito": "approvata",
+    "suggerimenti": [
+      "In produzione Roma, i capitani storici e il difensore messicano andranno resi generici (maglia giallorossa senza stemma, 'i grandi campioni di una volta', 'il difensore coi baffi venuto dal Messico'), perché non si possono citare squadre e persone reali.",
+      "Rendere la rottura della TV una gag innocua: schermo che si spegne, pallone che rimbalza e fa cadere il telecomando. Niente vetri rotti.",
+      "Far sì che il trucco di El Chucharito non spenga la passione di Gabriel ma la incanali: per esempio la canzone lo porta a 'giocare' la partita con lo sguardo, oppure a palleggiare piano su un cuscino accanto al papà, tutti e due sul divano.",
+      "Rendere il gancio messicano più visivo: un difensore coi baffoni e un sombrero da tifoso in tribuna farebbe arrivare Chucharon in modo più naturale."
+    ],
+    "titolo_proposto": "Il pallone di Gabriel"
+  },
+  "cap": "cap6",
+  "slug": "cap6-gabriel-omar",
+  "title": "Il pallone di Gabriel"
+}

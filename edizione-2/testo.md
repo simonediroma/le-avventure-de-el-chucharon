@@ -154,3 +154,48 @@ Elena si fermò. Inclinò la testa di lato e disse sottovoce:
 La mamma arrivò di corsa, ancora senza fiato. Il papà, da lontano, rideva. El Chucharon guardò Elena. Elena guardò El Chucharon. I baffi di El Chucharon, ancora ricadenti verso il basso, fremettero come quella prima sera al parco, quando tutto era cominciato. Poi El Chucharon strizzò l'occhio e, questa volta, non sparì: restò. Elena lo prese, se lo mise nella tasca del vestitino e disse: *Evviva, tutti insieme!*
 
 E quel giorno Elena capì l'importanza di avere cura delle cose a cui teneva. Questa volta, davvero tutti insieme, tornarono a casa.
+
+## cap6-p04
+
+Gabriel Omar aveva dieci anni e un pallone attaccato ai piedi. Non era incollato, non era legato: semplicemente, dove andava Gabriel, andava il pallone. A colazione, in bagno, perfino sotto le coperte.
+
+Era giallorosso dalla testa ai piedi: maglietta giallorossa, calzettoni giallorossi, pantaloncini bianchi e scarpini da calcio anche in casa. I capelli lunghi e mossi gli ballavano sulla fronte a ogni dribbling.
+
+Il problema era il salotto. Il salotto non era uno stadio, ma Gabriel non se n'era ancora accorto. **TUM** contro il divano. **TUM** contro la libreria. **CLANG** contro il lampadario, che dondolò offeso.
+
+Il vaso dei fiori era già stato sostituito tre volte. Il quarto vaso aveva l'aria di chi sa di avere i giorni contati.
+
+## cap6-p05
+
+Il papà, intanto, era sdraiato sul divano. Era domenica, c'era la partita, e lui la guardava come si guarda una cosa sacra: sciarpa al collo, piedi sul tavolino, cuscino dietro la nuca. In TV giocava la squadra giallorossa. In salotto giocava Gabriel.
+
+**TUM.** Un cuscino volò. **TUM.** Il telecomando finì sotto il tavolino.
+
+Il papà non si alzò, perché alzarsi durante la partita porta sfortuna. Allungò solo il collo e disse: *Gabriel! Fai più disastri di quel difensore coi baffoni venuto dal Messico! Basta tirare calci, siediti qui con me e guardati la partita!*
+
+Proprio allora la telecamera inquadrò la tribuna: un tifoso con un sombrero enorme sventolava una sciarpa giallorossa.
+
+Ed è esattamente in quel momento che arrivò volando El Chucharon.
+
+## cap6-p08
+
+El Chucharon atterrò sul bracciolo del divano, un po' moscio, con i baffi lunghi lunghi che toccavano la stoffa. Il papà non lo notò: era troppo occupato a spiegare all'arbitro cosa pensava di lui.
+
+Gabriel invece lo vide. Fermò il pallone sotto la suola, alzò un sopracciglio e disse: *Un ciuccio? Io ho dieci anni.*
+
+El Chucharon sospirò: *Ai ai ai aiaiai... anche un campione ha bisogno del suo allenatore.* Poi prese il suo sombrero e lo spostò sulle spalle. Un attimo prima: baffi lunghi e addormentati. Un attimo dopo: baffi su, dritti, trionfanti. Raggiante. Si era trasformato in El Chucharito e iniziò a cantare sulle note de La Cucaracha:
+
+> El Chucharito, El Chucharito / ferma il pallone, campione!
+> El Chucharito, El Chucharito / guarda i grandi in televisione!
+
+## cap6-p09
+
+El Chucharito fece volteggiare il sombrero e nell'aria del salotto cominciò a disegnare. I grandi capitani di una volta, uno dopo l'altro, con la fascia al braccio e la maglia giallorossa: chi correva, chi esultava, chi faceva un colpo di tacco impossibile.
+
+Gabriel rimase a bocca aperta. Il pallone gli rotolò via dai piedi. Si sedette accanto al papà, un cuscino sulle ginocchia, e palleggiò piano piano, con gli occhi incollati allo schermo.
+
+Fu allora che la squadra giallorossa segnò. Il papà saltò in piedi urlando *GOOOL!* e tirò un calcio fortissimo al pallone di Gabriel. **TUM.** Il pallone colpì il telecomando e lo schermo si spense. **PUFF.**
+
+Gabriel guardò il papà: *Papà, fai più disastri di quel difensore coi baffoni.*
+
+El Chucharon strizzò l'occhio e sparì.
