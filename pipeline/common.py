@@ -49,11 +49,33 @@ def parse_issue_body(body: str) -> dict:
     return {key: by_title.get(title, "") for key, title in FIELDS.items()}
 
 
+# Chi è El Chucharon: stesse informazioni della sezione in homepage del sito.
+# Usato nei prompt di validazione e di scrittura dei nuovi capitoli.
+CHUCHARON = """EL CHUCHARON — chi è e cosa sa fare (canonico, da rispettare in ogni capitolo):
+- È il ciuccio preferito di Elena. Lei lo perde nell'erba alta del parco e lui si sveglia con una missione:
+  ritrovarla. Lungo la strada non riesce a non fermarsi ogni volta che un bambino è in difficoltà.
+  Alla fine di ogni capitolo sparisce: la sua Elenita non è ancora lì, il viaggio continua.
+- Aspetto: è un ciuccio. Il paradenti sembra un sombrero colorato, l'anello due baffi lunghi lunghi.
+- SUPERPOTERI:
+  1. VOLA: arriva in un baleno, attraversando parchi, case e cucine ("arrivò volando El Chucharon").
+  2. SI TRASFORMA: sposta il sombrero sulle spalle e diventa El Chucharito (baffi su, occhi vispi, raggiante);
+     da trasformato disegna nell'aria con il sombrero (arcobaleni, piramidi, magie) per risolvere il problema.
+  3. I GRANDI NON LO VEDONO: solo i bambini si accorgono di lui; mamma e papà in quel momento guardano
+     sempre da un'altra parte e non lo riconoscono mai come essere magico.
+- Arriva quando un genitore, senza saperlo, dice una parola o una cosa "messicana".
+- Canta sulle note de La Cucaracha: "El Chucharito, El Chucharito / ..." (una strofa diversa per ogni bambino).
+- Parla un QUASI SPAGNOLO: mezzo italiano e mezzo spagnolo, con parole inventate, e si lamenta in modo musicale.
+  Frasi tipiche (usane al massimo una o due per capitolo, o inventane di simili):
+  "¿Dónde está Elenita?" · "¡Vamos a ver!" · "Yo soy muy stanchito… ai ai ai aiaiai…" ·
+  "Me pare que es arivado el momento del Chucharito!" · "¡La mia Elenita! ¡Está aquí!"
+"""
+
+
 def book_context(max_chars: int = 80_000) -> str:
     """Contesto canonico: config, scheda di Chucharon e TESTO DELLA 2ª EDIZIONE (riferimento di stile)."""
     parts = [
         "## book.config.json\n" + (ROOT / "book.config.json").read_text(encoding="utf-8"),
-        "## Personaggio: El Chucharon\n" + (ROOT / "characters" / "chucharon.md").read_text(encoding="utf-8"),
+        "## Personaggio: El Chucharon\n" + CHUCHARON,
         "## Testo della 2ª edizione (riferimento assoluto: voce, ritmo, lunghezza, convenzioni)\n"
         "Capitoli: cap1 Prologo (Elena perde il ciuccio), cap2 Leo, cap3 Sofia, cap4 Marco, cap5 Epilogo; "
         "eventuali capitoli successivi sono quelli della community.\n"
