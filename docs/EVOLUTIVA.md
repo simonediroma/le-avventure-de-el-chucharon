@@ -51,7 +51,7 @@ DNS (pannello del registrar, proxy Cloudflare **disattivato** / "DNS only" finch
 
 Poi: GitHub → Settings → Pages → Custom domain `elchucharon.com` → "Enforce HTTPS".
 Consigliato: verificare il dominio in GitHub (Settings profilo → Pages → Add a domain, record TXT) contro i domain takeover.
-Worker (facoltativo): rotta `api.elchucharon.com` in Cloudflare → aggiornare `proposalEndpoint` in `site/config.js`.
+Worker: custom domain `api.elchucharon.com` (DNS gestito da Cloudflare, nameserver cambiati su Aruba). Gli indirizzi `*.workers.dev` sono bloccati da molte reti aziendali.
 
 ## Costi indicativi per capitolo
 - Validazione Claude: pochi centesimi. Scrittura capitolo (effort high): ~0,30–0,80 €.
