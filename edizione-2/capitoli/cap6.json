@@ -1,0 +1,25 @@
+{
+  "cap": "cap6",
+  "nome": "Gabriel Omar",
+  "setting_en": "A cozy family living room on a sunny Sunday afternoon: a big soft olive-green sofa with scattered cushions facing a flat TV on a low wooden cabinet, the TV showing a generic football match with players in plain red and yellow jerseys and no text on screen; a small wooden coffee table with a TV remote on it; a tall bookshelf full of books; a fabric lampshade hanging from the ceiling; a ceramic vase with flowers on a side table; a window with light curtains; a striped rug on the wooden floor",
+  "frame_theme_en": "small white footballs, red and yellow pennants, tiny sombreros, little stars and curly motion lines",
+  "people": [
+    {
+      "label_en": "GABRIEL",
+      "outfit_en": "Short-sleeved football jersey in deep red and golden yellow with no crest, no logos and no numbers, plain white football shorts, red-and-yellow striped knee socks, black football boots with studs; always with a plain white leather football at his feet",
+      "appearance_en": "10-year-old boy, slim and athletic, long wavy dark brown hair reaching his chin and bouncing over his forehead, warm olive skin, lively dark brown eyes, confident cheeky grin"
+    },
+    {
+      "label_en": "GABRIEL'S FATHER",
+      "outfit_en": "Plain grey t-shirt, deep red and golden yellow striped knitted scarf with no text or logos around his neck, navy blue sweatpants, brown slippers",
+      "appearance_en": "Man in his early 40s, short dark hair slightly receding, short dark stubble, round friendly face, small comfortable belly, expressive eyebrows"
+    }
+  ],
+  "scene": {
+    "p01": "GABRIEL alone in the middle of the living room, balancing the white football on his raised knee in a proud juggling pose, long wavy hair flying, arms open for balance, big confident grin; behind him the sofa, the swinging lampshade and the bookshelf; dynamic low angle that makes him look like a champion in a stadium",
+    "p03": "GABRIEL mid-kick in the living room, the white football bouncing off the hanging lampshade which swings wildly, a cushion flying through the air, the flower vase wobbling on the side table; GABRIEL'S FATHER lying stretched out on the sofa with his feet on the coffee table, craning his neck over the armrest with an exasperated frown, one hand raised as if to say stop, without getting up; the TV showing a generic football match",
+    "p06": "GABRIEL'S FATHER on the sofa, still lying down, pointing dramatically at GABRIEL and shouting with a comically wide-open mouth; GABRIEL frozen with one foot on the ball and an innocent shrug; on the TV screen a close-up of a fan in the stands wearing a huge sombrero and waving a red and yellow scarf; in the background El Chucharon in SIESTA state drifting in through the open window, sleepy and droopy",
+    "p07": "El Chucharito (transformed) hovering above the sofa armrest, singing with arms wide open and the sombrero on his shoulders, musical notes swirling around; GABRIEL standing in front of him with the ball stopped under his boot, one eyebrow raised in skeptical surprise turning into a half smile; GABRIEL'S FATHER on the sofa beside them completely oblivious, yelling at the TV with fist raised",
+    "p10": "Comic finale in the living room: GABRIEL'S FATHER leaping off the sofa mid-celebration, one leg kicking the white football, arms raised in triumph; the ball bouncing off the TV remote on the coffee table; the TV screen suddenly black with a small puff of comic smoke-free swirl lines; GABRIEL sitting on the sofa with a cushion on his knees, laughing with his hands over his mouth; in the air above, glowing drawings of old-time football captains in plain red and yellow jerseys with armbands slowly fading; El Chucharito (transformed) winking near the window"
+  }
+}

@@ -44,6 +44,18 @@
       "author": "Simone Razzano"
     },
     {
+      "id": "cap6",
+      "slug": "cap6-gabriel-omar",
+      "kind": "story",
+      "title": "Il pallone di Gabriel",
+      "child": "Gabriel Omar",
+      "pain_point": "Gabriel gioca a pallone in salotto anche durante la partita in TV e distrugge tutto, mentre il papà lo sgrida dal divano.",
+      "mexico_hook": "Il papà, sdraiato sul divano, gli urla: 'Fai più disastri di quel difensore coi baffoni venuto dal Messico!', mentre in TV la telecamera inquadra un tifoso con un enorme sombrero in tribuna.",
+      "parents": "solo papà",
+      "author": "simone di roma",
+      "issue": 17
+    },
+    {
       "id": "cap5",
       "slug": "cap5-epilogo",
       "kind": "core",
