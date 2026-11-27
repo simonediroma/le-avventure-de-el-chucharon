@@ -594,7 +594,8 @@ def generate_with_gemini(
 # Consistency check
 # ---------------------------------------------------------------------------
 
-EVAL_MODEL = "gemini-3-pro-preview"   # modello testuale per la valutazione (no image output)
+# Modello testuale per la valutazione (no image output). Configurabile in generator.config.json → "eval_model".
+EVAL_MODEL = _CFG.get("eval_model", "gemini-2.5-flash")
 
 
 def _extract_text(response) -> str | None:
@@ -1263,8 +1264,11 @@ def main():
 
     if args.chapter != "all":
         all_prompts = [p for p in all_prompts if p["chapter"] == CHAPTER_FILTER_MAP[args.chapter]]
-    if args.only:
-        ids = {x.strip().upper() for x in args.only.split(",")}
+    if args.only is not None:
+        ids = {x.strip().upper() for x in args.only.split(",") if x.strip()}
+        if not ids:
+            print("❌ --only vuoto: nessuna scena indicata (evito di processare tutto il libro).")
+            raise SystemExit(1)
         all_prompts = [p for p in all_prompts if p["id"] in ids]
 
     if not all_prompts:

@@ -37,9 +37,11 @@ jobs:
         id: gen
         env: { ANTHROPIC_API_KEY: "${{ secrets.ANTHROPIC_API_KEY }}" }
         run: |
+          set -o pipefail
           gh issue view "$N" --repo "$GITHUB_REPOSITORY" --json body -q .body > issue.md
           python pipeline/validate_proposal.py --body-file issue.md --out validation.json --comment comment.md
           ids=$(python pipeline/generate_chapter.py --validation validation.json --issue "$N" | tail -1)
+          if [ -z "$ids" ]; then echo "::error::Nessuna scena generata"; exit 1; fi
           echo "ids=$ids" >> "$GITHUB_OUTPUT"
 
       - name: Illustrazioni con Gemini

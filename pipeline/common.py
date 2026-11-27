@@ -73,7 +73,9 @@ def get_client():
 def parse_structured(system: str, user: str, schema, effort: str = "high", max_tokens: int = 32000):
     """Chiamata Claude con output strutturato (Pydantic) + fallback lato server sui rifiuti."""
     client = get_client()
-    resp = client.beta.messages.parse(
+    # Streaming: obbligatorio per risposte lunghe (l'SDK rifiuta le chiamate non-streaming
+    # che potrebbero superare i 10 minuti, es. max_tokens=64000 per un capitolo intero).
+    with client.beta.messages.stream(
         model=MODEL,
         max_tokens=max_tokens,
         betas=["server-side-fallback-2026-07-01"],
@@ -82,9 +84,15 @@ def parse_structured(system: str, user: str, schema, effort: str = "high", max_t
         system=[{"type": "text", "text": system, "cache_control": {"type": "ephemeral"}}],
         messages=[{"role": "user", "content": user}],
         output_format=schema,
-    )
+    ) as stream:
+        resp = stream.get_final_message()
     if resp.stop_reason == "refusal":
         raise RuntimeError(f"Claude ha rifiutato la richiesta: {resp.stop_details}")
     if resp.stop_reason == "max_tokens":
         raise RuntimeError("Risposta troncata (max_tokens)")
-    return resp.parsed_output
+    parsed = getattr(resp, "parsed_output", None)
+    if parsed is None:
+        parsed = next((b.parsed_output for b in resp.content if getattr(b, "parsed_output", None) is not None), None)
+    if parsed is None:
+        raise RuntimeError("Risposta senza output strutturato")
+    return parsed
