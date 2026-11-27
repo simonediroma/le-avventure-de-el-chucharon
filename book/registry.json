@@ -2,10 +2,144 @@
   "_comment": "Registro dei capitoli del libro. Fonte unica per layout.py, pipeline/ e sito. I capitoli 'core' (prologo/epilogo) sono sempre inclusi nel PDF.",
   "cover": "COVER",
   "chapters": [
-    {"slug": "00-prologo", "kind": "core",  "title": "Prologo", "child": "Elena", "pain_point": "Elena perde il ciuccio al parco", "folder": "00-prologo", "prefix": "P",  "scenes": ["P-01","P-02","P-03","P-04","P-05"], "song_pages": [], "cover_page": null, "source": "chapters/00-prologo.md", "author": "Simone Razzano"},
-    {"slug": "01-leo",     "kind": "story", "title": "La tummy time di Leo", "child": "Leo", "pain_point": "Il tummy time è una tortura", "mexico_hook": "la tartaruga messicana", "parents": "mamma e papà", "folder": "01-leo", "prefix": "C1", "scenes": ["C1-00","C1-01","C1-02","C1-03","C1-04"], "song_pages": ["C1-03"], "cover_page": "C1-00", "source": "chapters/01-la-tummy-time-di-leo.md", "author": "Simone Razzano"},
-    {"slug": "02-sofia",   "kind": "story", "title": "I dentini di Sofia", "child": "Sofia", "pain_point": "I dentini fanno male", "mexico_hook": "le espadrillas comprate in Messico", "parents": "mamma e papà", "folder": "02-sofia", "prefix": "C2", "scenes": ["C2-00","C2-01","C2-02","C2-03","C2-04"], "song_pages": ["C2-03"], "cover_page": "C2-00", "source": "chapters/02-i-dentini-di-sofia.md", "author": "Simone Razzano"},
-    {"slug": "03-marco",   "kind": "story", "title": "La pappa di Marco", "child": "Marco", "pain_point": "Non vuole mangiare la pappa", "mexico_hook": "le piramidi", "parents": "mamma e papà", "folder": "03-marco", "prefix": "C3", "scenes": ["C3-00","C3-01","C3-02","C3-03","C3-04"], "song_pages": ["C3-03"], "cover_page": "C3-00", "source": "chapters/03-la-pappa-di-marco.md", "author": "Simone Razzano"},
-    {"slug": "04-epilogo", "kind": "core",  "title": "Epilogo", "child": "Elena", "pain_point": "Chucharon ritrova Elena", "folder": "04-epilogo", "prefix": "E",  "scenes": ["E-00","E-01","E-02","E-03","E-04"], "song_pages": ["E-03"], "cover_page": "E-00", "source": "chapters/04-epilogo.md", "author": "Simone Razzano"}
+    {
+      "slug": "00-prologo",
+      "kind": "core",
+      "title": "Prologo",
+      "child": "Elena",
+      "pain_point": "Elena perde il ciuccio al parco",
+      "folder": "00-prologo",
+      "prefix": "P",
+      "scenes": [
+        "P-01",
+        "P-02",
+        "P-03",
+        "P-04",
+        "P-05"
+      ],
+      "song_pages": [],
+      "cover_page": null,
+      "source": "chapters/00-prologo.md",
+      "author": "Simone Razzano"
+    },
+    {
+      "slug": "01-leo",
+      "kind": "story",
+      "title": "La tummy time di Leo",
+      "child": "Leo",
+      "pain_point": "Il tummy time è una tortura",
+      "mexico_hook": "la tartaruga messicana",
+      "parents": "mamma e papà",
+      "folder": "01-leo",
+      "prefix": "C1",
+      "scenes": [
+        "C1-00",
+        "C1-01",
+        "C1-02",
+        "C1-03",
+        "C1-04"
+      ],
+      "song_pages": [
+        "C1-03"
+      ],
+      "cover_page": "C1-00",
+      "source": "chapters/01-la-tummy-time-di-leo.md",
+      "author": "Simone Razzano"
+    },
+    {
+      "slug": "02-sofia",
+      "kind": "story",
+      "title": "I dentini di Sofia",
+      "child": "Sofia",
+      "pain_point": "I dentini fanno male",
+      "mexico_hook": "le espadrillas comprate in Messico",
+      "parents": "mamma e papà",
+      "folder": "02-sofia",
+      "prefix": "C2",
+      "scenes": [
+        "C2-00",
+        "C2-01",
+        "C2-02",
+        "C2-03",
+        "C2-04"
+      ],
+      "song_pages": [
+        "C2-03"
+      ],
+      "cover_page": "C2-00",
+      "source": "chapters/02-i-dentini-di-sofia.md",
+      "author": "Simone Razzano"
+    },
+    {
+      "slug": "03-marco",
+      "kind": "story",
+      "title": "La pappa di Marco",
+      "child": "Marco",
+      "pain_point": "Non vuole mangiare la pappa",
+      "mexico_hook": "le piramidi",
+      "parents": "mamma e papà",
+      "folder": "03-marco",
+      "prefix": "C3",
+      "scenes": [
+        "C3-00",
+        "C3-01",
+        "C3-02",
+        "C3-03",
+        "C3-04"
+      ],
+      "song_pages": [
+        "C3-03"
+      ],
+      "cover_page": "C3-00",
+      "source": "chapters/03-la-pappa-di-marco.md",
+      "author": "Simone Razzano"
+    },
+    {
+      "slug": "04-gabriel-omar",
+      "kind": "story",
+      "title": "Il pallone di Gabriel",
+      "child": "Gabriel Omar",
+      "pain_point": "Gabriel, dieci anni, gioca a pallone sempre e ovunque, anche in soggiorno mentre il papà guarda la partita in televisione dal divano: vasi che tremano, lampade che ondeggiano, cornici storte.",
+      "mexico_hook": "Il papà, sdraiato sul divano senza staccare gli occhi dalla TV: «Gabriel, basta! Tiri calci come un luchador messicano!»",
+      "parents": "solo papà",
+      "folder": "04-gabriel-omar",
+      "prefix": "C4",
+      "scenes": [
+        "C4-00",
+        "C4-01",
+        "C4-02",
+        "C4-03",
+        "C4-04"
+      ],
+      "song_pages": [
+        "C4-03"
+      ],
+      "cover_page": "C4-00",
+      "source": "chapters/04-il-pallone-di-gabriel.md",
+      "author": "simone di roma",
+      "issue": 17
+    },
+    {
+      "slug": "04-epilogo",
+      "kind": "core",
+      "title": "Epilogo",
+      "child": "Elena",
+      "pain_point": "Chucharon ritrova Elena",
+      "folder": "04-epilogo",
+      "prefix": "E",
+      "scenes": [
+        "E-00",
+        "E-01",
+        "E-02",
+        "E-03",
+        "E-04"
+      ],
+      "song_pages": [
+        "E-03"
+      ],
+      "cover_page": "E-00",
+      "source": "chapters/04-epilogo.md",
+      "author": "Simone Razzano"
+    }
   ]
 }

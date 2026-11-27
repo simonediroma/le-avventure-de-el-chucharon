@@ -1,0 +1,51 @@
+{
+  "proposal": {
+    "nome_bambino": "Gabriel omar",
+    "eta": "10 anni",
+    "aspetto": "giallo rosso dalla testa ai piedi capelli mossi lunghi maglietta giallorossa della roma pantaloncini bianchi scarpini da calcio e una palla di cuoio bianca sempre ai piedi.",
+    "pain_point": "DISTRUGGE CASA GIOCANDO A PALLONE e il papà lo rimprovera mentre sta sdraiato sul divano e si guarda la partita della roma. gabriel deve giocare a calcio sempre anche mentre c'è il calcio in tv.",
+    "gancio_messico": "il papà gli dice: fai casino come quel difensore messicnao che si è comprata la roma qualche anno fa, basta tirare calcio siediti con me e guardati la roma.",
+    "genitori": "Solo papà",
+    "comicita_genitori": "dopo che è comparso il chucharon la roma segna un goal ed il papà tira un calcio fortissimo al pallone rompendo la televisione.",
+    "ambientazione": "salotto di casa papà sul divano mentre guarda la tv e gabriel gioca con il pallone distruggendo tutto.",
+    "soluzione": "il chucharon disegna in aria i cpaitani storici della roma e gabriel omar si ferma a bocca aperta e smette di giocare a pallone.",
+    "autore": "simone di roma"
+  },
+  "verdict": {
+    "protagonista": {
+      "passed": true,
+      "note": "Gabriel Omar, 10 anni, ha un nome nuovo nel libro e un look molto riconoscibile: tutto giallorosso, capelli mossi e pallone sempre ai piedi. L'età rientra nei limiti (0-18) e funziona bene in illustrazione."
+    },
+    "gancio_messico": {
+      "passed": true,
+      "note": "Il gancio c'è: il papà paragona Gabriel a un difensore messicano. È un po' fragile e legato a un riferimento calcistico reale. Conviene trasformarlo in una frase buffa e generica che faccia drizzare le orecchie a Chucharon, come fu per 'tartaruga messicana'."
+    },
+    "pain_point": {
+      "passed": true,
+      "note": "Il problema è concreto e simpatico: un bambino che non riesce a smettere di giocare a pallone in casa. El Chucharito può risolverlo con la sua canzone, magari incanalando l'energia invece di spegnerla."
+    },
+    "genitori": {
+      "passed": true,
+      "note": "Il papà sul divano che rimprovera Gabriel e poi, al gol, tira lui il calcio che rompe la TV è un ribaltamento comico perfetto nello stile del libro, con strizzata d'occhio ai genitori."
+    },
+    "sicurezza": {
+      "passed": true,
+      "note": "Nessun contenuto inadatto. La TV rotta va resa come gag da cartone (un 'POF' e lo schermo che si spegne), senza vetri o pericoli. Il rimprovero del papà resta affettuoso, mai duro."
+    },
+    "originalita": {
+      "passed": true,
+      "note": "Tema nuovo rispetto a tummy time, dentini e pappa. È il primo protagonista più grande e porta il mondo del calcio, con una dinamica padre-figlio divertente."
+    },
+    "score": 7,
+    "esito": "approvata",
+    "suggerimenti": [
+      "Squadra, maglia e capitani storici citati saranno resi generici in produzione: maglia giallorossa senza stemma, 'i campioni di una volta' invece di nomi reali. Lo stesso vale per il difensore messicano.",
+      "Per il gancio, prova una battuta del papà come 'calci come un luchador messicano!' o 'sembri un sombrero che rimbalza!': più visiva e senza riferimenti a persone reali.",
+      "Invece di far smettere Gabriel di giocare, El Chucharito potrebbe trasformare il pallone in un gioco condiviso col papà, per esempio un 'calcio dolce' a tempo di La Cucaracha. È più in linea con la promessa 'un sorriso e un respiro di sollievo'.",
+      "Tieni la scena breve e semplice (8-12 tavole): salotto, pallone che rimbalza, papà sul divano, arrivo di Chucharon, canzone, gol in TV e gag finale."
+    ],
+    "titolo_proposto": "Il pallone di Gabriel"
+  },
+  "slug": "04-gabriel-omar",
+  "title": "Il pallone di Gabriel"
+}
