@@ -1,0 +1,55 @@
+name: 📖 Proponi un capitolo de El Chucharon
+description: Proponi una nuova avventura. Verrà validata automaticamente e, se approvata, prodotta con testo e illustrazioni.
+title: "Proposta: "
+labels: ["proposta"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Ogni capitolo ha 4 ingredienti: **un bambino con un nome**, **un gancio con il Messico**, **un pain point** che El Chucharito risolve, **genitori comici**.
+  - type: input
+    id: nome_bambino
+    attributes: { label: "Nome del bambino o della bambina" }
+    validations: { required: true }
+  - type: input
+    id: eta
+    attributes: { label: "Età", placeholder: "es. 8 mesi" }
+    validations: { required: true }
+  - type: textarea
+    id: aspetto
+    attributes: { label: "Com'è fatto/a (aspetto e vestiti)" }
+  - type: textarea
+    id: pain_point
+    attributes: { label: "Il problema da risolvere (pain point)" }
+    validations: { required: true }
+  - type: textarea
+    id: gancio_messico
+    attributes: { label: "Il gancio con il Messico", placeholder: "es. il papà dice: sembri un cactus messicano!" }
+    validations: { required: true }
+  - type: dropdown
+    id: genitori
+    attributes:
+      label: "Chi accompagna il bambino"
+      options: ["Mamma e papà", "Solo mamma", "Solo papà"]
+    validations: { required: true }
+  - type: textarea
+    id: comicita_genitori
+    attributes: { label: "La scena comica dei genitori" }
+    validations: { required: true }
+  - type: input
+    id: ambientazione
+    attributes: { label: "Dove si svolge la scena" }
+    validations: { required: true }
+  - type: textarea
+    id: soluzione
+    attributes: { label: "Come lo aiuta El Chucharito (facoltativo)" }
+  - type: input
+    id: autore
+    attributes: { label: "Firma dell'autore della proposta", description: "Nome o nickname: sarà pubblico nel libro." }
+  - type: checkboxes
+    id: consenso
+    attributes:
+      label: Consenso
+      options:
+        - label: Accetto i termini per le proposte (LICENSE-CONTENT.md) — concedo all'autore del libro il diritto di pubblicare e vendere il capitolo, anche in versione cartacea — e non inserisco dati personali di minori reali.
+          required: true

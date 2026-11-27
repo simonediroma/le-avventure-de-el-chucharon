@@ -1,4 +1,4 @@
-# Outline — Le Avventure di Chucharon
+# Outline — Le Avventure de El Chucharon
 
 ## Prologo — Chucharon si sveglia ✓ *[draft]*
 *Chucharon apre gli occhi e si accorge che il suo bambino non c'è più. L'ultimo ciuccio rimasto nel cassetto. Decide di partire a cercarlo — e così inizia il viaggio.*
