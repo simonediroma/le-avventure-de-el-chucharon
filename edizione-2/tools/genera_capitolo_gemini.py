@@ -3,17 +3,22 @@
 genera_capitolo_gemini.py — Illustrazioni di un nuovo capitolo nello stile della 2ª edizione.
 
 Legge capitoli/capN.json (scritto da pipeline/generate_chapter.py) e genera con Gemini:
+  assets/capN/schede/*.png   schede personaggi (model sheet) e scheda ambiente: riferimento canonico
   assets/capN/p01.png        copertina con il nome del protagonista in lettering messicano
   assets/capN/p03|p06|p07|p10.png  illustrazioni a tutta pagina (quadrate, 2K)
   assets/capN/cornice.png    sfondo delle pagine di testo (4:3, decori in alto e in basso)
   assets/da-colorare/capN.png  pagina da colorare ricavata dalla copertina
 
-A ogni chiamata passa come riferimento le illustrazioni della 2ª edizione (stile, El Chucharon,
-lettering, cornici) e le immagini già generate per il capitolo (coerenza dei personaggi).
+Coerenza dei personaggi, in tre livelli:
+  1. schede: prima delle scene genera una model sheet per ogni personaggio e una per l'ambiente;
+  2. ogni scena riceve schede + immagini già approvate del capitolo + riferimenti della 2ª edizione;
+  3. controllo: un modello Gemini testuale confronta ogni scena con le schede (voto 1-10); sotto soglia
+     la scena viene rigenerata con le correzioni indicate (max --tentativi volte).
 
 Uso:
   python tools/genera_capitolo_gemini.py cap6
   python tools/genera_capitolo_gemini.py cap6 --solo p07,p10      → rigenera solo alcune immagini
+  python tools/genera_capitolo_gemini.py cap6 --solo schede        → rifà le schede (poi rigenera le scene)
   python tools/genera_capitolo_gemini.py cap6 --nota p10="il papà tira fortissimo verso la TV"
 """
 import argparse, io, json, os, sys, time
@@ -25,6 +30,8 @@ from google.genai import types
 
 DIR = Path(__file__).resolve().parent.parent
 MODELS = ["gemini-3-pro-image", "gemini-3-pro-image-preview"]   # niente ripieghi su modelli più deboli
+EVAL_MODELS = ["gemini-3-pro", "gemini-2.5-pro", "gemini-2.5-flash"]   # controllo di coerenza (solo testo)
+SOGLIA = 8
 
 # Riferimenti della 2ª edizione (immagini a bassa risoluzione già nel repo)
 REF_STILE = ["assets/cap4/img-003-002.png", "assets/cap3/img-004-003.png", "assets/cap2/img-003-002.png"]
@@ -85,12 +92,58 @@ def genera(client, model, parti, aspect, out, colore=True):
     return False
 
 
+def slug(label):
+    return "".join(c if c.isalnum() else "-" for c in label.lower()).strip("-")
+
+
+SCHEDA = """CHARACTER MODEL SHEET for the children's picture book, in EXACTLY the style of the style references.
+Pure white background, no scenery. Show the SAME character three times side by side: full body front view,
+full body three-quarter view, and a large close-up of the face. Neutral standing pose, gentle expression.
+Every detail of face, hair, skin, body proportions and outfit must match the description exactly and be clearly
+readable: this sheet will be the canonical reference for every illustration of the chapter.
+No text, no labels, no names, no logos."""
+
+AMBIENTE = """SETTING REFERENCE for the children's picture book, in EXACTLY the style of the style references:
+the empty room/place described below, with nobody in it, seen from a wide frontal view, warm light.
+Every piece of furniture, its color and position must be clearly readable: this will be the canonical
+reference for every illustration of the chapter. No people, no text, no logos."""
+
+VALUTA = """You are the art director of a children's picture book. Compare the ILLUSTRATION (last image) with the
+canonical CHARACTER SHEETS and SETTING REFERENCE (previous images) and the written character descriptions.
+Check ONLY identity consistency: for every character that appears, face shape, hair (color, length, style),
+skin tone, apparent age, body build and outfit (every garment and color); the room layout and furniture;
+El Chucharon must be a flying pacifier (never a human). Ignore pose, expression, camera angle and style.
+Reply with JSON only: {"score": <1-10, 10 = identical>, "problemi": ["short concrete fix in English", ...]}"""
+
+
+def scegli_eval(disp):
+    return next((m for m in EVAL_MODELS if m in disp), None)
+
+
+def valuta(client, eval_model, schede_parti, descr, img_path):
+    """Voto di coerenza di una scena rispetto alle schede. Ritorna (score, problemi)."""
+    if not eval_model:
+        return 10, []
+    parti = list(schede_parti) + [types.Part(text=descr)]
+    parti += parte_img(carica(img_path.relative_to(DIR), 1024), "ILLUSTRATION TO CHECK:")
+    parti.append(types.Part(text=VALUTA))
+    try:
+        r = client.models.generate_content(model=eval_model, contents=parti,
+                                           config=types.GenerateContentConfig(response_mime_type="application/json"))
+        d = json.loads(r.text)
+        return int(d.get("score", 0)), list(d.get("problemi", []))
+    except Exception as e:
+        print(f"   ⚠️  controllo non riuscito ({e}): accetto l'immagine")
+        return 10, []
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("cap")
     ap.add_argument("--solo", help="es. p01,p07,cornice,colorare")
     ap.add_argument("--nota", action="append", default=[], help='istruzione extra per una pagina: p10="..."')
     ap.add_argument("--model")
+    ap.add_argument("--tentativi", type=int, default=2, help="rigenerazioni max per scena sotto soglia")
     a = ap.parse_args()
 
     spec = json.loads((DIR / "capitoli" / f"{a.cap}.json").read_text(encoding="utf-8"))
@@ -104,11 +157,45 @@ def main():
     model = a.model or next((m for m in MODELS if m in disp), None)
     if not model:
         sys.exit(f"❌ nessun modello tra {MODELS}; disponibili: {sorted(m for m in disp if 'image' in m)}")
-    print(f"🎨 modello: {model}")
+    eval_model = scegli_eval(disp)
+    print(f"🎨 modello: {model}  ·  controllo coerenza: {eval_model or 'non disponibile'}")
 
     cap, base = spec["cap"], DIR / "assets" / spec["cap"]
     anchors = anchor_personaggi(spec)
     fallite = []
+    schede_dir = base / "schede"
+
+    # ---- 1. schede personaggi e ambiente
+    def stile_parti():
+        out = []
+        for r in REF_STILE:
+            out += parte_img(carica(r), "STYLE REFERENCE from this book:")
+        return out
+
+    if vuoi("schede") or not schede_dir.exists():
+        for p in spec["people"]:
+            f = schede_dir / f"{slug(p['label_en'])}.png"
+            print(f"🧍 scheda {p['label_en']}")
+            parti = stile_parti() + [types.Part(text=f"{SCHEDA}\n\nCHARACTER: {p['label_en']}. APPEARANCE: "
+                                                    f"{p['appearance_en']} OUTFIT: {p['outfit_en']}")]
+            if not genera(client, model, parti, "16:9", f):
+                fallite.append(f"scheda {p['label_en']}")
+        print("🏠 scheda ambiente")
+        parti = stile_parti() + [types.Part(text=f"{AMBIENTE}\n\nSETTING: {spec['setting_en']}")]
+        if not genera(client, model, parti, "4:3", schede_dir / "ambiente.png"):
+            fallite.append("scheda ambiente")
+
+    def schede_parti():
+        out = []
+        for p in spec["people"]:
+            f = schede_dir / f"{slug(p['label_en'])}.png"
+            if f.exists():
+                out += parte_img(carica(f.relative_to(DIR), 1024),
+                                 f"CANONICAL CHARACTER SHEET of {p['label_en']} — this character must look EXACTLY like this:")
+        f = schede_dir / "ambiente.png"
+        if f.exists():
+            out += parte_img(carica(f.relative_to(DIR), 1024), "CANONICAL SETTING REFERENCE — the room must look EXACTLY like this:")
+        return out
 
     def refs_capitolo(escludi):
         """Immagini già generate del capitolo, per la coerenza dei personaggi."""
@@ -129,8 +216,12 @@ def main():
         if k == "p01":
             for r in REF_COPERTINA:
                 parti += parte_img(carica(r), "CHAPTER COVER REFERENCE from this book (layout and title lettering):")
+        parti += schede_parti()
         parti += refs_capitolo(k)
-        testo = [STILE, CHUCHARON, anchors, f"SCENE: {spec['scene'][k]}"]
+        testo = [STILE, CHUCHARON, anchors,
+                 "CONSISTENCY IS THE TOP PRIORITY: every character must be identical to its CANONICAL CHARACTER SHEET "
+                 "(face, hair, skin, age, build, every garment and color) and the room identical to the SETTING REFERENCE.",
+                 f"SCENE: {spec['scene'][k]}"]
         if k == "p01":
             testo.append(f'CHAPTER COVER: like the cover references, the child alone in the scene and, in the lower part, '
                          f'the name "{spec["nome"].upper()}" in the SAME decorative Mexican lettering (red letters with green '
@@ -146,8 +237,25 @@ def main():
         if not vuoi(k):
             continue
         print(f"🖌️  {cap}/{k}")
-        if not genera(client, model, scena(k, note.get(k, "")), "1:1", base / f"{k}.png"):
-            fallite.append(k)
+        extra = note.get(k, "")
+        out = base / f"{k}.png"
+        if not genera(client, model, scena(k, extra), "1:1", out):
+            fallite.append(k); continue
+        rif = schede_parti()
+        migliore = (-1, None)
+        for t in range(a.tentativi + 1):
+            score, problemi = valuta(client, eval_model, rif, anchors, out)
+            print(f"   🔍 coerenza {score}/10" + (f" — {'; '.join(problemi)[:200]}" if problemi else ""))
+            if score > migliore[0]:
+                migliore = (score, out.read_bytes())
+            if score >= SOGLIA or t == a.tentativi:
+                break
+            correzioni = "FIX THESE CONSISTENCY ERRORS of the previous attempt: " + "; ".join(problemi)
+            if not genera(client, model, scena(k, (extra + " " + correzioni).strip()), "1:1", out):
+                break
+        out.write_bytes(migliore[1])   # tiene il tentativo più coerente
+        if migliore[0] < SOGLIA:
+            print(f"   ⚠️  {k}: coerenza {migliore[0]}/10 sotto soglia, da rivedere a mano")
 
     if vuoi("cornice"):
         print(f"🖌️  {cap}/cornice")

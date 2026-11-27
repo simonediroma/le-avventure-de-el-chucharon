@@ -34,8 +34,12 @@ BOX_CORNICE = [-115.87, -16.92, 745.87, 631.08]
 
 class Person(BaseModel):
     label_en: str = Field(description="es. \"GABRIEL\", \"GABRIEL'S FATHER\"")
-    outfit_en: str = Field(description="Outfit preciso e invariabile, in inglese, senza loghi")
-    appearance_en: str = Field(description="Aspetto fisico preciso (età, capelli, viso, corporatura), in inglese")
+    outfit_en: str = Field(description="Outfit invariabile, in inglese, senza loghi: OGNI capo con colore esatto, "
+                                       "taglio e dettagli (maniche, colletto, righe), calze e scarpe")
+    appearance_en: str = Field(description="Aspetto invariabile, in inglese: età apparente, altezza e corporatura, forma del viso, "
+                                           "colore occhi, carnagione, capelli (colore esatto, lunghezza, consistenza, "
+                                           "pettinatura), barba, occhiali, tratti distintivi. Abbastanza preciso da "
+                                           "disegnarlo identico in ogni scena")
 
 
 class Chapter(BaseModel):
