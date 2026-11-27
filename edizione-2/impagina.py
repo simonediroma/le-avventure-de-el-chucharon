@@ -44,6 +44,7 @@ BLEED = 9.0                  # 0,125" per lato
 TEXT_X0, TEXT_X1 = 63.0, 567.0
 TEXT_CENTER_Y = 300.0        # centro verticale del blocco testo (dall'alto), come in Canva
 JPEG_Q = [92]   # qualità JPEG delle immagini (la versione web usa --web → 78)
+WEB = [False]   # True con --web: niente ricampionamento (file leggero)
 SIZE = [16.5]   # corpo corrente, usato da nota()
 
 # ---------------------------------------------------------------- font
@@ -126,22 +127,31 @@ def disegna_testo(c, blocchi, size, leading, halo):
 
 # ---------------------------------------------------------------- immagini
 _cache = {}
-def immagine(path):
-    """Converte in JPEG (RGB) in memoria per contenere il peso del PDF."""
-    if path not in _cache:
+MIN_PPI = 300   # requisito KDP
+def immagine(path, w_pt=None, h_pt=None):
+    """Converte in JPEG (RGB) in memoria; se la risoluzione effettiva in pagina è
+    sotto i 300 PPI richiesti da KDP, ricampiona (Lanczos) fino a 300 PPI."""
+    key = (path, w_pt)
+    if key not in _cache:
         im = Image.open(path)
+        if w_pt and not WEB[0]:
+            ppi = im.width / (w_pt / 72)
+            if ppi < MIN_PPI - 1:
+                f = MIN_PPI / ppi
+                im = im.resize((round(im.width * f), round(im.height * f)), Image.LANCZOS)
+                print(f"   ↑ {Path(path).name}: {ppi:.0f} → {MIN_PPI} ppi")
         if im.mode in ("RGBA", "LA", "P"):
             bg = Image.new("RGB", im.size, "white")
             im = im.convert("RGBA"); bg.paste(im, mask=im.split()[3]); im = bg
         else:
             im = im.convert("RGB")
         buf = io.BytesIO(); im.save(buf, "JPEG", quality=JPEG_Q[0], subsampling=0)
-        buf.seek(0); _cache[path] = ImageReader(buf)
-    return _cache[path]
+        buf.seek(0); _cache[key] = ImageReader(buf)
+    return _cache[key]
 
 def disegna_immagine(c, path, box):
     x0, t, x1, b = box
-    c.drawImage(immagine(path), x0, PAGE - b, width=x1 - x0, height=b - t)
+    c.drawImage(immagine(path, x1 - x0, b - t), x0, PAGE - b, width=x1 - x0, height=b - t)
 
 def guide(c):
     c.saveState(); c.setLineWidth(0.4)
@@ -165,7 +175,7 @@ def main():
     ap.add_argument("--copertina", default=str(DIR / "copertina" / "fronte.pdf"))
     a = ap.parse_args()
     if a.web:
-        JPEG_Q[0] = 78
+        JPEG_Q[0] = 78; WEB[0] = True
         if a.output == ap.get_default("output"):
             a.output = str(DIR / "output" / "chucharon-2a-edizione-web.pdf")
 

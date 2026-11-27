@@ -13,7 +13,7 @@
   },
   {
    "id": "cap1-p02",
-   "img": "assets/cap1/img-002-001.png",
+   "img": "assets-stampa/cap1/p02.png",
    "box": [
     -9.0,
     -16.92,
@@ -45,7 +45,7 @@
   },
   {
    "id": "cap1-p05",
-   "img": "assets/cap1/img-005-004.png",
+   "img": "assets-stampa/cap1/p05.png",
    "box": [
     -99.14,
     -16.92,
@@ -55,7 +55,7 @@
   },
   {
    "id": "cap1-p06",
-   "img": "assets/cap1/img-006-005.png",
+   "img": "assets-stampa/cap1/p06.png",
    "box": [
     -99.14,
     -16.92,
@@ -76,7 +76,7 @@
   },
   {
    "id": "cap1-p08",
-   "img": "assets/cap1/img-008-007.png",
+   "img": "assets-stampa/cap1/p08.png",
    "box": [
     -99.14,
     -16.92,
@@ -108,7 +108,7 @@
   },
   {
    "id": "cap1-p11",
-   "img": "assets/cap1/img-011-010.png",
+   "img": "assets-stampa/cap1/p11.png",
    "box": [
     -99.14,
     -16.92,
@@ -118,7 +118,7 @@
   },
   {
    "id": "cap2-p01",
-   "img": "assets/cap2/img-001-000.png",
+   "img": "assets-stampa/cap2/p01.png",
    "box": [
     -99.14,
     -16.92,
@@ -128,7 +128,7 @@
   },
   {
    "id": "cap2-p02",
-   "img": "assets/da-colorare/cap2.png",
+   "img": "per-canva/da-colorare-leo.png",
    "box": [
     0,
     0,
@@ -139,7 +139,7 @@
   },
   {
    "id": "cap2-p03",
-   "img": "assets/cap2/img-003-002.png",
+   "img": "assets-stampa/cap2/p03.png",
    "box": [
     -99.14,
     -16.92,
@@ -171,7 +171,7 @@
   },
   {
    "id": "cap2-p06",
-   "img": "assets/cap2/img-006-005.png",
+   "img": "assets-stampa/cap2/p06.png",
    "box": [
     -99.14,
     -16.92,
@@ -181,7 +181,7 @@
   },
   {
    "id": "cap2-p07",
-   "img": "assets/cap2/img-007-006.png",
+   "img": "assets-stampa/cap2/p07.png",
    "box": [
     -99.14,
     -16.92,
@@ -213,7 +213,7 @@
   },
   {
    "id": "cap2-p10",
-   "img": "assets/cap2/img-010-009.png",
+   "img": "assets-stampa/cap2/p10.png",
    "box": [
     -99.14,
     -16.92,
@@ -223,7 +223,7 @@
   },
   {
    "id": "cap3-p01",
-   "img": "assets/cap3/img-001-000.png",
+   "img": "assets-stampa/cap3/p01.png",
    "box": [
     -9.0,
     -16.92,
@@ -233,7 +233,7 @@
   },
   {
    "id": "cap3-p02",
-   "img": "assets/da-colorare/cap3.png",
+   "img": "per-canva/da-colorare-sofia.png",
    "box": [
     0,
     0,
@@ -255,7 +255,7 @@
   },
   {
    "id": "cap3-p04",
-   "img": "assets/cap3/img-004-003.png",
+   "img": "assets-stampa/cap3/p04.png",
    "box": [
     -9.0,
     -16.92,
@@ -265,7 +265,7 @@
   },
   {
    "id": "cap3-p05",
-   "img": "assets/cap3/img-005-004.png",
+   "img": "assets-stampa/cap3/p05.png",
    "box": [
     -9.0,
     -16.92,
@@ -297,7 +297,7 @@
   },
   {
    "id": "cap3-p08",
-   "img": "assets/cap3/img-008-007.png",
+   "img": "assets-stampa/cap3/p08.png",
    "box": [
     -9.0,
     -16.92,
@@ -307,7 +307,7 @@
   },
   {
    "id": "cap3-p09",
-   "img": "assets/cap3/img-009-008.png",
+   "img": "assets-stampa/cap3/p09.png",
    "box": [
     -9.0,
     -16.92,
@@ -328,7 +328,7 @@
   },
   {
    "id": "cap4-p01",
-   "img": "assets/cap4/img-001-000.png",
+   "img": "assets-stampa/cap4/p01.png",
    "box": [
     -9.0,
     -16.92,
@@ -338,7 +338,7 @@
   },
   {
    "id": "cap4-p02",
-   "img": "assets/da-colorare/cap4.png",
+   "img": "per-canva/da-colorare-marco.png",
    "box": [
     0,
     0,
@@ -349,7 +349,7 @@
   },
   {
    "id": "cap4-p03",
-   "img": "assets/cap4/img-003-002.png",
+   "img": "assets-stampa/cap4/p03.png",
    "box": [
     -9.0,
     -16.92,
@@ -381,7 +381,7 @@
   },
   {
    "id": "cap4-p06",
-   "img": "assets/cap4/img-006-005.png",
+   "img": "assets-stampa/cap4/p06.png",
    "box": [
     -9.0,
     -16.92,
@@ -391,7 +391,7 @@
   },
   {
    "id": "cap4-p07",
-   "img": "assets/cap4/img-007-006.png",
+   "img": "assets-stampa/cap4/p07.png",
    "box": [
     -9.0,
     -16.92,
@@ -423,7 +423,7 @@
   },
   {
    "id": "cap4-p10",
-   "img": "assets/cap4/img-010-009.png",
+   "img": "assets-stampa/cap4/p10.png",
    "box": [
     -9.0,
     -16.92,
@@ -433,7 +433,7 @@
   },
   {
    "id": "cap5-p01",
-   "img": "assets/cap5/img-001-000.png",
+   "img": "assets-stampa/cap5/p01.png",
    "box": [
     -9.0,
     -16.92,
@@ -443,7 +443,7 @@
   },
   {
    "id": "cap5-p02",
-   "img": "assets/da-colorare/cap5.png",
+   "img": "per-canva/da-colorare-elena.png",
    "box": [
     0,
     0,
@@ -454,7 +454,7 @@
   },
   {
    "id": "cap5-p03",
-   "img": "assets/cap5/img-003-002.png",
+   "img": "assets-stampa/cap5/p03.png",
    "box": [
     -9.0,
     -16.92,
@@ -486,7 +486,7 @@
   },
   {
    "id": "cap5-p06",
-   "img": "assets/cap5/img-006-005.png",
+   "img": "assets-stampa/cap5/p06.png",
    "box": [
     -9.0,
     -16.92,
@@ -496,7 +496,7 @@
   },
   {
    "id": "cap5-p07",
-   "img": "assets/cap5/img-007-006.png",
+   "img": "assets-stampa/cap5/p07.png",
    "box": [
     -9.0,
     -16.92,
@@ -528,7 +528,7 @@
   },
   {
    "id": "cap5-p10",
-   "img": "assets/cap5/img-010-009.png",
+   "img": "assets-stampa/cap5/p10.png",
    "box": [
     -9.0,
     -16.92,
@@ -538,7 +538,7 @@
   },
   {
    "id": "cap5-p11",
-   "img": "assets/cap5/img-011-010.png",
+   "img": "assets-stampa/cap5/p11.png",
    "box": [
     63.0,
     118.92,
