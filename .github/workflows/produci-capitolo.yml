@@ -2,6 +2,7 @@ name: Produci capitolo (testo + illustrazioni)
 
 # Avvio: un maintainer aggiunge l'etichetta "produci" a una proposta approvata,
 # oppure automatico da valida-proposta.yml (AUTO_PRODUCE=true), oppure manuale.
+# Il capitolo viene prodotto nel formato della 2ª edizione (edizione-2/).
 on:
   issues:
     types: [labeled]
@@ -40,28 +41,20 @@ jobs:
           set -o pipefail
           gh issue view "$N" --repo "$GITHUB_REPOSITORY" --json body -q .body > issue.md
           python pipeline/validate_proposal.py --body-file issue.md --out validation.json --comment comment.md
-          ids=$(python pipeline/generate_chapter.py --validation validation.json --issue "$N" | tail -1)
-          if [ -z "$ids" ]; then echo "::error::Nessuna scena generata"; exit 1; fi
-          echo "ids=$ids" >> "$GITHUB_OUTPUT"
+          cap=$(python pipeline/generate_chapter.py --validation validation.json --issue "$N" | tail -1)
+          if [ -z "$cap" ]; then echo "::error::Capitolo non generato"; exit 1; fi
+          slug=$(python -c "import json;print(json.load(open('proposals/$N.json'))['slug'])")
+          echo "CAP=$cap" >> "$GITHUB_ENV"
+          echo "SLUG=$slug" >> "$GITHUB_ENV"
 
-      - name: Illustrazioni con Gemini
+      - name: Illustrazioni con Gemini (stile 2ª edizione)
         env: { GEMINI_API_KEY: "${{ secrets.GEMINI_API_KEY }}" }
-        working-directory: illustrator
-        run: python main.py --only "${{ steps.gen.outputs.ids }}"
-
-      - name: Controllo coerenza (cross-check + auto-fix)
-        env: { GEMINI_API_KEY: "${{ secrets.GEMINI_API_KEY }}" }
-        working-directory: illustrator
-        continue-on-error: true
-        run: python main.py --only "${{ steps.gen.outputs.ids }}" --auto-fix
+        run: python edizione-2/tools/genera_capitolo_gemini.py "$CAP"
 
       - name: Anteprima PDF del capitolo
-        run: |
-          slug=$(python -c "import json;print(json.load(open('proposals/$N.json'))['slug'])")
-          python illustrator/layout.py --chapters "$slug" --output "preview-$slug.pdf" --skip-missing
-          echo "SLUG=$slug" >> "$GITHUB_ENV"
+        run: python edizione-2/impagina.py --web --senza-copertina --solo "$CAP-" --output "anteprima-$SLUG.pdf"
       - uses: actions/upload-artifact@v4
-        with: { name: "anteprima-${{ env.SLUG }}", path: "preview-*.pdf" }
+        with: { name: "anteprima-${{ env.SLUG }}", path: "anteprima-*.pdf" }
 
       - name: Apri la pull request
         id: pr
@@ -71,16 +64,19 @@ jobs:
           title: "Nuovo capitolo: ${{ env.SLUG }} (proposta #${{ env.N }})"
           commit-message: "Nuovo capitolo ${{ env.SLUG }} dalla proposta #${{ env.N }}"
           add-paths: |
-            chapters/
-            scenes/
-            proposals/
+            edizione-2/testo.md
+            edizione-2/pagine.json
+            edizione-2/capitoli/
+            edizione-2/assets/${{ env.CAP }}/
+            edizione-2/assets/da-colorare/${{ env.CAP }}.png
             book/registry.json
-            illustrator/output/${{ env.SLUG }}/
+            proposals/
           body: |
-            Capitolo generato automaticamente dalla proposta #${{ env.N }}.
+            Capitolo generato automaticamente dalla proposta #${{ env.N }}, nel formato della 2ª edizione.
 
-            - Testo: Claude · Illustrazioni: Gemini (`illustrator/main.py`)
+            - Testo: Claude (`edizione-2/testo.md`) · Illustrazioni: Gemini (`edizione-2/tools/genera_capitolo_gemini.py`)
             - Anteprima PDF negli artifact di questo workflow.
+            - Per rifare una o più immagini: workflow **Rigenera illustrazioni** (branch `capitolo/${{ env.SLUG }}`, capitolo `${{ env.CAP }}`).
 
             Rivedi testo e immagini, poi fai merge: il sito verrà ripubblicato in automatico.
             Closes #${{ env.N }}

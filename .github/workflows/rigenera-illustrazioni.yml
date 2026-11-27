@@ -1,12 +1,13 @@
 name: Rigenera illustrazioni
 
-# Rigenera solo alcune scene di un capitolo in revisione (es. dopo aver corretto il prompt
-# in scenes/<ID>.md sul branch della PR) e fa commit delle nuove immagini sullo stesso branch.
+# Rigenera solo alcune immagini di un capitolo in revisione e fa commit sullo stesso branch della PR.
 on:
   workflow_dispatch:
     inputs:
-      branch: { description: "Branch del capitolo (es. capitolo/04-gabriel-omar)", required: true }
-      scenes: { description: "ID scene separati da virgola (es. C4-03,C4-04)", required: true }
+      branch: { description: "Branch del capitolo (es. capitolo/cap6-gabriel-omar)", required: true }
+      cap: { description: "Id del capitolo (es. cap6)", required: true }
+      solo: { description: "Immagini da rifare: p01,p03,p06,p07,p10,cornice,colorare", required: true }
+      nota: { description: "Istruzione extra, es. p10=il papà tira fortissimo il pallone verso la TV", required: false }
 
 permissions:
   contents: write
@@ -24,16 +25,22 @@ jobs:
       - name: Illustrazioni con Gemini
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-          SCENES: ${{ inputs.scenes }}
-        working-directory: illustrator
-        run: python main.py --only "$SCENES" --force
+          CAP: ${{ inputs.cap }}
+          SOLO: ${{ inputs.solo }}
+          NOTA: ${{ inputs.nota }}
+        run: |
+          if [ -n "$NOTA" ]; then
+            python edizione-2/tools/genera_capitolo_gemini.py "$CAP" --solo "$SOLO" --nota "$NOTA"
+          else
+            python edizione-2/tools/genera_capitolo_gemini.py "$CAP" --solo "$SOLO"
+          fi
       - name: Commit sul branch del capitolo
         env:
-          SCENES: ${{ inputs.scenes }}
+          SOLO: ${{ inputs.solo }}
           BRANCH: ${{ inputs.branch }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add illustrator/output/
-          git commit -m "Rigenerate illustrazioni: $SCENES"
+          git add edizione-2/assets/
+          git commit -m "Rigenerate illustrazioni: $SOLO"
           git push origin "HEAD:$BRANCH"

@@ -3,7 +3,7 @@ name: Pubblica sito
 on:
   push:
     branches: [master]
-    paths: ["book/**", "chapters/**", "scenes/**", "illustrator/output/**", "illustrator/layout.py", "site/**", "pipeline/**"]
+    paths: ["book/**", "edizione-2/**", "site/**", "pipeline/**", ".github/workflows/pubblica-sito.yml"]
   workflow_dispatch:
 
 permissions:
@@ -16,11 +16,22 @@ concurrency: { group: pages, cancel-in-progress: true }
 jobs:
   build:
     runs-on: ubuntu-latest
+    timeout-minutes: 40
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with: { python-version: "3.12" }
-      - run: pip install pillow reportlab pypdf
+      - run: pip install pillow reportlab pypdf pypdfium2
+      # Illustrazioni ad alta risoluzione della 2ª edizione, estratte dai PDF Canva (lento: in cache)
+      - uses: actions/cache@v4
+        id: stampa
+        with:
+          path: edizione-2/assets-stampa
+          key: assets-stampa-${{ hashFiles('edizione-2/canva-stampa/*.pdf', 'edizione-2/tools/estrai_stampa.py') }}
+      - if: steps.stampa.outputs.cache-hit != 'true'
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq poppler-utils
+          python edizione-2/tools/estrai_stampa.py
       - run: python pipeline/publish.py
       - uses: actions/upload-pages-artifact@v3
         with: { path: site }

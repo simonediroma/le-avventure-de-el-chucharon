@@ -67,7 +67,7 @@ TEXT_MAX_W  = PAGE_W - 2 * TEXT_PAD_X
 # Ordine di stampa (26 pagine: copertina + 25 pagine interne)
 # ---------------------------------------------------------------------------
 
-REGISTRY_FILE = SCRIPT_DIR.parent / "book" / "registry.json"
+REGISTRY_FILE = SCRIPT_DIR / "registry-1a-edizione.json"   # 1ª edizione (la 2ª usa edizione-2/impagina.py)
 
 
 def load_registry() -> dict:
