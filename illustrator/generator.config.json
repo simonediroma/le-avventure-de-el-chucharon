@@ -1,6 +1,6 @@
 {
   "_comment": "Configurazione del generatore di illustrazioni — Le Avventure de El Chucharon",
-  "image_model": "gemini-3-pro-image-preview",
+  "image_model": "gemini-3-pro-image",
   "eval_model": "gemini-2.5-flash",
   "defaults": {
     "aspect": "4:3",
