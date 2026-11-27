@@ -517,6 +517,7 @@ def generate_with_gemini(
     prompt: str,
     output_path: Path,
     context_images: list[tuple[bytes, str]],
+    aspect: str | None = None,
 ) -> bool:
     """
     Genera un'immagine con immagini di contesto etichettate.
@@ -1196,7 +1197,7 @@ def main():
 
         print(f"\n🖌️  Rigenero {target_id}  |  {len(explicit_refs)} refs esplicite + {len(auto_ctx)} auto-ctx  ...", end=" ", flush=True)
         try:
-            ok = generate_with_gemini(client, model, full_prompt, out_path, context_imgs)
+            ok = generate_with_gemini(client, model, full_prompt, out_path, context_imgs, aspect=args.aspect)
             print(f"✅  {out_path.relative_to(SCRIPT_DIR)}" if ok else "⚠️  risposta vuota")
         except Exception as exc:
             print(f"❌  {exc}")
@@ -1354,7 +1355,7 @@ def main():
                 all_ctx = consistent_imgs + ctx
 
                 try:
-                    ok = generate_with_gemini(client, model, full_prompt, out_path, all_ctx)
+                    ok = generate_with_gemini(client, model, full_prompt, out_path, all_ctx, aspect=args.aspect)
                     print("✅" if ok else "⚠️  risposta vuota")
                 except Exception as exc:
                     print(f"❌  {exc}")
@@ -1420,7 +1421,7 @@ def main():
             )
 
         try:
-            ok = generate_with_gemini(client, model, full_prompt, out_path, context_imgs)
+            ok = generate_with_gemini(client, model, full_prompt, out_path, context_imgs, aspect=args.aspect)
             if ok:
                 ctx_note = f"  +{len(context_imgs)} ctx" if context_imgs else ""
                 print(f"✅  {out_path.relative_to(SCRIPT_DIR)}{ctx_note}")
@@ -1445,6 +1446,8 @@ def main():
     print(f"⏭️  Saltate   : {skipped}")
     print(f"❌ Fallite   : {failed}")
     print(f"📁 Output    : {OUTPUT_DIR.resolve()}")
+    if failed:
+        raise SystemExit(1)  # in CI il job deve fermarsi se qualche illustrazione non è stata generata
 
 
 if __name__ == "__main__":
