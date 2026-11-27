@@ -26,13 +26,12 @@ const PARENTS = ["Mamma e papà", "Solo mamma", "Solo papà"];
 
 export default {
   async fetch(req, env) {
-    const allowed = (env.ALLOWED_ORIGIN || "").split(",").map((o) => o.trim()).filter(Boolean);
+    const allowed = (env.ALLOWED_ORIGIN || "").split(",").map((o) => o.trim().replace(/\/$/, "")).filter(Boolean);
     const origin = req.headers.get("Origin") || "";
-    if (allowed.length && origin && !allowed.includes(origin)) {
-      return new Response("Origine non ammessa", { status: 403 });
-    }
+    // Le intestazioni CORS ci sono SEMPRE, anche sugli errori: così il sito mostra il messaggio
+    // invece del generico "Failed to fetch".
     const cors = {
-      "Access-Control-Allow-Origin": allowed.length ? (origin || allowed[0]) : "*",
+      "Access-Control-Allow-Origin": origin || "*",
       Vary: "Origin",
       "Access-Control-Allow-Methods": "POST, OPTIONS",
       "Access-Control-Allow-Headers": "Content-Type",
@@ -40,9 +39,24 @@ export default {
     const json = (body, status = 200) =>
       new Response(JSON.stringify(body), { status, headers: { ...cors, "Content-Type": "application/json" } });
 
-    if (req.method === "OPTIONS") return new Response(null, { headers: cors });
+    if (req.method === "OPTIONS") return new Response(null, { status: 204, headers: cors });
+    if (allowed.length && origin && !allowed.includes(origin)) {
+      console.log("Origine rifiutata:", origin, "ammesse:", allowed);
+      return json({ error: `Origine non ammessa (${origin})` }, 403);
+    }
     if (req.method !== "POST") return json({ error: "Metodo non consentito" }, 405);
+    if (!env.GITHUB_TOKEN || !env.GITHUB_REPO) return json({ error: "Worker non configurato (GITHUB_TOKEN / GITHUB_REPO)" }, 500);
 
+    try {
+      return await handle(req, env, json);
+    } catch (err) {
+      console.log("Errore worker:", err && err.stack || err);
+      return json({ error: "Errore interno, riprova più tardi" }, 500);
+    }
+  },
+};
+
+async function handle(req, env, json) {
     let data;
     try { data = await req.json(); } catch { return json({ error: "JSON non valido" }, 400); }
 
@@ -77,8 +91,10 @@ export default {
       },
       body: JSON.stringify({ title: `Proposta: ${clean.nome_bambino}`, body, labels: ["proposta"] }),
     });
-    if (!gh.ok) return json({ error: "Impossibile registrare la proposta, riprova più tardi" }, 502);
+    if (!gh.ok) {
+      console.log("GitHub API", gh.status, await gh.text());
+      return json({ error: `Impossibile registrare la proposta (GitHub ${gh.status}), riprova più tardi` }, 502);
+    }
     const issue = await gh.json();
     return json({ ok: true, url: issue.html_url, number: issue.number });
-  },
-};
+}
