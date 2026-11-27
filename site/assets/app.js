@@ -124,14 +124,60 @@
   function renderBuilder() {
     const list = $("#builder-list");
     list.innerHTML = "";
+    const core = catalog.chapters.filter((c) => c.kind === "core");
+    const lockedRow = (ch) => `<label class="locked"><input type="checkbox" checked disabled> ${esc(ch.title)}</label>`;
+    if (core[0]) list.insertAdjacentHTML("beforeend", lockedRow(core[0]));
     for (const ch of catalog.chapters) {
-      if (ch.kind === "core") {
-        list.insertAdjacentHTML("beforeend", `<label class="locked"><input type="checkbox" checked disabled> ${esc(ch.title)}</label>`);
-      } else if (ch.pdf) {
-        list.insertAdjacentHTML("beforeend", `<label><input type="checkbox" name="ch" value="${ch.slug}" checked> ${esc(ch.title)}</label>`);
-      }
+      if (ch.kind === "core" || !ch.pdf) continue;
+      list.insertAdjacentHTML("beforeend",
+        `<label class="sortable"><span class="handle" aria-hidden="true" title="Trascina per riordinare">⠿</span>` +
+        `<input type="checkbox" name="ch" value="${ch.slug}" checked> <span class="t">${esc(ch.title)}</span>` +
+        `<span class="mv"><button type="button" data-mv="-1" aria-label="Sposta su">▲</button>` +
+        `<button type="button" data-mv="1" aria-label="Sposta giù">▼</button></span></label>`);
     }
+    for (const ch of core.slice(1)) list.insertAdjacentHTML("beforeend", lockedRow(ch));
   }
+
+  // Riordino capitoli: drag & drop (mouse e touch via Pointer Events) + pulsanti ▲▼
+  (() => {
+    const list = $("#builder-list");
+    let drag = null;
+    list.addEventListener("click", (e) => {
+      const b = e.target.closest("button[data-mv]");
+      if (!b) return;
+      e.preventDefault();
+      const row = b.closest(".sortable");
+      const sib = +b.dataset.mv < 0 ? row.previousElementSibling : row.nextElementSibling;
+      if (!sib || !sib.classList.contains("sortable")) return;
+      +b.dataset.mv < 0 ? sib.before(row) : sib.after(row);
+      b.focus();
+    });
+    list.addEventListener("pointerdown", (e) => {
+      const h = e.target.closest(".handle");
+      if (!h) return;
+      e.preventDefault();
+      drag = h.closest(".sortable");
+      drag.classList.add("dragging");
+      h.setPointerCapture(e.pointerId);
+    });
+    list.addEventListener("pointermove", (e) => {
+      if (!drag) return;
+      const rows = [...list.querySelectorAll(".sortable:not(.dragging)")];
+      const over = rows.find((r) => {
+        const b = r.getBoundingClientRect();
+        return e.clientY >= b.top && e.clientY <= b.bottom && e.clientX >= b.left && e.clientX <= b.right;
+      });
+      if (!over) return;
+      const b = over.getBoundingClientRect();
+      const after = b.width > b.height * 3 && list.offsetWidth < b.width * 1.5
+        ? e.clientY > b.top + b.height / 2      // lista a una colonna
+        : e.clientX > b.left + b.width / 2;     // griglia
+      after ? over.after(drag) : over.before(drag);
+    });
+    const end = () => { if (drag) { drag.classList.remove("dragging"); drag = null; } };
+    list.addEventListener("pointerup", end);
+    list.addEventListener("pointercancel", end);
+  })();
 
   $("#builder").addEventListener("submit", async (e) => {
     e.preventDefault();
