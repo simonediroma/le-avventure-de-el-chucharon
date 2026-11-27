@@ -23,7 +23,7 @@
 4. **Pubblicazione** — al merge su `master`, `pipeline/publish.py` crea immagini web, PDF per capitolo e `site/data/chapters.json`; deploy su GitHub Pages.
 5. **PDF personalizzato** — il browser unisce `inizio.pdf` + capitoli scelti + `fine.pdf` con pdf-lib (nessun server).
 
-`book/registry.json` è la fonte unica dell'ordine del libro: `layout.py` ora la legge (`--chapters`, `--scenes`, `--images-dir`).
+Il riferimento è la **2ª edizione** (`edizione-2/`): ordine pagine in `pagine.json`, testo in `testo.md`, PDF con `impagina.py`. `book/registry.json` contiene i metadati dei capitoli per il sito. La 1ª edizione (`illustrator/`, `scenes/`) resta come archivio.
 
 ## Setup (una volta)
 | Cosa | Dove |

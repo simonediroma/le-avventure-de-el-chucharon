@@ -26,14 +26,19 @@ prodotti nello stesso stile del libro, rivisti a mano e pubblicati sul sito.
 |---|---|
 | Proposta | `site/` (form) → `worker/` (Cloudflare) → issue GitHub con etichetta `proposta` |
 | Validazione | `.github/workflows/valida-proposta.yml` → `pipeline/validate_proposal.py` |
-| Produzione | etichetta `produci` → `pipeline/generate_chapter.py` + `illustrator/main.py` (Gemini) → pull request |
-| Pubblicazione | merge su `master` → `pipeline/publish.py` → GitHub Pages |
+| Produzione | etichetta `produci` → `pipeline/generate_chapter.py` (Claude, testo) + `edizione-2/tools/genera_capitolo_gemini.py` (Gemini, illustrazioni) → pull request |
+| Correzioni | workflow **Rigenera illustrazioni** (branch, capitolo, immagini, nota) |
+| Pubblicazione | merge su `master` → `pipeline/publish.py` (`edizione-2/impagina.py`) → GitHub Pages |
 
-Ordine e metadati dei capitoli: `book/registry.json`. Architettura e setup: [`docs/EVOLUTIVA.md`](docs/EVOLUTIVA.md).
+Il riferimento per testo, stile e impaginazione è la **2ª edizione** (`edizione-2/`): `testo.md`, `pagine.json`,
+`impagina.py`. Ogni nuovo capitolo segue la stessa scaletta di 10 pagine (copertina con il nome, pagina da colorare,
+illustrazioni a tutta pagina, pagine di testo su cornice a tema) e viene inserito prima dell'epilogo.
+Metadati per il sito: `book/registry.json`. Architettura e setup: [`docs/EVOLUTIVA.md`](docs/EVOLUTIVA.md).
 
 Anteprima locale:
 ```bash
 pip install -r pipeline/requirements.txt
+python edizione-2/tools/estrai_stampa.py   # una volta: illustrazioni 300 DPI dai PDF Canva (poppler-utils)
 python pipeline/publish.py && cd site && python -m http.server
 ```
 

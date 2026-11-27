@@ -22,6 +22,7 @@
   async function load() {
     const res = await fetch("data/chapters.json", { cache: "no-cache" });
     catalog = await res.json();
+    if (catalog.cover) $("#hero-cover").src = catalog.cover;
     renderGallery();
     renderBuilder();
   }
@@ -30,7 +31,7 @@
     const el = $("#gallery");
     el.innerHTML = "";
     for (const ch of catalog.chapters.filter((c) => c.ready)) {
-      const cover = ch.pages[0]?.image;
+      const cover = ch.cover || ch.pages[0]?.image;
       const isCommunity = ch.issue != null;
       const card = document.createElement("article");
       card.className = "card";
@@ -83,7 +84,9 @@
   }
   // Testo: le strofe tra 🎵 diventano un blocco "canzone", il resto resta narrazione
   function renderText(p) {
-    $("#r-stage").classList.toggle("is-cover", p.kind === "cover"); // il nome è già nell'illustrazione
+    // 2ª edizione: ogni pagina è un'immagine completa (testo già impaginato sulla cornice)
+    $("#r-stage").classList.toggle("is-cover", p.kind === "cover" || !p.text);
+    if (!p.text) { rText.replaceChildren(); return; }
     rText.className = "r-text";
     rText.replaceChildren();
     let inSong = false, songEl = null;

@@ -192,6 +192,8 @@ def main():
     ap.add_argument("--web", action="store_true",
                     help="versione per il sito: copertina in testa, immagini più leggere")
     ap.add_argument("--copertina", default=str(DIR / "copertina" / "fronte.pdf"))
+    ap.add_argument("--senza-copertina", action="store_true",
+                    help="con --web: non aggiunge la copertina (PDF dei singoli capitoli per il sito)")
     a = ap.parse_args()
     if a.web:
         JPEG_Q[0] = 78; WEB[0] = True
@@ -233,7 +235,7 @@ def main():
         c.showPage()
         print(f"✓ {pg['id']}")
     c.save()
-    if a.web:
+    if a.web and not a.senza_copertina:
         from pypdf import PdfReader, PdfWriter
         w = PdfWriter()
         w.append(PdfReader(a.copertina))          # pagina di copertina originale (vettoriale)

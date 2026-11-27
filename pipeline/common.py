@@ -7,6 +7,7 @@ import unicodedata
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
+ED2 = ROOT / "edizione-2"          # 2ª edizione: riferimento per testo, stile, impaginazione
 REGISTRY = ROOT / "book" / "registry.json"
 MODEL = "claude-opus-5-5"
 
@@ -48,16 +49,16 @@ def parse_issue_body(body: str) -> dict:
     return {key: by_title.get(title, "") for key, title in FIELDS.items()}
 
 
-def book_context(max_chars: int = 60_000) -> str:
-    """Contesto canonico: config, Chucharon, capitoli esistenti (esempi di stile e struttura)."""
+def book_context(max_chars: int = 80_000) -> str:
+    """Contesto canonico: config, scheda di Chucharon e TESTO DELLA 2ª EDIZIONE (riferimento di stile)."""
     parts = [
         "## book.config.json\n" + (ROOT / "book.config.json").read_text(encoding="utf-8"),
-        "## Personaggio: Chucharon\n" + (ROOT / "characters" / "chucharon.md").read_text(encoding="utf-8"),
+        "## Personaggio: El Chucharon\n" + (ROOT / "characters" / "chucharon.md").read_text(encoding="utf-8"),
+        "## Testo della 2ª edizione (riferimento assoluto: voce, ritmo, lunghezza, convenzioni)\n"
+        "Capitoli: cap1 Prologo (Elena perde il ciuccio), cap2 Leo, cap3 Sofia, cap4 Marco, cap5 Epilogo; "
+        "eventuali capitoli successivi sono quelli della community.\n"
+        + (ED2 / "testo.md").read_text(encoding="utf-8"),
     ]
-    for ch in load_registry()["chapters"]:
-        src = ROOT / ch["source"]
-        if src.exists():
-            parts.append(f"## Capitolo esistente: {ch['title']} ({ch['kind']})\n" + src.read_text(encoding="utf-8"))
     return "\n\n".join(parts)[:max_chars]
 
 
