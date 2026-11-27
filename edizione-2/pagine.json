@@ -334,7 +334,8 @@
     -16.92,
     639.0,
     631.08
-   ]
+   ],
+   "nei_margini": "sfocato"
   },
   {
    "id": "cap4-p02",
@@ -345,7 +346,8 @@
     630,
     630
    ],
-   "nota": "2a ed.: copertina capitolo in bianco e nero da colorare (Gemini), a tutta pagina come la copertina"
+   "nota": "2a ed.: copertina capitolo in bianco e nero da colorare (Gemini), a tutta pagina come la copertina",
+   "nei_margini": "bianco"
   },
   {
    "id": "cap4-p03",

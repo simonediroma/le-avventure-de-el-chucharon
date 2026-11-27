@@ -28,7 +28,7 @@ Uso:
 import argparse, io, json, re
 from pathlib import Path
 
-from PIL import Image
+from PIL import Image, ImageFilter, ImageEnhance
 from reportlab.pdfgen import canvas
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
@@ -153,6 +153,25 @@ def disegna_immagine(c, path, box):
     x0, t, x1, b = box
     c.drawImage(immagine(path, x1 - x0, b - t), x0, PAGE - b, width=x1 - x0, height=b - t)
 
+SAFE = BLEED + 27     # 0,375" dentro il rifilo: area di sicurezza KDP (36 pt dal bordo)
+def disegna_nei_margini(c, path, box, fondo):
+    """Riduce la parte visibile della pagina dentro l'area di sicurezza KDP.
+    fondo = "sfocato": l'illustrazione stessa, sfocata, riempie i bordi;
+    fondo = "bianco": bordi bianchi (pagine da colorare)."""
+    x0, t, x1, b = box
+    im = Image.open(path).convert("RGB")
+    sx, sy = im.width / (x1 - x0), im.height / (b - t)
+    vis = im.crop((round(-x0 * sx), round(-t * sy), round((PAGE - x0) * sx), round((PAGE - t) * sy)))
+    tmp = Path(path).with_name(Path(path).stem + "-margini")
+    if fondo == "sfocato":
+        bg = vis.resize((vis.width // 40, vis.height // 40), Image.BOX).filter(ImageFilter.GaussianBlur(4))
+        bg = ImageEnhance.Brightness(bg).enhance(1.05).resize(vis.size, Image.LANCZOS)
+        bgp = tmp.with_suffix(".bg.png"); bg.save(bgp)
+        c.drawImage(immagine(str(bgp), PAGE, PAGE), 0, 0, width=PAGE, height=PAGE)
+    fgp = tmp.with_suffix(".fg.png"); vis.save(fgp)
+    w = PAGE - 2 * SAFE
+    c.drawImage(immagine(str(fgp), w, w), SAFE, SAFE, width=w, height=w)
+
 def guide(c):
     c.saveState(); c.setLineWidth(0.4)
     c.setStrokeColorRGB(1, 0, 0); c.rect(BLEED, BLEED, PAGE - 2 * BLEED, PAGE - 2 * BLEED)   # rifilo
@@ -200,7 +219,10 @@ def main():
         if kdp and n % 2 == 1:      # pagina destra: rilegatura a sinistra → taglia 9 pt a sinistra
             c.translate(-BLEED, 0)
         c.setFillColorRGB(1, 1, 1); c.rect(0, 0, PAGE, PAGE, stroke=0, fill=1)
-        disegna_immagine(c, DIR / pg["img"], pg["box"])
+        if "nei_margini" in pg and not a.web:
+            disegna_nei_margini(c, DIR / pg["img"], pg["box"], pg["nei_margini"])
+        else:
+            disegna_immagine(c, DIR / pg["img"], pg["box"])
         if "testo" in pg:
             if pg["testo"] not in testi:
                 raise SystemExit(f"❌ manca il testo per {pg['testo']} in testo.md")
