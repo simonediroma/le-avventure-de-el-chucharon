@@ -40,8 +40,10 @@ jobs:
         run: |
           set -o pipefail
           gh issue view "$N" --repo "$GITHUB_REPOSITORY" --json body -q .body > issue.md
-          python pipeline/validate_proposal.py --body-file issue.md --out validation.json --comment comment.md
-          cap=$(python pipeline/generate_chapter.py --validation validation.json --issue "$N" | tail -1)
+          # La rivalutazione serve solo per titolo e suggerimenti: la decisione l'ha già presa il maintainer
+          rc=0; python pipeline/validate_proposal.py --body-file issue.md --out validation.json --comment comment.md || rc=$?
+          if [ "$rc" -ne 0 ] && [ "$rc" -ne 2 ]; then exit "$rc"; fi
+          cap=$(python pipeline/generate_chapter.py --validation validation.json --issue "$N" --maintainer | tail -1)
           if [ -z "$cap" ]; then echo "::error::Capitolo non generato"; exit 1; fi
           slug=$(python -c "import json;print(json.load(open('proposals/$N.json'))['slug'])")
           echo "CAP=$cap" >> "$GITHUB_ENV"
