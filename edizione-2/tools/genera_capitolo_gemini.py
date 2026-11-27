@@ -53,7 +53,9 @@ He is NEVER a human or a little man: no body, no legs, no clothes.
 - SIESTA state: sombrero pulled down over the eyes, mustaches long and drooping, sleepy.
 - EL CHUCHARITO (transformed): sombrero pushed back onto his shoulders like a cape, mustaches pointing
   STRAIGHT UP, eyes wide open and sparkling, radiant, surrounded by warm swirls, sparkles and musical notes.
-Adults never look at him."""
+SUPERPOWERS to show visually: he FLIES (always floating in the air, never on the ground except asleep),
+he TRANSFORMS (see states above), and ADULTS CANNOT SEE HIM: parents never look at him, they look elsewhere,
+only children notice him."""
 
 
 def carica(path, lato=1024):
