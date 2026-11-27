@@ -6,7 +6,7 @@ on:
     inputs:
       branch: { description: "Branch del capitolo (es. capitolo/cap6-gabriel-omar)", required: true }
       cap: { description: "Id del capitolo (es. cap6)", required: true }
-      solo: { description: "Immagini da rifare: p01,p03,p06,p07,p10,cornice,colorare", required: true }
+      solo: { description: "Immagini da rifare: schede,p01,p03,p06,p07,p10,cornice,colorare", required: true }
       nota: { description: "Istruzione extra, es. p10=il papà tira fortissimo il pallone verso la TV", required: false }
 
 permissions:
