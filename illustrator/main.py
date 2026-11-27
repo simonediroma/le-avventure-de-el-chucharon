@@ -488,6 +488,17 @@ def list_image_models(client):
 
 def detect_model(client) -> str | None:
     available = {m.name.split("/")[-1] for m in client.models.list()}
+    # Modello imposto da generator.config.json → "image_model": niente ripieghi silenziosi
+    # su modelli più deboli (stile e coerenza dei personaggi peggiorano molto).
+    wanted = _CFG.get("image_model")
+    if wanted:
+        if wanted in available:
+            return wanted
+        imgs = sorted(a for a in available if "image" in a or "banana" in a)
+        print(f"❌ Modello immagini richiesto '{wanted}' non disponibile su questa chiave.")
+        print(f"   Modelli immagine disponibili: {', '.join(imgs) or 'nessuno'}")
+        print("   Verifica la fatturazione del progetto Google o cambia 'image_model' in generator.config.json.")
+        return None
     for candidate in IMAGE_MODELS:
         if candidate in available:
             return candidate
@@ -576,6 +587,8 @@ def generate_with_gemini(
         contents=parts,
         config=types.GenerateContentConfig(
             response_modalities=["IMAGE", "TEXT"],
+            # Formato reale dell'immagine (non solo un suggerimento nel prompt)
+            image_config=types.ImageConfig(aspect_ratio=aspect) if aspect else None,
         ),
     )
 

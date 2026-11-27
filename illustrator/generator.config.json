@@ -1,50 +1,104 @@
 {
   "_comment": "Configurazione del generatore di illustrazioni — Le Avventure de El Chucharon",
-
+  "image_model": "gemini-3-pro-image-preview",
+  "eval_model": "gemini-2.5-flash",
   "defaults": {
-    "aspect":     "4:3",
-    "delay":      4.0,
-    "max_prev":   3,
-    "max_cross":  2,
-    "threshold":  7,
+    "aspect": "4:3",
+    "delay": 4.0,
+    "max_prev": 3,
+    "max_cross": 2,
+    "threshold": 7,
     "fix_rounds": 2
   },
-
   "shared_folders": [
     "characters/chucharon"
   ],
-
   "chapter_cross_context": {
-    "00-prologo":  ["04-epilogo"],
-    "01-leo":      [],
-    "02-sofia":    [],
-    "03-marco":    [],
-    "04-epilogo":  ["00-prologo"]
+    "00-prologo": [
+      "04-epilogo"
+    ],
+    "01-leo": [],
+    "02-sofia": [],
+    "03-marco": [],
+    "04-epilogo": [
+      "00-prologo"
+    ]
   },
-
   "chapter_bootstrap": {
-    "00-prologo":  ["selezione/bootstrap/elena/"],
-    "01-leo":      ["selezione/bootstrap/leo/"],
-    "02-sofia":    ["selezione/bootstrap/sofia/"],
-    "03-marco":    ["selezione/bootstrap/marco/"],
-    "04-epilogo":  ["selezione/bootstrap/elena/"]
+    "00-prologo": [
+      "selezione/bootstrap/elena/"
+    ],
+    "01-leo": [
+      "selezione/bootstrap/leo/"
+    ],
+    "02-sofia": [
+      "selezione/bootstrap/sofia/"
+    ],
+    "03-marco": [
+      "selezione/bootstrap/marco/"
+    ],
+    "04-epilogo": [
+      "selezione/bootstrap/elena/"
+    ]
   },
-
   "setting_ref_names": {
-    "parco":     "park",
-    "camera":    "bedroom",
+    "parco": "park",
+    "camera": "bedroom",
     "soggiorno": "living-room",
-    "cucina":    "kitchen",
-    "messico":   "mexico",
-    "piramide":  "pyramid"
+    "cucina": "kitchen",
+    "messico": "mexico",
+    "piramide": "pyramid"
   },
-
   "setting_keywords": {
-    "parco":     ["playground", "parco", "slide", "swings", "seesaw", "salta-sasta", "altalena", "scivolo", "vialetto"],
-    "camera":    ["bed ", "bedroom", "letto", "linens", "tummy time", "parents' bed"],
-    "soggiorno": ["living room", "soggiorno", "walnut", "sofa", "espadrilla", "noce"],
-    "cucina":    ["kitchen", "cucina", "high chair", "seggiolone", "pappa", "bowl of"],
-    "messico":   ["mexican landscape", "dirt road", "desert", "paesaggio messicano", "mountains", "confine"],
-    "piramide":  ["pyramid", "chichen", "itza", "maya", "piramide"]
+    "parco": [
+      "playground",
+      "parco",
+      "slide",
+      "swings",
+      "seesaw",
+      "salta-sasta",
+      "altalena",
+      "scivolo",
+      "vialetto"
+    ],
+    "camera": [
+      "bed ",
+      "bedroom",
+      "letto",
+      "linens",
+      "tummy time",
+      "parents' bed"
+    ],
+    "soggiorno": [
+      "living room",
+      "soggiorno",
+      "walnut",
+      "sofa",
+      "espadrilla",
+      "noce"
+    ],
+    "cucina": [
+      "kitchen",
+      "cucina",
+      "high chair",
+      "seggiolone",
+      "pappa",
+      "bowl of"
+    ],
+    "messico": [
+      "mexican landscape",
+      "dirt road",
+      "desert",
+      "paesaggio messicano",
+      "mountains",
+      "confine"
+    ],
+    "piramide": [
+      "pyramid",
+      "chichen",
+      "itza",
+      "maya",
+      "piramide"
+    ]
   }
 }

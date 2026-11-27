@@ -14,6 +14,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 from pathlib import Path
 
 from pydantic import BaseModel, Field
@@ -45,7 +46,7 @@ class Chapter(BaseModel):
     setting_key: str = Field(description="Una parola italiana: camera, cucina, soggiorno, bagno, parco, macchina, ...")
     setting_anchor_en: str = Field(description="Descrizione canonica dettagliata dell'ambiente, in inglese, invariabile in tutte le scene")
     people: list[Person]
-    chapter_markdown: str = Field(description="Testo completo del capitolo in italiano, struttura e voce identiche ai capitoli esistenti (separatori ---, canzone 🎵 sulle note de La Cucaracha, Chucharon che sparisce cercando la sua Elenita)")
+    chapter_markdown: str = Field(description="Solo il corpo del capitolo (senza frontmatter né titolo), in italiano, struttura e voce identiche ai capitoli esistenti (separatori ---, canzone 🎵 sulle note de La Cucaracha, Chucharon che sparisce cercando la sua Elenita)")
     song: str = Field(description="Strofa di 4 versi: 'El Chucharito, El Chucharito / ...'")
     scenes: list[Scene] = Field(description="Esattamente 5 scene: 00 copertina (solo bambino), 01 ritratto + problema, 02 genitori comici + gancio Messico, 03 arrivo e trasformazione + canzone (PAGINA CANZONE), 04 risoluzione + Chucharon sparisce")
 
@@ -119,12 +120,18 @@ def main() -> None:
     if len(ch.scenes) != 5:
         raise SystemExit(f"❌ Attese 5 scene, ricevute {len(ch.scenes)}")
 
+    # Claude a volte include frontmatter e titolo nel markdown: li togliamo (li aggiungiamo noi)
+    body = ch.chapter_markdown.strip()
+    body = re.sub(r"\A---\n.*?\n---\n", "", body, flags=re.S).strip()
+    body = re.sub(r"\A#\s+[^\n]*\n", "", body).strip()
+    body = re.sub(r"\A(---\s*\n)+", "", body).strip()
+
     child_slug = slugify(ch.child_name)
     slug = f"{n:02d}-{child_slug}"
     chapter_path = ROOT / "chapters" / f"{n:02d}-{slugify(ch.title)}.md"
     chapter_path.write_text(f"---\ntitle: {ch.title}\nversion: 1.0\nstyle: narrativo-bambini\n"
                             f"status: community\nissue: {args.issue}\n---\n\n# {ch.title}\n\n---\n\n"
-                            f"{ch.chapter_markdown.strip()}\n", encoding="utf-8")
+                            f"{body}\n", encoding="utf-8")
 
     anchors = anchor_block(ch, cap_label)
     ids = [f"{prefix}-{i:02d}" for i in range(5)]
