@@ -1,0 +1,39 @@
+name: Rigenera illustrazioni
+
+# Rigenera solo alcune scene di un capitolo in revisione (es. dopo aver corretto il prompt
+# in scenes/<ID>.md sul branch della PR) e fa commit delle nuove immagini sullo stesso branch.
+on:
+  workflow_dispatch:
+    inputs:
+      branch: { description: "Branch del capitolo (es. capitolo/04-gabriel-omar)", required: true }
+      scenes: { description: "ID scene separati da virgola (es. C4-03,C4-04)", required: true }
+
+permissions:
+  contents: write
+
+jobs:
+  regen:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+        with: { ref: "${{ inputs.branch }}" }
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: pip install -r pipeline/requirements.txt
+      - name: Illustrazioni con Gemini
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          SCENES: ${{ inputs.scenes }}
+        working-directory: illustrator
+        run: python main.py --only "$SCENES" --force
+      - name: Commit sul branch del capitolo
+        env:
+          SCENES: ${{ inputs.scenes }}
+          BRANCH: ${{ inputs.branch }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add illustrator/output/
+          git commit -m "Rigenerate illustrazioni: $SCENES"
+          git push origin "HEAD:$BRANCH"
