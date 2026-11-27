@@ -52,6 +52,13 @@ section{padding:3rem 0}
 .checks{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:.6rem;margin:1rem 0}
 .checks label{border:1px solid var(--line);border-radius:12px;padding:.6rem .8rem;display:flex;gap:.6rem;align-items:center;background:var(--cream)}
 .checks label.locked{opacity:.7}
+.checks label.sortable{user-select:none}
+.checks .handle{cursor:grab;touch-action:none;font-size:1.2rem;line-height:1;padding:.2rem;color:var(--muted,#888)}
+.checks .t{flex:1}
+.checks .mv{display:flex;flex-direction:column}
+.checks .mv button{border:0;background:none;cursor:pointer;font-size:.65rem;line-height:1;padding:.1rem .3rem;color:inherit;opacity:.6}
+.checks .mv button:hover,.checks .mv button:focus-visible{opacity:1}
+.checks label.dragging{opacity:.5;outline:2px dashed var(--line);cursor:grabbing}
 .inline{display:flex;gap:.5rem;align-items:flex-start;margin:.6rem 0}
 .rules{background:#fff;border-left:6px solid var(--yellow);border-radius:10px;padding:1rem 1rem 1rem 2.4rem}
 .form{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1.4rem}
