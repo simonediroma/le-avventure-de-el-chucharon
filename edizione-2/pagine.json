@@ -1,0 +1,561 @@
+{
+ "pagina_pt": 630,
+ "pagine": [
+  {
+   "id": "cap1-p01",
+   "img": "assets/cap1/img-001-000.png",
+   "box": [
+    63.0,
+    118.92,
+    567.0,
+    495.42
+   ]
+  },
+  {
+   "id": "cap1-p02",
+   "img": "assets-stampa/cap1/p02.png",
+   "box": [
+    -9.0,
+    -16.92,
+    639.0,
+    631.08
+   ]
+  },
+  {
+   "id": "cap1-p03",
+   "img": "assets/cap1/img-003-002.png",
+   "box": [
+    -115.87,
+    -16.92,
+    745.87,
+    631.08
+   ],
+   "testo": "cap1-p03"
+  },
+  {
+   "id": "cap1-p04",
+   "img": "assets/cap1/img-004-003.png",
+   "box": [
+    -115.87,
+    -16.92,
+    745.87,
+    631.08
+   ],
+   "testo": "cap1-p04"
+  },
+  {
+   "id": "cap1-p05",
+   "img": "assets-stampa/cap1/p05.png",
+   "box": [
+    -99.14,
+    -16.92,
+    728.86,
+    631.08
+   ]
+  },
+  {
+   "id": "cap1-p06",
+   "img": "assets-stampa/cap1/p06.png",
+   "box": [
+    -99.14,
+    -16.92,
+    728.86,
+    631.08
+   ]
+  },
+  {
+   "id": "cap1-p07",
+   "img": "assets/cap1/img-007-006.png",
+   "box": [
+    -115.87,
+    -16.92,
+    745.87,
+    631.08
+   ],
+   "testo": "cap1-p07"
+  },
+  {
+   "id": "cap1-p08",
+   "img": "assets-stampa/cap1/p08.png",
+   "box": [
+    -99.14,
+    -16.92,
+    728.86,
+    631.08
+   ]
+  },
+  {
+   "id": "cap1-p09",
+   "img": "assets/cap1/img-009-008.png",
+   "box": [
+    -115.87,
+    -16.92,
+    745.87,
+    631.08
+   ],
+   "testo": "cap1-p09"
+  },
+  {
+   "id": "cap1-p10",
+   "img": "assets/cap1/img-010-009.png",
+   "box": [
+    -115.87,
+    -16.92,
+    745.87,
+    631.08
+   ],
+   "testo": "cap1-p10"
+  },
+  {
+   "id": "cap1-p11",
+   "img": "assets-stampa/cap1/p11.png",
+   "box": [
+    -99.14,
+    -16.92,
+    728.86,
+    631.08
+   ]
+  },
+  {
+   "id": "cap2-p01",
+   "img": "assets-stampa/cap2/p01.png",
+   "box": [
+    -99.14,
+    -16.92,
+    728.86,
+    631.08
+   ]
+  },
+  {
+   "id": "cap2-p02",
+   "img": "per-canva/da-colorare-leo.png",
+   "box": [
+    0,
+    0,
+    630,
+    630
+   ],
+   "nota": "2a ed.: copertina capitolo in bianco e nero da colorare (Gemini), a tutta pagina come la copertina"
+  },
+  {
+   "id": "cap2-p03",
+   "img": "assets-stampa/cap2/p03.png",
+   "box": [
+    -99.14,
+    -16.92,
+    728.86,
+    631.08
+   ]
+  },
+  {
+   "id": "cap2-p04",
+   "img": "assets/cap2/img-004-003.png",
+   "box": [
+    -115.87,
+    -16.92,
+    745.87,
+    631.08
+   ],
+   "testo": "cap2-p04"
+  },
+  {
+   "id": "cap2-p05",
+   "img": "assets/cap2/img-005-004.png",
+   "box": [
+    -115.87,
+    -16.92,
+    745.87,
+    631.08
+   ],
+   "testo": "cap2-p05"
+  },
+  {
+   "id": "cap2-p06",
+   "img": "assets-stampa/cap2/p06.png",
+   "box": [
+    -99.14,
+    -16.92,
+    728.86,
+    631.08
+   ]
+  },
+  {
+   "id": "cap2-p07",
+   "img": "assets-stampa/cap2/p07.png",
+   "box": [
+    -99.14,
+    -16.92,
+    728.86,
+    631.08
+   ]
+  },
+  {
+   "id": "cap2-p08",
+   "img": "assets/cap2/img-008-007.png",
+   "box": [
+    -115.87,
+    -16.92,
+    745.87,
+    631.08
+   ],
+   "testo": "cap2-p08"
+  },
+  {
+   "id": "cap2-p09",
+   "img": "assets/cap2/img-009-008.png",
+   "box": [
+    -115.87,
+    -16.92,
+    745.87,
+    631.08
+   ],
+   "testo": "cap2-p09"
+  },
+  {
+   "id": "cap2-p10",
+   "img": "assets-stampa/cap2/p10.png",
+   "box": [
+    -99.14,
+    -16.92,
+    728.86,
+    631.08
+   ]
+  },
+  {
+   "id": "cap3-p01",
+   "img": "assets-stampa/cap3/p01.png",
+   "box": [
+    -9.0,
+    -16.92,
+    639.0,
+    631.08
+   ]
+  },
+  {
+   "id": "cap3-p02",
+   "img": "per-canva/da-colorare-sofia.png",
+   "box": [
+    0,
+    0,
+    630,
+    630
+   ],
+   "nota": "2a ed.: copertina capitolo in bianco e nero da colorare (Gemini), a tutta pagina come la copertina"
+  },
+  {
+   "id": "cap3-p03",
+   "img": "assets/cap3/img-003-002.png",
+   "box": [
+    -115.87,
+    -16.92,
+    745.87,
+    631.08
+   ],
+   "testo": "cap3-p03"
+  },
+  {
+   "id": "cap3-p04",
+   "img": "assets-stampa/cap3/p04.png",
+   "box": [
+    -9.0,
+    -16.92,
+    639.0,
+    631.08
+   ]
+  },
+  {
+   "id": "cap3-p05",
+   "img": "assets-stampa/cap3/p05.png",
+   "box": [
+    -9.0,
+    -16.92,
+    639.0,
+    631.08
+   ]
+  },
+  {
+   "id": "cap3-p06",
+   "img": "assets/cap3/img-006-005.png",
+   "box": [
+    -115.87,
+    -16.92,
+    745.87,
+    631.08
+   ],
+   "testo": "cap3-p06"
+  },
+  {
+   "id": "cap3-p07",
+   "img": "assets/cap3/img-007-006.png",
+   "box": [
+    -115.87,
+    -16.92,
+    745.87,
+    631.08
+   ],
+   "testo": "cap3-p07"
+  },
+  {
+   "id": "cap3-p08",
+   "img": "assets-stampa/cap3/p08.png",
+   "box": [
+    -9.0,
+    -16.92,
+    639.0,
+    631.08
+   ]
+  },
+  {
+   "id": "cap3-p09",
+   "img": "assets-stampa/cap3/p09.png",
+   "box": [
+    -9.0,
+    -16.92,
+    639.0,
+    631.08
+   ]
+  },
+  {
+   "id": "cap3-p10",
+   "img": "assets/cap3/img-010-009.png",
+   "box": [
+    -115.87,
+    -16.92,
+    745.87,
+    631.08
+   ],
+   "testo": "cap3-p10"
+  },
+  {
+   "id": "cap4-p01",
+   "img": "assets/allargate/cap4-p01.png",
+   "box": [
+    0,
+    0,
+    630,
+    630
+   ],
+   "nota": "2a ed.: allargata con Gemini (outpainting) perché il titolo MARCO rientri nei margini KDP"
+  },
+  {
+   "id": "cap4-p02",
+   "img": "per-canva/da-colorare-marco.png",
+   "box": [
+    0,
+    0,
+    630,
+    630
+   ],
+   "nota": "2a ed.: copertina capitolo in bianco e nero da colorare (Gemini), a tutta pagina come la copertina"
+  },
+  {
+   "id": "cap4-p03",
+   "img": "assets-stampa/cap4/p03.png",
+   "box": [
+    -9.0,
+    -16.92,
+    639.0,
+    631.08
+   ]
+  },
+  {
+   "id": "cap4-p04",
+   "img": "assets/cap4/img-004-003.png",
+   "box": [
+    -115.87,
+    -16.92,
+    745.87,
+    631.08
+   ],
+   "testo": "cap4-p04"
+  },
+  {
+   "id": "cap4-p05",
+   "img": "assets/cap4/img-005-004.png",
+   "box": [
+    -115.87,
+    -16.92,
+    745.87,
+    631.08
+   ],
+   "testo": "cap4-p05"
+  },
+  {
+   "id": "cap4-p06",
+   "img": "assets-stampa/cap4/p06.png",
+   "box": [
+    -9.0,
+    -16.92,
+    639.0,
+    631.08
+   ]
+  },
+  {
+   "id": "cap4-p07",
+   "img": "assets-stampa/cap4/p07.png",
+   "box": [
+    -9.0,
+    -16.92,
+    639.0,
+    631.08
+   ]
+  },
+  {
+   "id": "cap4-p08",
+   "img": "assets/cap4/img-008-007.png",
+   "box": [
+    -115.87,
+    -16.92,
+    745.87,
+    631.08
+   ],
+   "testo": "cap4-p08"
+  },
+  {
+   "id": "cap4-p09",
+   "img": "assets/cap4/img-009-008.png",
+   "box": [
+    -115.87,
+    -16.92,
+    745.87,
+    631.08
+   ],
+   "testo": "cap4-p09"
+  },
+  {
+   "id": "cap4-p10",
+   "img": "assets-stampa/cap4/p10.png",
+   "box": [
+    -9.0,
+    -16.92,
+    639.0,
+    631.08
+   ]
+  },
+  {
+   "id": "cap5-p01",
+   "img": "assets-stampa/cap5/p01.png",
+   "box": [
+    -9.0,
+    -16.92,
+    639.0,
+    631.08
+   ]
+  },
+  {
+   "id": "cap5-p02",
+   "img": "per-canva/da-colorare-elena.png",
+   "box": [
+    0,
+    0,
+    630,
+    630
+   ],
+   "nota": "2a ed.: copertina capitolo in bianco e nero da colorare (Gemini), a tutta pagina come la copertina"
+  },
+  {
+   "id": "cap5-p03",
+   "img": "assets-stampa/cap5/p03.png",
+   "box": [
+    -9.0,
+    -16.92,
+    639.0,
+    631.08
+   ]
+  },
+  {
+   "id": "cap5-p04",
+   "img": "assets/cap5/img-004-003.png",
+   "box": [
+    -115.87,
+    -16.92,
+    745.87,
+    631.08
+   ],
+   "testo": "cap5-p04"
+  },
+  {
+   "id": "cap5-p05",
+   "img": "assets/cap5/img-005-004.png",
+   "box": [
+    -115.87,
+    -16.92,
+    745.87,
+    631.08
+   ],
+   "testo": "cap5-p05"
+  },
+  {
+   "id": "cap5-p06",
+   "img": "assets-stampa/cap5/p06.png",
+   "box": [
+    -9.0,
+    -16.92,
+    639.0,
+    631.08
+   ]
+  },
+  {
+   "id": "cap5-p07",
+   "img": "assets-stampa/cap5/p07.png",
+   "box": [
+    -9.0,
+    -16.92,
+    639.0,
+    631.08
+   ]
+  },
+  {
+   "id": "cap5-p08",
+   "img": "assets/cap5/img-008-007.png",
+   "box": [
+    -115.87,
+    -16.92,
+    745.87,
+    631.08
+   ],
+   "testo": "cap5-p08"
+  },
+  {
+   "id": "cap5-p09",
+   "img": "assets/cap5/img-009-008.png",
+   "box": [
+    -115.87,
+    -16.92,
+    745.87,
+    631.08
+   ],
+   "testo": "cap5-p09"
+  },
+  {
+   "id": "cap5-p10",
+   "img": "assets-stampa/cap5/p10.png",
+   "box": [
+    -9.0,
+    -16.92,
+    639.0,
+    631.08
+   ]
+  },
+  {
+   "id": "cap5-p11",
+   "img": "assets-stampa/cap5/p11.png",
+   "box": [
+    63.0,
+    118.92,
+    567.0,
+    495.42
+   ]
+  },
+  {
+   "id": "cap5-p12",
+   "img": "assets/cap5/img-012-011.png",
+   "box": [
+    -115.87,
+    -16.92,
+    745.87,
+    631.08
+   ]
+  }
+ ]
+}

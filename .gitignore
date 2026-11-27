@@ -4,3 +4,5 @@ site/media/
 site/pdf/
 site/data/chapters.json
 __pycache__/
+edizione-2/assets-stampa/
+edizione-2/**/*-margini.*.png
