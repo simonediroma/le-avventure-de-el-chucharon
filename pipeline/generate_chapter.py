@@ -98,11 +98,13 @@ def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--validation", required=True, help="JSON prodotto da validate_proposal.py")
     ap.add_argument("--issue", required=True, help="Numero issue (tracciabilità)")
+    ap.add_argument("--maintainer", action="store_true",
+                    help="produzione decisa da un maintainer (etichetta 'produci'): non ricontrolla l'esito")
     args = ap.parse_args()
 
     data = json.loads(Path(args.validation).read_text(encoding="utf-8"))
     proposal, verdict = data["proposal"], data["verdict"]
-    if verdict["esito"] != "approvata":
+    if verdict["esito"] == "respinta" or (verdict["esito"] != "approvata" and not args.maintainer):
         raise SystemExit("❌ La proposta non è approvata.")
 
     pagine_path = ED2 / "pagine.json"
