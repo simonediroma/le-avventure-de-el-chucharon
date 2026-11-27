@@ -328,13 +328,14 @@
   },
   {
    "id": "cap4-p01",
-   "img": "assets-stampa/cap4/p01.png",
+   "img": "assets/allargate/cap4-p01.png",
    "box": [
-    -9.0,
-    -16.92,
-    639.0,
-    631.08
-   ]
+    0,
+    0,
+    630,
+    630
+   ],
+   "nota": "2a ed.: allargata con Gemini (outpainting) perché il titolo MARCO rientri nei margini KDP"
   },
   {
    "id": "cap4-p02",
